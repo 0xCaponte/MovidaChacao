@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -14,6 +15,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends Activity {
@@ -46,8 +48,9 @@ public class MapActivity extends Activity {
     }
 
     /** Local variables **/
-    GoogleMap googleMap;
 
+    /** Local variables **/
+    protected GoogleMap googleMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +101,7 @@ public class MapActivity extends Activity {
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(10.503383, -66.857439))
                                 .title("Permanente - Alianza Francesa")
+
                                 .snippet(" Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
@@ -116,6 +120,7 @@ public class MapActivity extends Activity {
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage")
+
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 );
 
