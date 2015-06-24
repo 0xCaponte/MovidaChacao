@@ -1,11 +1,12 @@
 package com.reto.chacao;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,10 +16,9 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapActivity extends Activity {
+public class MapActivity extends ActionBarActivity {
 
     class MyInfoWindowAdapter implements InfoWindowAdapter{
 
@@ -48,13 +48,23 @@ public class MapActivity extends Activity {
     }
 
     /** Local variables **/
-
-    /** Local variables **/
     protected GoogleMap googleMap;
+    private Context main_context = this.getApplicationContext();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        main_context = this.getApplicationContext();
+        ImageButton b = (ImageButton)findViewById(R.id.imageButtonSearch);
+
+//        MenuOnClickListeners l = new MenuOnClickListeners();
+//        l.MyClickListener(main_context);
+//
+//        b.setOnClickListener(l);
+
         createMapView();
         addMarker();
     }
@@ -73,7 +83,7 @@ public class MapActivity extends Activity {
                         R.id.mapView)).getMap();
 
                 //Chacao as the center of the map and enough zoom to see it all.
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.499175, -66.854197), 14.0f) );
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.499175, -66.854197), 14.0f));
                 googleMap.setInfoWindowAdapter(new MyInfoWindowAdapter());
 
                 /**
@@ -110,8 +120,8 @@ public class MapActivity extends Activity {
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage "
-                                                + " Omelette du fromage  Omelette du fromage Omelette du fromage " +
+                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage " +
                                                 "Omelette du fromage  Omelette du fromage Omelette du fromage" +

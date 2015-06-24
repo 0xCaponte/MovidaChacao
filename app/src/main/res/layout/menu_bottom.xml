@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomBar"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <!-- Some Buttons -->
+    <ImageButton
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_search"
+        android:contentDescription="Buscar"
+        android:onClick="searchClicked"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonCulture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_settings"
+        android:contentDescription="Buscar"
+        android:onClick="cultureClicked"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonSports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_place"
+        android:contentDescription="Buscar"
+        android:onClick="sportsClicked"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonAR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_search"
+        android:contentDescription="Buscar"
+        android:onClick="arClicked"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonSettigns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_settings"
+        android:contentDescription="Buscar"
+        android:onClick="settingsClicked"/>
+</LinearLayout>
