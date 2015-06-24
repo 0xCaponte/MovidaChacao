@@ -49,7 +49,7 @@ public class MapActivity extends ActionBarActivity {
 
     /** Local variables **/
     protected GoogleMap googleMap;
-    private Context main_context = this.getApplicationContext();
+    private Context main_context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +57,13 @@ public class MapActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        main_context = this.getApplicationContext();
+        main_context = getApplicationContext();
         ImageButton b = (ImageButton)findViewById(R.id.imageButtonSearch);
 
-//        MenuOnClickListeners l = new MenuOnClickListeners();
-//        l.MyClickListener(main_context);
-//
-//        b.setOnClickListener(l);
+        MenuOnClickListeners l = new MenuOnClickListeners();
+        l.MyClickListener(main_context);
+
+        b.setOnClickListener(l);
 
         createMapView();
         addMarker();
