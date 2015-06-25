@@ -57,13 +57,42 @@ public class MapActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        main_context = getApplicationContext();
-        ImageButton b = (ImageButton)findViewById(R.id.imageButtonSearch);
 
-        MenuOnClickListeners l = new MenuOnClickListeners();
-        l.MyClickListener(main_context);
+        main_context = getApplicationContext(); //Getting current cuntext.
 
-        b.setOnClickListener(l);
+        //Getting the image butttons
+        ImageButton search = (ImageButton)findViewById(R.id.imageButtonSearch);
+        ImageButton settings = (ImageButton)findViewById(R.id.imageButtonSettigns);
+        ImageButton sports = (ImageButton)findViewById(R.id.imageButtonSports);
+        ImageButton culture = (ImageButton)findViewById(R.id.imageButtonCulture);
+        ImageButton ar = (ImageButton)findViewById(R.id.imageButtonAR);
+
+
+        //Creating click listeners
+        SearchOnClickListener l1 = new SearchOnClickListener();
+        l1.MyClickListener(main_context);
+
+        SettingsOnClickListener l2 = new SettingsOnClickListener();
+        l2.MyClickListener(main_context);
+
+        SportsOnClickListener l3 = new SportsOnClickListener();
+        l3.MyClickListener(main_context);
+
+        CultureOnClickListener l4 = new CultureOnClickListener();
+        l4.MyClickListener(main_context);
+
+        AROnClickListener l5 = new AROnClickListener();
+        l5.MyClickListener(main_context);
+
+        //Setting up click listeners
+        search.setOnClickListener(l1);
+        settings.setOnClickListener(l2);
+        sports.setOnClickListener(l3);
+        culture.setOnClickListener(l4);
+        ar.setOnClickListener(l5);
+
+
+
 
         createMapView();
         addMarker();

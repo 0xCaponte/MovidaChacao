@@ -7,7 +7,7 @@ import android.widget.Toast;
 /**
  * Created by caponte on 6/24/15.
  */
-public class MenuOnClickListeners  implements View.OnClickListener {
+public class SearchOnClickListener implements View.OnClickListener {
 
     private Context context;
 
@@ -17,7 +17,7 @@ public class MenuOnClickListeners  implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Toast t = Toast.makeText(context, "OK", Toast.LENGTH_LONG);
+        Toast t = Toast.makeText(context, "Search", Toast.LENGTH_LONG);
         t.show();
     }
 };
