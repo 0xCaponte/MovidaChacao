@@ -16,6 +16,18 @@ import com.reto.chacao.model.New;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*Para llamar al helper y usar las funciones se debe hacer de la siguiente manera
+*
+* DataBaseHelper dt =
+            new DataBaseHelper(getBaseContext());
+ LUEGO
+ SQLiteDatabase db = dt.getWritableDatabase();
+
+ ya en db podemos llamar a la funciones para hacer las consultas
+
+ ejemplo en http://notasprogramacion.sodenet.es/crud-android-sqlite-bbdd/
+* */
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static int VERSION = 1;
