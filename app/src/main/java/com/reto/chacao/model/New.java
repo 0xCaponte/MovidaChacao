@@ -1,6 +1,5 @@
 package com.reto.chacao.model;
 
-import com.reto.chacao.database.DataBaseHelper;
 /**
  * Created by gustavo on 25/06/15.
  */

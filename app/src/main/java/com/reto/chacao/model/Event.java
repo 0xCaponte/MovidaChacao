@@ -1,7 +1,5 @@
 package com.reto.chacao.model;
 
-import com.reto.chacao.database.DataBaseHelper;
-
 /**
  * Created by gustavo on 25/06/15.
  */
@@ -9,11 +7,13 @@ public class Event {
     int id;
     String name;
     String description;
-    float latitude;
-    float longitude;
+    int permanet;
+    String url;
     String facebook;
     String twitter;
     String instagram;
+    float latitude;
+    float longitude;
 
 
     public Event() {
@@ -43,22 +43,6 @@ public class Event {
         this.description = description;
     }
 
-    public float getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }
-
-    public float getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
-    }
-
     public String getFacebook() {
         return facebook;
     }
@@ -83,4 +67,35 @@ public class Event {
         this.instagram = instagram;
     }
 
+    public int getPermanet() {
+        return permanet;
+    }
+
+    public void setPermanet(int permanet) {
+        this.permanet = permanet;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
 }

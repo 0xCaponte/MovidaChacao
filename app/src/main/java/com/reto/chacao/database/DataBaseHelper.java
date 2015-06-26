@@ -31,33 +31,42 @@ import java.util.List;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static int VERSION = 1;
-    private static String NAME = "HipotecaDb";
+    private static String NAME = "RetoChacaoDb";
     private static CursorFactory FACTORY = null;
 
     private static final String LOG = DataBaseHelper.class.getName();
 
     private static final String CREATE_EVENT = "CREATE TABLE event (" +
-            "id INTEGER PRIMARY KEY," +
-            "name TEXT," +
-            "description TEXT," +
-            "latitude FLOAT," +
-            "longitude FLOAT," +
-            "facebook TEXT," +
-            "twitter TEXT," +
-            "instagram TEXT)";
+            "ev_id INTEGER PRIMARY KEY," +
+            "ev_name TEXT," +
+            "ev_description TEXT," +
+            "ev_url TEXT," +
+            "ev_permanet INTEGER,"+
+            "ev_facebook TEXT," +
+            "ev_twitter TEXT," +
+            "ev_instagram TEXT)";
     private static final String CREATE_PHOTO = "CREATE TABLE photo (" +
-            "id INTEGER PRIMARY KEY," +
-            "id_type INTEGER," +
-            "type TEXT," +
-            "name TEXT," +
-            "url TEXT)";
+            "pho_id INTEGER PRIMARY KEY," +
+            "pho_id_type INTEGER," +
+            "pho_type TEXT," +
+            "pho_name TEXT," +
+            "pho_url TEXT)";
     private static final String CREATE_NEW = "CREATE TABLE new (" +
-            "id INTEGER PRIMARY KEY," +
-            "name TEXT," +
-            "description TEXT)";
+            "new_id INTEGER PRIMARY KEY," +
+            "new_name TEXT," +
+            "new_description TEXT)";
     private static final String CREATE_REPORT = "CREATE TABLE report (" +
             "id INTEGER PRIMARY KEY," +
             "text TEXT)";
+    private static final String CREATE_PLACE = "CREATE TABLE place (" +
+            "pl_id INTEGER," +
+            "pl_id_event INTEGER," +
+            "pl_name TEXT," +
+            "pl_description TEXT," +
+            "pl_url TEXT," +
+            "pl_latitude FLOAT," +
+            "pl_longitude FLOAT," +
+            "PRIMARY KEY (pl_id, pl_id_event))";
 
     public DataBaseHelper(Context context) {
         super(context, NAME, FACTORY, VERSION);
@@ -70,28 +79,33 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_NEW);
         db.execSQL(CREATE_PHOTO);
         db.execSQL(CREATE_REPORT);
+        db.execSQL(CREATE_PLACE);
 
-        db.execSQL("INSERT INTO event (id,name,description) VALUES (1,'event1','descripcion 1')");
-        db.execSQL("INSERT INTO event (id,name,description) VALUES (2,'event2','descripcion 2')");
-        db.execSQL("INSERT INTO event (id,name,description) VALUES (3,'event3','descripcion 3')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet) VALUES (1,'event1','descripcion 1',1)");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet) VALUES (2,'event2','descripcion 2',0)");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet) VALUES (3,'event3','descripcion 3',1)");
 
-        db.execSQL("INSERT INTO new (id,name,description) VALUES (1,'new1','descripcion 1')");
-        db.execSQL("INSERT INTO new (id,name,description) VALUES (2,'new2','descripcion 2')");
-        db.execSQL("INSERT INTO new (id,name,description) VALUES (3,'new3','descripcion 3')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'place1', 10.496321, -66.848892)");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,2,'place1', 10.496321, -66.848892)");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (2,2,'place2', 10.503574, -66.857480)");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (3,3,'place3', 10.496699, -66.841161)");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (4,3,'place4', 10.497548, -66.856450)");
+
+
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (1,'new1','descripcion 1')");
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (2,'new2','descripcion 2')");
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (3,'new3','descripcion 3')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //NOTA: Por simplicidad del ejemplo aquí utilizamos directamente la opción de
-        //      eliminar la tabla anterior y crearla de nuevo vacía con el nuevo formato.
-        //      Sin embargo lo normal será que haya que migrar datos de la tabla antigua
-        //      a la nueva, por lo que este método debería ser más elaborado.
 
         //Se elimina la versión anterior de la tabla
         db.execSQL("DROP TABLE IF EXISTS event");
         db.execSQL("DROP TABLE IF EXISTS new");
         db.execSQL("DROP TABLE IF EXISTS photo");
         db.execSQL("DROP TABLE IF EXISTS report");
+        db.execSQL("DROP TABLE IF EXISTS place");
 
         //Se crea la nueva versión de la tabla
         onCreate(db);
@@ -104,10 +118,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.close();
     }
 
-    public Event get_event(int id) {
+
+//    querys by event
+    public Event getEvent(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT  * FROM event WHERE id =" + id;
+        String selectQuery = "SELECT  * FROM event AS e, place AS p  WHERE e.ev_id =" + id+" AND p.pl_id_event = "+id;
 
         Log.e(LOG, selectQuery);
 
@@ -117,23 +133,25 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             c.moveToFirst();
 
         Event ev = new Event();
-        ev.setId(c.getInt(c.getColumnIndex("id")));
-        ev.setName((c.getString(c.getColumnIndex("name"))));
-        ev.setDescription((c.getString(c.getColumnIndex("description"))));
-        ev.setLatitude((c.getFloat(c.getColumnIndex("latitude"))));
-        ev.setLongitude((c.getFloat(c.getColumnIndex("longitude"))));
-        ev.setFacebook((c.getString(c.getColumnIndex("facebook"))));
-        ev.setTwitter((c.getString(c.getColumnIndex("twitter"))));
-        ev.setInstagram((c.getString(c.getColumnIndex("instagram"))));
+        ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+        ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+        ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+        ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+        ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+        ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+        ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+        ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+        ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+        ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
 
         return ev;
     }
 
-    public List<Event> getAll_event() {
+    public List<Event> getAllEvents() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<Event> events = new ArrayList<Event>();
 
-        String selectQuery = "SELECT  * FROM event";
+        String selectQuery = "SELECT * FROM event AS e, place AS p WHERE e.ev_id = p.pl_id_event";
 
         Log.e(LOG, selectQuery);
 
@@ -142,14 +160,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             do {
                 Event ev = new Event();
-                ev.setId(c.getInt(c.getColumnIndex("id")));
-                ev.setName((c.getString(c.getColumnIndex("name"))));
-                ev.setDescription((c.getString(c.getColumnIndex("description"))));
-                ev.setLatitude((c.getFloat(c.getColumnIndex("latitude"))));
-                ev.setLongitude((c.getFloat(c.getColumnIndex("longitude"))));
-                ev.setFacebook((c.getString(c.getColumnIndex("facebook"))));
-                ev.setTwitter((c.getString(c.getColumnIndex("twitter"))));
-                ev.setInstagram((c.getString(c.getColumnIndex("instagram"))));
+                ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+                ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+                ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+                ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+                ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+                ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+                ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+                ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
 
                 events.add(ev);
 
@@ -158,10 +178,42 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return events;
     }
 
-    public New get_new(int id) {
+    public List<Event> getEventsByPlace (int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Event> events = new ArrayList<Event>();
+
+        String selectQuery = "SELECT  * FROM event AS e, place AS p WHERE p.pl_id="+id+" AND p.pl_id_event = e.ev_id";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Event ev = new Event();
+                ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+                ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+                ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+                ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+                ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+                ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+                ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+                ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
+
+                events.add(ev);
+
+            } while (c.moveToNext());
+        }
+        return events;
+    }
+
+//    querys by new
+    public New getNew(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT  * FROM new WHERE id =" + id;
+        String selectQuery = "SELECT  * FROM new WHERE new_id =" + id;
 
         Log.e(LOG, selectQuery);
 
@@ -171,14 +223,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             c.moveToFirst();
 
         New news = new New();
-        news.setId(c.getInt(c.getColumnIndex("id")));
-        news.setName((c.getString(c.getColumnIndex("name"))));
-        news.setDescription((c.getString(c.getColumnIndex("description"))));
+        news.setId(c.getInt(c.getColumnIndex("new_id")));
+        news.setName((c.getString(c.getColumnIndex("new_name"))));
+        news.setDescription((c.getString(c.getColumnIndex("new_description"))));
         return news;
 
     }
 
-    public List<New> getAll_news() {
+    public List<New> getAllNews() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<New> new_list = new ArrayList<New>();
 
@@ -191,9 +243,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             do {
                 New news = new New();
-                news.setId(c.getInt(c.getColumnIndex("id")));
-                news.setName((c.getString(c.getColumnIndex("name"))));
-                news.setDescription((c.getString(c.getColumnIndex("description"))));
+                news.setId(c.getInt(c.getColumnIndex("new_id")));
+                news.setName((c.getString(c.getColumnIndex("new_name"))));
+                news.setDescription((c.getString(c.getColumnIndex("new_description"))));
 
                 new_list.add(news);
 

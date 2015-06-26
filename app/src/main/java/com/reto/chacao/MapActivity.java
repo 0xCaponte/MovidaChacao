@@ -1,6 +1,7 @@
 package com.reto.chacao;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -17,6 +18,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.reto.chacao.database.DataBaseHelper;
+import com.reto.chacao.model.Event;
+
+import java.util.List;
 
 public class MapActivity extends ActionBarActivity {
 
@@ -136,38 +141,52 @@ public class MapActivity extends ActionBarActivity {
         if(null != googleMap){
 
             /** If it is a permanent thing. */
-            if (type.equals("event")){
+
+            DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            List<Event> events = dbHelper.getAllEvents();
+
+            for(Event e : events){
                 googleMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(10.503383, -66.857439))
-                                .title("Permanente - Alianza Francesa")
-
-                                .snippet(" Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage" +
-                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage" +
-                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
-                                                "Omelette du fromage  Omelette du fromage Omelette du fromage")
-
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                );
-
-                googleMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(10.497804, -66.851758))
-                                .title("Evento")
+                                .position(new LatLng(e.getLatitude(), e.getLongitude()))
+                                .title(e.getName())
+                                .snippet(e.getDescription())
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
                 );
+            }
+            if (type.equals("event")){
+//                googleMap.addMarker(new MarkerOptions()
+//                                .position(new LatLng(10.503383, -66.857439))
+//                                .title("Permanente - Alianza Francesa")
+//
+//                                .snippet(" Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage" +
+//                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage" +
+//                                                " Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage " +
+//                                                "Omelette du fromage  Omelette du fromage Omelette du fromage")
+//
+//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+//                );
+//
+//                googleMap.addMarker(new MarkerOptions()
+//                                .position(new LatLng(10.497804, -66.851758))
+//                                .title("Evento")
+//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+//                );
 
             }else{  /** If it is a temporal event */
                 googleMap.addMarker(new MarkerOptions()
