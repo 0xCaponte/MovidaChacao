@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.settings.fragment.SettingsFragment;
 
 /**
@@ -52,7 +52,7 @@ public class UserProfileScreenFragment extends AppFragment implements View.OnCli
 
     @Override
     protected AppFragmentListener getFragmentListener() {
-        return (ClamourMainActivity) getActivity();
+        return (MovidaMainActivity) getActivity();
     }
 
     @Override

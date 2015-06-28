@@ -27,7 +27,7 @@ import com.reto.chacao.beans.Post;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.filter.activity.FilterScreenActivity;
 import com.reto.chacao.listener.EndlessRecyclerOnScrollListener;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
@@ -289,7 +289,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
     @Override
     protected AppFragmentListener getFragmentListener() {
-        return (ClamourMainActivity) getActivity();
+        return (MovidaMainActivity) getActivity();
     }
 
     @Override

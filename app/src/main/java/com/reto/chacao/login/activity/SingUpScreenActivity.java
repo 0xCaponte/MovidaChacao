@@ -11,18 +11,16 @@ import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-
-import org.json.JSONObject;
-
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.IntroToolBarActivity;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.statics.ClamourApiValues;
-import com.reto.chacao.statics.ClamourValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.JsonObjectRequestUtil;
 import com.reto.chacao.util.MySingletonUtil;
 import com.reto.chacao.util.UserUtil;
+
+import org.json.JSONObject;
 
 /**
  * Created by Eduardo Luttinger on 21/05/2015.
@@ -196,7 +194,7 @@ public class SingUpScreenActivity extends IntroToolBarActivity {
                     UserUtil.setRegister(SingUpScreenActivity.this, true);
 
                     Log.i(TAG, "Corriendo pantalla de verificacion de cuenta creada");
-                    AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
+               //     AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
 
 
                 } else {

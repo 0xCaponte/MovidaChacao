@@ -19,14 +19,14 @@ import com.reto.chacao.statics.ClamourValues;
 /**
  * Created by Eduardo Luttinger on 05/06/2015.
  */
-public class ClamourMainActivity extends MainToolbarActivity implements AppFragment.AppFragmentListener, View.OnClickListener {
+public class MovidaMainActivity extends MainToolbarActivity implements AppFragment.AppFragmentListener, View.OnClickListener {
 
 
     private ImageView mHomeButton;
     private ImageView mProfileButton;
     private ImageView mAddPostButton;
 
-    public ClamourMainActivity() {
+    public MovidaMainActivity() {
         super(R.layout.activity_main_home_screen, R.id.bottomToolbar,R.id.fragmentContainer);
     }
 

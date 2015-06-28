@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.IntroToolBarActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.util.AppUtil;
 
 /**
@@ -71,7 +72,7 @@ public class TermsAndConditionActivity extends IntroToolBarActivity implements V
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.terms_conditions_button:
-                AppUtil.runActivity(SingUpScreenActivity.class, this);
+                AppUtil.runActivity(MovidaMainActivity.class, this);
                 break;
             case R.id.btn_login:
                 AppUtil.runActivity(LoginScreenActivity.class, this);

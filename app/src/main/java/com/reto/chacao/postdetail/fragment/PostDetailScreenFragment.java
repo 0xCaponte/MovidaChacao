@@ -14,16 +14,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.beans.DetailPost;
 import com.reto.chacao.beans.PostComment;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.postdetail.adapter.DetailPostAdapter;
 import com.reto.chacao.util.AppUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Eduardo Luttinger on 27/05/2015.
@@ -188,7 +188,7 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
 
     @Override
     protected AppFragmentListener getFragmentListener() {
-        return (ClamourMainActivity) getActivity();
+        return (MovidaMainActivity) getActivity();
     }
 
     @Override

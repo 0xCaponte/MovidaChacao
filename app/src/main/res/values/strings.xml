@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">MovidaChacao</string>
+    <string name="app_name">Movida Chacao</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="app_title">CLAMOUR</string>
-    <string name="app_description">Buy and sell things with your trusted local network</string>
+    <string name="app_title">Movida Chacao</string>
+    <string name="app_description">Mantente informado de la movida cultural y deportiva de Chacao</string>
     <string name="text_or">or</string>
 
     <!-- Introduction -->
-    <string name="btn_sign_email">Sign up with email</string>
-    <string name="btn_sign_facebook">Sign up with Facebook</string>
-    <string name="btn_log_in">Log in</string>
+    <string name="btn_sign_email">No Registrarse</string>
+    <string name="btn_sign_facebook">Registrarse con Facebook</string>
+    <string name="btn_log_in">Acceder</string>
     <string name="introduction_verification_info">We just send you an email with a verification code. Please check your email and enter the code here to activate the account</string>
     <string name="introduction_verification_code_hint">Verification code</string>
     <string name="introduction_verification_btn_text">Verify</string>
@@ -80,7 +80,7 @@
     <string name="home_popup_btn_text_search">I\'m in search of...</string>
 
     <!-- Filter-->
-    <string name="filter_toolbar_title">Filter</string>
+    <string name="filter_toolbar_title">Filtrar</string>
     <string name="filter_toolbar_btn_text">Save</string>
     <string name="filter_item_condition_header">Item Condition</string>
     <string name="filter_category_header">Item Category</string>
@@ -211,10 +211,9 @@
 
     <!-- Terms and condition -->
     <string name="terms_and_conditions">
-        <![CDATA[<p>By sign in up, you agree to our
-        <a href="myscheme://www.clamour.net/terms-and-conditions">Clamour Terms</a>
-        and that you have read our <a href="myscheme://www.clamour.net/privacy">Privacy
-        Policy</a></p>]]>
+        <![CDATA[<p>Al continuar usted acepta los
+        <a href="myscheme://www.clamour.net/terms-and-conditions">Terminos y Condiciones</a>
+        y confirma que ha leido nuestra <a href="myscheme://www.clamour.net/privacy">Politica de Privadicad</a></p>]]>
     </string>
 
     <!--Flag an Item-->

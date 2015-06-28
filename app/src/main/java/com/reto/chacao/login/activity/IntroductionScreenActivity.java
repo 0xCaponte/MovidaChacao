@@ -19,6 +19,7 @@ import com.reto.chacao.R;
 import com.reto.chacao.login.adapter.IntroductionAdapter;
 import com.reto.chacao.login.fragment.FacebookSingUpScreenFragment;
 import com.reto.chacao.util.AppUtil;
+import com.reto.chacao.util.UserUtil;
 
 /**
  * Created by ULISES HARRIS on 19/05/2015.
@@ -33,7 +34,6 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
 
     private Button mSignUpEmail;
     private LoginButton mSignUpFacebook;
-    private Button mLogIn;
 
     private boolean mLeftScrollUp = false;
     private boolean mRightScrollUp = true;
@@ -67,6 +67,8 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
         setButtons();
         setGridViews();
 
+        //Usuario deja de ser nuevo
+        UserUtil.setRegister(this, true);
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -137,9 +139,6 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
     private void setButtons() {
         mSignUpEmail = (Button) findViewById(R.id.btn_sign_up_email);
         mSignUpEmail.setOnClickListener(this);
-        mLogIn = (Button) findViewById(R.id.btn_log_in);
-        mLogIn.setOnClickListener(this);
-
     }
 
     private void setScrollingUp(final GridView gridView) {
@@ -167,9 +166,6 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
         switch (v.getId()) {
             case R.id.btn_sign_up_email:
                 AppUtil.runActivity(TermsAndConditionActivity.class, this);
-                break;
-            case R.id.btn_log_in:
-                runActivity(LoginScreenActivity.class);
                 break;
         }
 

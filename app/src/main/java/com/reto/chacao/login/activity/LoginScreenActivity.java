@@ -15,7 +15,7 @@ import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.IntroToolBarActivity;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.login.fragment.FacebookLoginScreenFragment;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.statics.ClamourApiValues;
 import com.reto.chacao.util.AppUtil;
 
@@ -56,7 +56,7 @@ public class LoginScreenActivity extends IntroToolBarActivity {
         mUserProfile.setEmail(email);
         mUserProfile.setPassword(password);
         AppUtil.hideKeyboard(this);
-        AppUtil.runActivityClearTop(ClamourMainActivity.class, LoginScreenActivity.this);
+        AppUtil.runActivityClearTop(MovidaMainActivity.class, LoginScreenActivity.this);
 //        mProgressDialog.show();
 
         //SUCCESS RESPONSE MANAGEMENT

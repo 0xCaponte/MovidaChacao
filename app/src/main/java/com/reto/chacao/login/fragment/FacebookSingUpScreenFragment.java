@@ -20,20 +20,18 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import org.json.JSONObject;
-
-import java.util.Arrays;
-
 import com.reto.chacao.R;
 import com.reto.chacao.beans.UserProfile;
-import com.reto.chacao.login.activity.EmailReqestScreenActivity;
-import com.reto.chacao.login.activity.GeolocationScreenActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.statics.ClamourApiValues;
 import com.reto.chacao.statics.ClamourValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.JsonObjectRequestUtil;
 import com.reto.chacao.util.MySingletonUtil;
+
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 /**
  * Created by Eduardo Luttinger on 19/05/2015.
@@ -119,9 +117,9 @@ public class FacebookSingUpScreenFragment extends Fragment {
 
                             if ("".equals(mUserProfile.getEmail())) {
 
-                                Intent emailRequestIntent = new Intent(getActivity(), EmailReqestScreenActivity.class);
-                                emailRequestIntent.putExtra(ClamourValues.EMAIL_REQUEST_INTENT_EXTRA, mUserProfile);
-                                startActivity(emailRequestIntent);
+                           //     Intent emailRequestIntent = new Intent(getActivity(), EmailReqestScreenActivity.class);
+                             //   emailRequestIntent.putExtra(ClamourValues.EMAIL_REQUEST_INTENT_EXTRA, mUserProfile);
+                               // startActivity(emailRequestIntent);
 
                             } else {
                                 registerWithFacebook();
@@ -163,7 +161,7 @@ public class FacebookSingUpScreenFragment extends Fragment {
 
                     mUserProfile.setApiToken(AppUtil.getValuesFromApiMessageObject("apiToken", jsonObject));
                     mUserProfile.setConfirmationToken(AppUtil.getValuesFromApiMessageObject("confirmationToken", jsonObject));
-                    AppUtil.runActivity(GeolocationScreenActivity.class, getActivity(), ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
+                    AppUtil.runActivity(MovidaMainActivity.class, getActivity(), ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
 
                 }else{
 

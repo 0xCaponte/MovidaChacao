@@ -12,7 +12,7 @@ import android.util.Log;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import com.reto.chacao.R;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 
 /**
  * Created by Eduardo Luttinger on 25/05/2015.
@@ -62,7 +62,7 @@ public class GcmIntentService extends IntentService {
 
         Log.i(TAG,"Notification Message: "+msg);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,new Intent(this, ClamourMainActivity.class), 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,new Intent(this, MovidaMainActivity.class), 0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

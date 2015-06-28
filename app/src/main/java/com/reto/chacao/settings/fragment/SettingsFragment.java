@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
-import com.reto.chacao.main.activity.ClamourMainActivity;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 
 
 public class SettingsFragment extends AppFragment implements AdapterView.OnItemSelectedListener {
@@ -32,7 +32,7 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
 
     @Override
     protected AppFragmentListener getFragmentListener() {
-        return (ClamourMainActivity) getActivity();
+        return (MovidaMainActivity) getActivity();
     }
 
     @Override

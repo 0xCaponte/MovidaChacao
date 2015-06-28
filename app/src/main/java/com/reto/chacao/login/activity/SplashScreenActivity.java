@@ -5,15 +5,15 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import com.reto.chacao.R;
 import com.reto.chacao.beans.UserProfile;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.GcmManager;
 import com.reto.chacao.util.UserUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Eduardo Luttinger on 19/05/2015.
@@ -23,7 +23,7 @@ public class SplashScreenActivity extends Activity {
 
     private static final String TAG = "SplashScreenActivity";
 
-    private static final long SPLASH_SCREEN_DELAY = 3000;
+    private static final long SPLASH_SCREEN_DELAY = 2500;
 
     private GcmManager mGcmManager;
 
@@ -53,22 +53,16 @@ public class SplashScreenActivity extends Activity {
                 // Rutina de ejecucion de la proxima actividad
                 mUserProfile = UserUtil.getUserRegister(SplashScreenActivity.this);
 
+                // Usuarios nuevo -> Introducción
                 if (!UserUtil.getRegister(SplashScreenActivity.this)) {
 
                     AppUtil.runActivity(IntroductionScreenActivity.class, SplashScreenActivity.this);
 
-                } else if (!UserUtil.getEmailVerification(SplashScreenActivity.this)) {
+                // Usuarios Viejos -> Home
+                } else  {
 
-                    AppUtil.runActivity(VerifyCodeScreenActivity.class, SplashScreenActivity.this, ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
-
-                } else if (!UserUtil.getGeolocation(SplashScreenActivity.this)) {
-
-                    AppUtil.runActivity(GeolocationScreenActivity.class, SplashScreenActivity.this, ClamourValues.GEOLOCATION_SCREEN_INTENT_EXTRA, mUserProfile);
-                } else if (!UserUtil.getGroupsStatus(SplashScreenActivity.this)) {
-
-                    AppUtil.runActivity(GroupScreenActivity.class, SplashScreenActivity.this, ClamourValues.GROUP_SCREEN_INTENT_EXTRA, mUserProfile);
+                    AppUtil.runActivityClearTop(MovidaMainActivity.class, SplashScreenActivity.this);
                 }
-
 
                 //Se finaliza la actividad para que el usuario no pueda volver con el back button
                 finish();
