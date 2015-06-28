@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin_payments"
+            android:text="@string/settings_alerts_title"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin_payments"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/standard_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginBottom="@dimen/small_margin_payments"
+                    android:text="@string/settings_alerts_keywords"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/message_seller_send_text_size"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/settings_alerts_keywords"
+                    style="@style/paymentInfoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/settings_alert_fields_height"
+                    android:hint="@string/settings_alert_keywords_hint"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin_payments"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/standard_margin"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="@dimen/small_margin_payments"
+                    android:layout_marginTop="@dimen/small_margin_payments"
+                    android:text="@string/settings_alert_category_title"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/message_seller_send_text_size"
+                    />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/first_category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/settings_alert_fields_height"
+                    android:layout_gravity="center"
+                    android:background="@color/GrisLigero"
+                    android:spinnerMode="dialog"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/first_category_spinner"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/settings_dropdown_arrow_bottom_margin"
+                    android:paddingRight="@dimen/standard_margin"
+                    android:src="@drawable/btn_arrow_down_black"
+                    />
+
+                <Spinner
+                    android:id="@+id/second_category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/settings_alert_fields_height"
+                    android:layout_below="@id/first_category_spinner"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/small_margin_payments"
+                    android:background="@color/GrisLigero"
+                    android:prompt="@string/spinner_category_promtp"
+                    android:spinnerMode="dialog"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/second_category_spinner"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/settings_dropdown_arrow_bottom_margin"
+                    android:paddingRight="@dimen/standard_margin"
+                    android:src="@drawable/btn_arrow_down_black"
+                    />
+
+                <Spinner
+                    android:id="@+id/third_category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/settings_alert_fields_height"
+                    android:layout_below="@id/second_category_spinner"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/small_margin_payments"
+                    android:background="@color/GrisLigero"
+                    android:prompt="@string/spinner_category_promtp"
+                    android:spinnerMode="dialog"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/third_category_spinner"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/settings_dropdown_arrow_bottom_margin"
+                    android:paddingRight="@dimen/standard_margin"
+                    android:src="@drawable/btn_arrow_down_black"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/geolocation_toolbar"
+        layout="@layout/toolbar_login_and_singup_navigation"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/geolocation_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/geolocation_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/geolocation_title_margin_top"
+                android:text="@string/geolocation_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/geolocation_title_text_size"/>
+
+            <Button
+                android:id="@+id/btn_current_location"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/geolocation_btn_height"
+                android:layout_below="@+id/geolocation_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/geolocation_btn_margin"
+                android:layout_marginRight="@dimen/geolocation_btn_margin"
+                android:layout_marginTop="@dimen/geolocation_btn_margin_top"
+                android:background="@drawable/btn_sign_up_background"
+                android:drawableLeft="@drawable/ic_clamour_white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/geolocation_btn_padding_left"
+                android:paddingRight="@dimen/geolocation_btn_padding_right"
+                android:text="@string/geolocation_btn_current_location"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/geolocation_btn_text_size"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/divider_or"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_current_location"
+                android:layout_marginTop="@dimen/geolocation_divider_margin_top"
+                android:src="@drawable/divider_or"/>
+
+            <TextView
+                android:id="@+id/geolocation_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_or"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/geolocation_sub_title_margin_top"
+                android:text="@string/geolocation_enter_manually"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/geolocation_sub_title_text_size"/>
+
+            <EditText
+                android:id="@+id/edit_text_zip_code"
+                android:layout_width="@dimen/geolocation_manual_zip_code_width"
+                android:layout_height="@dimen/geolocation_manual_zip_code_height"
+                android:layout_below="@+id/geolocation_sub_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/geolocation_manual_zip_code_margin_top"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:hint="@string/geolocation_zip_code_hint"
+                android:imeOptions="actionGo"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/geolocation_manual_zip_code_text_size"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

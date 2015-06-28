@@ -1,6 +1,251 @@
 <resources>
-    <string name="app_name">Chacao</string>
+    <string name="app_name">MovidaChacao</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="app_title">CLAMOUR</string>
+    <string name="app_description">Buy and sell things with your trusted local network</string>
+    <string name="text_or">or</string>
+
+    <!-- Introduction -->
+    <string name="btn_sign_email">Sign up with email</string>
+    <string name="btn_sign_facebook">Sign up with Facebook</string>
+    <string name="btn_log_in">Log in</string>
+    <string name="introduction_verification_info">We just send you an email with a verification code. Please check your email and enter the code here to activate the account</string>
+    <string name="introduction_verification_code_hint">Verification code</string>
+    <string name="introduction_verification_btn_text">Verify</string>
+    <string name="introduction_verification_lost">Lost verification code?</string>
+    <string name="introduction_get_verification_code">Get verification code</string>
+
+    <!--Login Screen Values-->
+    <string name="sing_up_screen_first_name_label">First Name</string>
+    <string name="sing_up_screen_last_name_label">Last Name</string>
+    <string name="login_screen_email_label">Email</string>
+    <string name="login_screen_password_label">Password</string>
+    <string name="login_screen_forgot_password">Forgot password?</string>
+    <string name="login_screen_or">or</string>
+    <string name="number_error">Is not a valid number</string>
+    <string name="email_error">Is not a valid email address</string>
+    <string name="field_required">This field is required</string>
+    <string name="email_request">Please enter your email address</string>
+    <string name="button_next">Next</string>
+    <string name="button_buy">Buy</string>
+
+
+    <!--Facebook-->
+    <string name="facebook_app_id">473407376149272</string>
+    <string name="facebook_button_login">Facebook</string>
+
+    <!-- Geolocatation -->
+    <string name="geolocation_toolbar_text">Find groups near you</string>
+    <string name="geolocation_title">Let us detect where you are located</string>
+    <string name="geolocation_btn_current_location">Current location</string>
+    <string name="geolocation_enter_manually">Manually enter your zip code</string>
+    <string name="geolocation_alert_message">Are you sure you want to send the zip code
+        %1$s?</string>
+    <string name="geolocation_alert_positive">Yes</string>
+    <string name="geolocation_alert_negative">No</string>
+    <string name="geolocation_zip_code_hint">10003</string>
+
+    <!-- Groups -->
+    <string name="groups_init_toolbar_text">Groups near you</string>
+    <string name="groups_init_title">We found %1$d groups near you!</string>
+    <string name="groups_init_sub_title">Select as many group as you wish to join and the group moderator will get back to you</string>
+    <string name="groups_init_button_text">Request invites</string>
+    <string name="groups_init_empty_title">Sorry, there\'s no group near you yet</string>
+    <string name="groups_init_empty_sub_title">We will email you as soon as we have a group near you</string>
+    <string name="groups_init_empty_okay_button">Okay</string>
+    <string name="groups_init_empty_start_group">You can also start your own group</string>
+    <string name="groups_init_empty_start_group_button">Start my own group</string>
+    <string name="groups_init_dialog">Getting groups...</string>
+    <string name="groups_init_dialog_request">Sending groups request...</string>
+
+
+    <!--Application Messages-->
+    <string name="progress_dialog_message">Please Wait...</string>
+    <string name="device_type_smartphone">SmartPhone</string>
+    <string name="device_type_tablet">tablet</string>
+
+    <!--Application Error Messages-->
+    <string name="facebook_login_error">Error trying to login with facebook, try it later!</string>
+    <string name="app_login_error">Error trying to login, try it later!</string>
+    <string name="app_device_not_supported">This device is not supported.</string>
+
+    <!-- Home-->
+    <string name="home_post_item_comments">%1$d comments</string>
+    <string name="home_tutorial_btn_home">Browse items to buy</string>
+    <string name="home_tutorial_btn_add">Post items to sell or find</string>
+    <string name="home_tutorial_btn_profile">Your Profile</string>
+    <string name="home_popup_btn_text_add">Post an item to sell</string>
+    <string name="home_popup_btn_text_search">I\'m in search of...</string>
+
+    <!-- Filter-->
+    <string name="filter_toolbar_title">Filter</string>
+    <string name="filter_toolbar_btn_text">Save</string>
+    <string name="filter_item_condition_header">Item Condition</string>
+    <string name="filter_category_header">Item Category</string>
+    <!--Array list of groups only for test proposals-->
+    <string-array name="group_arrays">
+        <item>Pinecrest Marketplace</item>
+        <item>Luttinger\'s store</item>
+        <item>Ulises\'s Harris Hood</item>
+    </string-array>
+
+    <string name="group_prompt">Choose a Group</string>
+
+    <!--Add Post-->
+    <string name="add_post_main_image_title">Main thumbnail image</string>
+    <string name="add_post_toolbar_title">Post an item to sell</string>
+    <string name="add_post_button">Post this item</string>
+    <string name="add_post_title">What are you selling?</string>
+    <string name="add_post_category">Lets make it easy for people to find it</string>
+    <string name="add_post_price">For how much?</string>
+    <string name="add_post_location_hint">Location</string>
+    <string name="add_post_original_price">The original price</string>
+    <string name="add_post_credit_card">Credit card processing fee: %1$s</string>
+    <string name="add_post_condition">What\'s the condition of the item?</string>
+    <string name="add_post_description">Add a description (text in bold wil be shown in
+        thumbnail</string>
+
+    <!-- Search Post -->
+    <string name="search_post_toolbar_title">I\'m in search of...</string>
+    <string name="search_post_title">What are you looking for?</string>
+    <string name="search_post_category">Lets make it easy for people to respond</string>
+    <string name="search_post_price">How much do you want to spend?</string>
+    <string name="search_post_comment">Add a comment</string>
+    <string name="search_post_button">Send out this search</string>
+
+    <!-- Payment Method Selection -->
+    <string name="payment_selection_message">You are so close to getting this item!</string>
+    <string name="payment_method_title">Payment method</string>
+    <string name="credit_card_button">Pay with Credit Card</string>
+    <string name="paypal_button">Pay with PayPal</string>
+    <string name="cash_payment_button">Pay with Cash</string>
+    <string name="toolbar_payments_options_title">Choose payment</string>
+    <string name="title_activity_payment_selection">PaymentSelectionActivity</string>
+    <string name="description_zoom_touch_close">Prueba</string>
+
+    <!-- Payment Finish Purchase -->
+    <string name="payments_finish_toolbar_title">Congratulations!</string>
+    <string name="payments_finish_toolbar_subtitle">This item can\'t wait to go home with you.</string>
+    <string name="banner_finish_payment_message">You reserved (purchased, if global group):</string>
+    <string name="option_finish_payment_message">Here\'s what you can do next:</string>
+    <string name="contact_seller_finish_payment">Message the seller</string>
+    <string name="view_item_finish_paymet">View item</string>
+    <string name="back_group_finish_payment">Back to {Group Name}</string>
+    <string name="share_facebook_finish_payment">Share on Facebook</string>
+    <string name="share_twitter_finish_payment">Share on Twitter</string>
+
+    <!-- Message the Seller -->
+    <string name="message_seller_toolbar_title">Message the seller</string>
+    <string name="empty_comment_chat_hint">What would you like to say</string>
+    <string name="message_seller_banner_text">Congratulations! This item can\'t wait to go home with you.</string>
+    <string name="send_button_text">Send</string>
+    <string name="title_activity_credit_card_payment">CreditCardPaymentActivity</string>
+
+    <!-- Notification -->
+    <string name="notification_toolbar_title">My Notification</string>
+    <string name="notification_message_actionbar">Messages</string>
+    <string name="notification_feed_actionbar">Feed</string>
+    <string name="notification_progress_title">Getting messages...</string>
+
+    <!--User Profile Screen-->
+    <string name="profile_toolbar_title">Your Profile</string>
+
+
+    <!--Detail Post-->
+    <string name="detail_post_add_comment_text">Message to seller</string>
+    <string name="commentCount">comments</string>
+
+    <!--send a Messages panel-->
+    <string name="send_a_message_edit_text_hint">What would you like to say?</string>
+    <string name="send_a_message_button_text">Send</string>
+    <string name="new_credit_card_option_string">Use a new credit card</string>
+    <string name="new_billing_address_option_string">Use a new billing address</string>
+
+    <!-- In search of Detail -->
+    <string name="btn_in_search_of">I have this item</string>
+    <string name="willing_to_spend">Willing to spend %1$s</string>
+    <string name="someone_is_in_search">Someone is in search of...\n %1$s</string>
+    <string name="cvv_credit_card_form_string">CVV</string>
+    <string name="credit_card_form_credit_string">Credit Card</string>
+    <string name="full_address_field_string">Full Address</string>
+    <string name="city_address_string">City</string>
+    <string name="zipcode_address_string">Zipcode</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Strings -->
+    <string name="personal_information_string">Personal Information</string>
+    <string name="personal_information_firstname">First</string>
+    <string name="personal_information_lastname">Last</string>
+    <string name="personal_information_email">Email</string>
+    <string name="personal_information_password">Password</string>
+    <string name="personal_information_address">Address</string>
+    <string name="paypal_login_string">Paypal log in</string>
+    <string name="add_another_card_string">+ add another card</string>
+    <string name="log_out_paypal_string">Log out of Paypal</string>
+    <string name="account_privacy_string">Account Privacy</string>
+    <string name="public_toogle_main_string">Public</string>
+    <string name="public_toogle_secondary_string">(everyone can see my profile)</string>
+    <string name="not_public_toogle_main_string">Public OFF</string>
+    <string name="not_public_toogle_secondary_string">(Only I can see my profile)</string>
+    <string name="settings_alerts_keywords">Keywords</string>
+    <string name="spinner_category_promtp">Choose a Category</string>
+    <!--Array list of categories only for test proposals-->
+    <string-array name="category_array">
+        <item>Choose a Category</item>
+        <item>Baby/Girl</item>
+        <item>Baby/Boy</item>
+        <item>Vintage Clothing</item>
+        <item>Clothing Accesories</item>
+        <item>Jeans</item>
+        <item>Cars</item>
+        <item>Furniture</item>
+        <item>Outdoors</item>
+        <item>Landscape</item>
+        <item>Sports</item>
+        <item>Man\'s Clothing</item>
+    </string-array>
+
+    <!-- Terms and condition -->
+    <string name="terms_and_conditions">
+        <![CDATA[<p>By sign in up, you agree to our
+        <a href="myscheme://www.clamour.net/terms-and-conditions">Clamour Terms</a>
+        and that you have read our <a href="myscheme://www.clamour.net/privacy">Privacy
+        Policy</a></p>]]>
+    </string>
+
+    <!--Flag an Item-->
+    <string name="soldByText">Sold by:</string>
+    <string name="whyFlagText">Why do you want to report this post?</string>
+    <string name="thankForFlag">Thank you for flagging this post. The group admin will review this item and any changes or decisions will be made within the next 24 hours</string>
+    <string name="inappropiate_flag_text">inappropriate</string>
+    <string name="counterfeit_flag_text">counterfeit</string>
+    <string name="duplicateitem_flag_text">duplicate item</string>
+    <string name="wrongcategory_flag_text">wrong category</string>
+    <string name="go_to_group_from_flag">Back to {Group name}</string>
+
+    <string name="settings_alerts_title">Set alerts for things I want</string>
+
+    <string name="terms_condition_button">Continue</string>
+    <!--For test propousals-->
+    <string name="item_description_test">Toodler Where The Wild Things Are Max Costume</string>
+
+    <!-- Email Subjects -->
+    <string name="clamour_create_group">I want to start a Clamour group!</string>
+    <string name="settings_alert_keywords_hint">Put your Keywords here</string>
+    <string name="settings_alert_category_title">Category</string>
+    <string name="settings_notification_title">Notification settings</string>
+
+    <!-- Share Location -->
+    <string name="share_location_toolbar_title">Share Location</string>
+    <string name="share_location_title">Choose how you would like to share your location</string>
+    <string name="share_location_billing">Billing Address</string>
+    <string name="share_location_new_address">Enter an address</string>
+    <string name="share_location_current">Current location</string>
+    <string name="share_location_toolbar_button">Share</string>
+
 </resources>
+

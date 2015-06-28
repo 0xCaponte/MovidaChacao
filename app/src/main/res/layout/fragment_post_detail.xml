@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/panelDeComentarioDeVentaDelPost"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_border_layout"
+        android:padding="2dp">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/commentOwnerImage"
+            style="@style/postDetailCommentImage"/>
+
+        <LinearLayout
+            android:id="@+id/commentOwnerRecipient"
+            style="@style/postDetailCommentContainer"
+            android:layout_toRightOf="@+id/commentOwnerImage">
+
+            <TextView
+                android:id="@+id/commentOwnerName"
+                style="@style/postDetailCommentOwnerName"
+                android:text="Silvia Oliu-Coronado"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/commentOwnerText"
+            style="@style/postDetailComment"
+            android:layout_below="@+id/commentOwnerRecipient"
+            android:layout_toRightOf="@+id/commentOwnerImage"
+            android:text="This costume is magical. Comes with a faux fur for outfit, a shimemery crown, and appliqued details. Perfect for toodler between 12-24 months."
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/panelViewPager"
+        style="@style/ImageViewPagerStyleContainer"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@+id/panelDeComentarioDeVentaDelPost">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            style="@style/ImageViewPagerStyle"
+            android:layout_alignParentTop="true"
+            />
+
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/viewPagerIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="2dp"
+            android:padding="5dp"
+            app:fillColor="@color/btn_clamour_color"
+            app:pageColor="@android:color/darker_gray"
+            app:radius="5dp"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/panelDePrecio"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/panelViewPager"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detailPostItemCost"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:text="$70"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/detailPostItemCostPercentage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:text="25% of"
+            android:textColor="@color/btn_clamour_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/detailPostItemPurshasedCost"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:text="(Originally purchased for 90%)"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/detailPostLocationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/panelDePrecio"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location:   "
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New York, NY"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detailPostCommentButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailPostLocationContainer"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/detailPostMessageToSellerButton"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/background_next_button"
+            android:text="@string/detail_post_add_comment_text"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/detailPostCommentButtonContainer"
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1.6"
+            android:layout_gravity="center"
+            android:layout_marginRight="2dp"
+            android:background="@color/comment_count_divider"/>
+
+        <TextView
+            android:id="@+id/detailPostCommentCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04"
+            android:textColor="@color/commnt_count_text"
+            android:text="4 comments"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/toolbar_login_and_singup_navigation"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/sign_up_margin_layout"
+            android:layout_marginRight="@dimen/sign_up_margin_layout"
+            android:layout_marginTop="@dimen/sign_up_margin_layout"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/formLabels"
+                android:text="@string/sing_up_screen_first_name_label"/>
+
+            <EditText
+                android:id="@+id/singup_form_fisrt_name"
+                style="@style/formEditText"
+                android:hint="@string/sing_up_screen_first_name_label"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:nextFocusDown="@+id/singup_form_last_name"/>
+
+            <TextView
+                style="@style/formLabels"
+                android:text="@string/sing_up_screen_last_name_label"/>
+
+            <EditText
+                android:id="@+id/singup_form_last_name"
+                style="@style/formEditText"
+                android:hint="@string/sing_up_screen_last_name_label"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:nextFocusDown="@+id/singup_form_email"/>
+
+            <TextView
+                style="@style/formLabels"
+                android:text="@string/login_screen_email_label"/>
+
+            <EditText
+                android:id="@+id/singup_form_email"
+                style="@style/formEditText"
+                android:hint="@string/login_screen_email_label"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/singup_form_password"/>
+
+
+            <TextView
+                style="@style/formLabels"
+                android:layout_width="fill_parent"
+                android:text="@string/login_screen_password_label"/>
+
+            <EditText
+                android:id="@+id/singup_form_password"
+                style="@style/formEditText"
+                android:hint="@string/login_screen_password_label"
+                android:imeOptions="actionGo"
+                android:singleLine="true"
+                android:password="true"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimary"
+              android:orientation="vertical">
+
+    <include layout="@layout/toolbar_login_and_singup_navigation"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/group_init_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/group_init_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="@dimen/groups_title_margin_top"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="@string/groups_init_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/groups_title_text_size"/>
+
+            <TextView
+                android:id="@+id/group_init_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/group_init_title"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/groups_init_sub_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/groups_title_text_size"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/groups_list"
+                android:layout_width="@dimen/groups_list_view_size"
+                android:layout_height="@dimen/groups_list_view_size"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/group_init_sub_title"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/group_init_request_invite"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/groups_button_height"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/btn_sign_up_background"
+                android:text="@string/groups_init_button_text"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/groups_button_text_size"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/group_init_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="@dimen/groups_title_margin_top"
+                android:gravity="center"
+                android:text="@string/groups_init_empty_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/groups_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="@dimen/groups_title_margin_top"
+                android:gravity="center"
+                android:text="@string/groups_init_empty_sub_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/groups_title_text_size"/>
+
+            <Button
+                android:id="@+id/group_init_okay_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/groups_button_height"
+                android:layout_marginLeft="@dimen/groups_title_margin_top"
+                android:layout_marginRight="@dimen/groups_title_margin_top"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_sign_up_background"
+                android:text="@string/groups_init_empty_okay_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/groups_button_text_size"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/groups_title_margin_top"
+                android:scaleType="fitXY"
+                android:src="@drawable/divider_or"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/groups_title_margin_left"
+                android:layout_marginRight="@dimen/groups_title_margin_left"
+                android:layout_marginTop="@dimen/groups_title_margin_top"
+                android:gravity="center"
+                android:text="@string/groups_init_empty_start_group"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/groups_title_text_size"/>
+
+            <Button
+                android:id="@+id/group_init_start_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/groups_button_height"
+                android:layout_marginLeft="@dimen/groups_title_margin_top"
+                android:layout_marginRight="@dimen/groups_title_margin_top"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_sign_up_background"
+                android:text="@string/groups_init_empty_start_group_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/groups_button_text_size"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

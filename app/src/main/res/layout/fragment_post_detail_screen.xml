@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/activity_top_toolbar_main_home_detail"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/reciclerView"
+            style="@style/includeFullComponent"
+            layout="@layout/fragment_recycler_view"
+            android:layout_above="@+id/toolbar"/>
+
+        <include
+            android:id="@+id/toolbar"
+            style="@style/includeDetailPostToolbarStyle"
+            layout="@layout/fragment_bottom_post_detail_toolbar"
+            android:layout_alignParentBottom="true"/>
+
+        <include
+            android:id="@+id/detailPostchatLayout"
+            layout="@layout/fragment_chat_screen"
+            android:visibility="gone"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

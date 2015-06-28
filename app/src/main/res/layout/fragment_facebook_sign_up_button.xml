@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+
+    <com.facebook.login.widget.LoginButton
+        xmlns:fb="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/singUPFacebookButton"
+        android:layout_width="fill_parent"
+        style="@style/FacebookLoginButton"
+        fb:login_text="@string/btn_sign_facebook"
+        />
+
+
+</LinearLayout>

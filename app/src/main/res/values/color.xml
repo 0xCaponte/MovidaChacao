@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black_overlay">#77000000</color>
+    <color name="black_overlay_90">#AA000000</color>
+
+    <!-- Introduction -->
+    <color name="app_title">#5D6870</color>
+    <color name="app_description">#9F9FA3</color>
+    <color name="btn_clamour_color">#00DFCB</color>
+    <color name="sign_up_facebook">#0079C1</color>
+    <color name="log_in">#404047</color>
+    <color name="border_button_log_in">#c4c4c4</color>
+
+
+    <!-- Login -->
+    <color name="Gris">#444444</color>
+    <color name="GrisLigero">#F3F2F2</color>
+    <color name="GrisMedio">#A1A1A5</color>
+    <color name="Spinner">#FBF7F4</color>
+    <color name="GrisLinea">#ffd6d5d5</color>
+
+    <!-- Home -->
+    <color name="background_color_fragment">#272C39</color>
+    <color name="background_filter_toggle_button_checked">#00DFCB</color>
+    <color name="background_filter_toggle_button_unchecked">#5D6870</color>
+    <color name="background_status_item">#CCD0021B</color>
+    <color name="item_sold">#D0021B</color>
+    <color name="background_column_unchecked">#bebfc3</color>
+
+    <!-- Add Post -->
+    <color name="background_screen">#363b4a</color>
+    <color name="edit_text_background">#5b6771</color>
+    <color name="slide_condition_background">#414856</color>
+    <color name="original_price_edit_text_background">#505a65</color>
+    <color name="edit_text_color">#a0a6ac</color>
+    <color name="add_post_toolbar_text">#d6d5d5</color>
+    <color name="add_post_photo_border">#5b6771</color>
+    <color name="profile_header_options_border_color">#a0a6ac</color>
+
+    <!-- Payments -->
+    <color name="black_divider_payment">#272C39</color>
+    <color name="btn_paypal_background">#ADD6EC</color>
+    <color name="btn_cash_payment_background">#CBCCCF</color>
+    <color name="share_facebook_background">#4A60A0</color>
+    <color name="share_twitter_background">#3E99C4</color>
+    <color name="gray_divider_message_seller">#E3E3E3</color>
+    <color name="chat_message_seller_background">#44DBC8</color>
+
+    <!-- Commment Colors -->
+    <color name="date_comment_color">#c4c3c3</color>
+
+    <!--Detail Post-->
+    <color name="comment_count_divider">#aaa</color>
+    <color name="commnt_count_text">#505a65</color>
+
+    <!-- Notifications -->
+    <color name="notification_action_bar_pressed">#404047</color>
+    <color name="notification_action_bar_border">#9f9fa3</color>
+    <color name="notification_text_color_unpressed">#d6d5d5</color>
+    <color name="notification_btn_decline">#ffc2ad</color>
+
+    <!-- Message -->
+    <color name="message_body">#c3c3ce</color>
+    <color name="message_date">#d4d4d4</color>
+
+    <!-- Settings -->
+    <color name="btn_add_another_card_background">#D6D5D5</color>
+
+    <!-- Transparency White -->
+    <color name="colorPrimaryTransparent">#e1ffffff</color>
+
+    <!-- Share Location -->
+    <color name="share_location_title">#343434</color>
+</resources>

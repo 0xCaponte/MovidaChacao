@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimary"
+              android:orientation="vertical">
+
+    <include layout="@layout/toolbar_login_and_singup_navigation"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/verification_account_text_margin"
+        android:layout_marginRight="@dimen/verification_account_text_margin"
+        android:layout_marginTop="@dimen/verification_account_text_margin"
+        android:gravity="center"
+        android:text="@string/introduction_verification_info"
+        android:textColor="@color/app_description"
+        android:textSize="@dimen/verification_account_text_size"/>
+
+    <EditText
+        android:id="@+id/verification_code"
+        android:layout_width="@dimen/verification_account_edit_text_width"
+        android:layout_height="@dimen/verification_account_edit_text_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/verification_account_text_margin"
+        android:background="@color/GrisLigero"
+        android:gravity="center"
+        android:hint="@string/introduction_verification_code_hint"
+        android:imeOptions="actionGo"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/verification_account_edit_text_size"
+        android:inputType="number"
+        android:digits="1234567890"
+        android:maxLength="6"
+        />
+
+    <Button
+        android:id="@+id/verification_button"
+        android:layout_width="@dimen/verification_account_button_width"
+        android:layout_height="@dimen/verification_account_edit_text_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/verification_account_button_margin_top"
+        android:background="@drawable/btn_sign_up_background"
+        android:text="@string/introduction_verification_btn_text"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/verification_account_edit_text_size"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/verification_account_text_margin"
+        android:src="@drawable/divider_or"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/verification_account_text_margin"
+        android:layout_marginRight="@dimen/verification_account_text_margin"
+        android:layout_marginTop="@dimen/verification_account_text_margin"
+        android:gravity="center"
+        android:text="@string/introduction_verification_lost"
+        android:textColor="@color/app_description"
+        android:textSize="@dimen/verification_account_text_size"/>
+
+    <Button
+        android:id="@+id/btn_verify_lost"
+        android:layout_width="@dimen/verification_account_button_width"
+        android:layout_height="@dimen/verification_account_edit_text_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/verification_account_button_margin_top"
+        android:background="@drawable/btn_sign_up_background"
+        android:text="@string/introduction_get_verification_code"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/verification_account_edit_text_size"/>
+
+</LinearLayout>

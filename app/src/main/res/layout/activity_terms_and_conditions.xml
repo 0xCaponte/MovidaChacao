@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+    <include layout="@layout/toolbar_login_and_singup_navigation"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_clamour"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/app_icon"
+                android:text="@string/app_title"
+                android:textColor="@color/app_title"
+                android:textSize="@dimen/clamour_title_size"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/terms_conditions_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/terms_conditions_text_size"
+            android:gravity="center"
+            android:textColorLink="@color/btn_clamour_color"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="@dimen/terms_conditions_text_margin"
+            android:layout_marginRight="@dimen/terms_conditions_text_margin"
+            android:layout_marginTop="10dp"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/terms_conditions_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/terms_conditions_button_continue_height"
+            android:layout_marginLeft="@dimen/terms_conditions_button_margin"
+            android:layout_marginRight="@dimen/terms_conditions_text_margin"
+            android:background="@drawable/btn_sign_up_background"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/terms_condition_button"
+            android:textSize="@dimen/introduction_sign_up_text"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/introduction_login_height"
+        android:background="@drawable/btn_login_background"
+        android:layout_alignParentBottom="true"
+        android:text="Already have an account? Click here to login"
+        android:textAllCaps="false"
+        android:textColor="@color/btn_clamour_color"
+        android:textSize="@dimen/terms_conditions_button_login_text_size"/>
+
+</RelativeLayout>

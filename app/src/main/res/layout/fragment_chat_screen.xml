@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/detailPostchatLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+    android:background="@android:color/white"
+    android:padding="@dimen/small_padding"
+    >
+    <com.reto.chacao.view.ChatEditText
+        android:id="@+id/addCommentText"
+        android:layout_width="match_parent"
+        android:inputType="textShortMessage|textMultiLine|textCapSentences|textAutoCorrect"
+        android:layout_height="wrap_content"
+        android:hint="@string/send_a_message_edit_text_hint"
+        android:padding="@dimen/standard_padding"
+        android:background="@drawable/backgound_send_message_edit_text"
+        android:layout_alignParentLeft="true"
+        android:textColorHint="@color/GrisMedio"
+        android:layout_toLeftOf="@+id/sendCommentButton"
+        android:minHeight="40dp"
+        android:textSize="17sp"
+        android:imeOptions="actionSend|flagNoEnterAction"
+        />
+
+    <Button
+        android:id="@+id/sendCommentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_alignBottom="@+id/addCommentText"
+        android:layout_alignParentRight="true"
+        android:maxHeight="50dp"
+        android:padding="@dimen/standard_padding"
+        android:background="@drawable/backgound_send_message_edit_text"
+        android:text="@string/send_a_message_button_text"
+        android:textColor="@color/GrisMedio"
+        android:textStyle="bold"
+        android:textAllCaps="false"/>
+
+
+</RelativeLayout>

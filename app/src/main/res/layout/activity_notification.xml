@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/add_post_toolbar"
+        layout="@layout/add_post_top_toolbar"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/notification_action_bar_margin_top"
+        android:layout_marginBottom="@dimen/notification_action_bar_margin_top"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:layout_height="@dimen/notification_action_bar_height">
+
+        <LinearLayout
+            android:id="@+id/layout_message_action_bar"
+            android:layout_width="@dimen/notification_action_bar_width"
+            android:layout_height="match_parent">
+
+            <ToggleButton
+                android:id="@+id/btn_message_action_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Messages"
+                android:textOff="Messages"
+                android:textOn="Messages"
+                android:background="@drawable/message_action_bar_drawable"
+                android:textColor="@color/notification_text_color_unpressed"
+                android:textAllCaps="false"
+                android:textSize="@dimen/notification_action_bar_text_size"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_feed_action_bar"
+            android:layout_width="@dimen/notification_action_bar_width"
+            android:layout_height="match_parent">
+
+            <ToggleButton
+                android:id="@+id/btn_feed_action_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textOff="Feed"
+                android:textOn="Feed"
+                android:text="Feed"
+                android:textAllCaps="false"
+                android:background="@drawable/feed_action_bar_drawable"
+                android:textColor="@color/notification_text_color_unpressed"
+                android:textSize="@dimen/notification_action_bar_text_size"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/notification_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/notification_action_bar"/>
+</LinearLayout>

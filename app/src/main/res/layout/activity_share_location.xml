@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimary">
+
+    <include layout="@layout/toolbar_login_and_singup_navigation"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_location_title"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/share_location_title"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+
+                <RadioButton
+                    android:id="@+id/billing_address_checkbox"
+                    android:layout_width="@dimen/save_toogle_size"
+                    android:layout_height="@dimen/save_toogle_size"
+                    android:background="@drawable/groups_checkbox"
+                    android:button="@color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share_location_billing"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/billing_address_checkbox"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray_divider_message_seller"/>
+
+            <RelativeLayout
+                android:id="@+id/layout_new_address_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+
+                <RadioButton
+                    android:id="@+id/new_address_checkbox"
+                    android:layout_width="@dimen/save_toogle_size"
+                    android:layout_height="@dimen/save_toogle_size"
+                    android:background="@drawable/groups_checkbox"
+                    android:button="@color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share_location_new_address"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/new_address_checkbox"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_enter_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/address_field_first_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/paymentInfoEditText"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/GrisMedio"
+                    android:textSize="16sp"
+                    android:hint="@string/full_address_field_string"
+                    android:inputType="text"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standard_margin">
+
+                    <EditText
+                        android:id="@+id/address_field_city"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/standard_margin"
+                        style="@style/paymentInfoEditText"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/GrisMedio"
+                        android:textSize="16sp"
+                        android:hint="@string/city_address_string"
+                        android:inputType="text"/>
+
+                    <EditText
+                        android:id="@+id/address_field_zipcode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        style="@style/paymentInfoEditText"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/GrisMedio"
+                        android:textSize="16sp"
+                        android:hint="@string/zipcode_address_string"
+                        android:inputType="number"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray_divider_message_seller"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+
+                <RadioButton
+                    android:id="@+id/current_address_checkbox"
+                    android:layout_width="@dimen/save_toogle_size"
+                    android:layout_height="@dimen/save_toogle_size"
+                    android:background="@drawable/groups_checkbox"
+                    android:button="@color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share_location_current"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/current_address_checkbox"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray_divider_message_seller"/>
+        </LinearLayout>
+
+
+        <!-- Here comes the Map Fragment and a text view that inform the user that can change the
+          position of the marker in the map -->
+
+    </ScrollView>
+
+</LinearLayout>

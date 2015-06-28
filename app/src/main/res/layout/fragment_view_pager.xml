@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              style="@style/ImageViewPagerStyleContainer"
+              android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        style="@style/ImageViewPagerStyle"
+        />
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/viewPagerIndicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        app:radius="3dp"
+        app:fillColor="@color/btn_clamour_color"
+        app:pageColor="@android:color/darker_gray"
+        app:strokeColor="@android:color/darker_gray"/>
+
+</LinearLayout>
+

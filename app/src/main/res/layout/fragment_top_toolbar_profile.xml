@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    android:id="@+id/home_top_detail_toolbar"
+    style="@style/homeTopDetailToolbar"
+    android:visibility="visible"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/user_profile_settings"
+            style="@style/leftIconOfToolbar"
+            android:src="@drawable/btn_settings"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/user_profile_title"
+            style="@style/centerIconOfToolbar"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/profile_toolbar_title"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/user_profile_toolbar_notification"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_notification_on2x"
+            android:clickable="true">
+
+            <TextView
+                android:id="@+id/user_profile_notification_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingBottom="5dp"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.Toolbar>

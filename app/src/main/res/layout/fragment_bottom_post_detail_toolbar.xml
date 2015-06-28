@@ -1,0 +1,28 @@
+<android.support.v7.widget.Toolbar
+    android:id="@+id/home_top_detail_toolbar"
+    style="@style/homeBottomDetailToolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/fragment_toolbar_comment_button"
+        style="@style/centerIconFragmentToolbar"
+        android:clickable="true"
+        android:src="@drawable/btn_comment2x"/>
+
+    <ToggleButton
+        android:id="@+id/fragment_toolbar_flag_button"
+        style="@style/centerIconFragmentToolbar"
+        android:textOn=""
+        android:textOff=""
+        android:checked="false"
+        android:background="@drawable/selector_for_flag_icon"/>
+
+    <Button
+        android:id="@+id/detailPostBuyButton"
+        style="@style/RightIconFragmentToolbar"
+        android:background="@drawable/background_next_button"
+        android:text="@string/button_buy"
+        android:textAllCaps="false"
+        />
+
+</android.support.v7.widget.Toolbar>

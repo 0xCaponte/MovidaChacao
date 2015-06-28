@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_post_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageButton
+            android:id="@+id/add_post_btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/add_post_toolbar_images_size"
+            android:background="@null"
+            android:src="@drawable/btn_back"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/add_post_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/add_post_toolbar_text_size"
+            android:textStyle="bold"
+            android:text="Settings"/>
+
+        <ImageButton
+            android:id="@+id/add_post_btn_help"
+            android:layout_width="@dimen/add_post_toolbar_images_size"
+            android:layout_height="@dimen/add_post_toolbar_images_size"
+            android:background="@null"
+            android:src="@drawable/btn_help"
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.Toolbar>

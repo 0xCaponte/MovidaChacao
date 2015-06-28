@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/main_row_layout"
+    >
+
+    <TextView
+        android:id="@+id/notification_row_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/small_margin_payments"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginRight="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/small_margin_payments"
+        android:layout_toLeftOf="@+id/email_notification_toogle"
+        android:text="New items posted by someone you follow"
+        android:textSize="12sp"
+        />
+
+    <ToggleButton
+        android:id="@+id/email_notification_toogle"
+        android:layout_width="@dimen/save_toogle_size"
+        android:layout_height="@dimen/save_toogle_size"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/notifications_settings_row_left_icon_margin"
+        android:layout_toLeftOf="@+id/phone_notification_toogle"
+        android:background="@drawable/groups_checkbox"
+        android:textOff=""
+        android:textOn=""/>
+
+    <ToggleButton
+        android:id="@+id/phone_notification_toogle"
+        android:layout_width="@dimen/save_toogle_size"
+        android:layout_height="@dimen/save_toogle_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/small_margin_payments"
+        android:layout_marginRight="@dimen/notification_settings_row_right_icon_margin"
+        android:layout_marginTop="@dimen/small_margin_payments"
+        android:background="@drawable/groups_checkbox"
+        android:textOff=""
+        android:textOn=""
+        />
+</RelativeLayout>

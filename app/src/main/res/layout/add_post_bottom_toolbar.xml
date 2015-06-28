@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/colorPrimary">
+
+    <Button
+        android:id="@+id/btn_post_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_post_edit_text_size"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/add_post_text_size"
+        android:textStyle="bold"
+        android:background="@drawable/btn_sign_up_background"
+        android:layout_marginLeft="@dimen/add_post_button_margin_left"
+        android:layout_marginRight="@dimen/add_post_button_margin_left"
+        android:layout_marginTop="@dimen/add_post_button_margin_top"
+        android:layout_marginBottom="@dimen/add_post_button_margin_top"
+        android:text="@string/add_post_button"/>
+
+
+</android.support.v7.widget.Toolbar>

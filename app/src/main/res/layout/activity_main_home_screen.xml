@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottomToolbar"
+        android:layout_below="@+id/home_top_toolbar">
+
+    </FrameLayout>
+
+
+    <include
+        android:id="@+id/bottomToolbar"
+        style="@style/includeToolbarStyle"
+        layout="@layout/activity_bottom_toolbar_main_home"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

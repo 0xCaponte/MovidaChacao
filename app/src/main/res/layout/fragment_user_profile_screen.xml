@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/fragment_top_toolbar_profile"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:id="@+id/profileScreenHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/double_toolbar_height"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:id="@+id/headerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/headerContent"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eduardo Luttinger"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/headerContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/headerTitle"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:id="@+id/headerContentProfilePicture"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/profilePicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/user5"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/headerContentOptionsContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/headerContentProfilePicture">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true">
+
+                        <LinearLayout
+                            android:id="@+id/headerContentOptions"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/toolbar_height"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/followerButton"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/add_profile_header_options_border"
+                                android:clickable="true"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/profileFollowersText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Followers"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/profileFollowersCount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profileFollowersText"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="18"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold"/>
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/followingButton"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/add_profile_header_options_border"
+                                android:clickable="true"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/profileFollowingText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Followers"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/profileFollowingCount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profileFollowingText"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="34"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold"/>
+
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:id="@+id/joinedGroupButton"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/add_profile_header_options_border"
+                                android:clickable="true"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/profileJoinedGroupsText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Joined Group"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/profileJoinedGroupsCount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profileJoinedGroupsText"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="2"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold"/>
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignRight="@+id/headerContentOptions"
+                            android:layout_below="@+id/headerContentOptions"
+                            android:background="@drawable/add_profile_header_options_border"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true">
+
+                                <TextView
+                                    android:id="@+id/itemSoldText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Item sold:"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_toRightOf="@+id/itemSoldText"
+                                    android:text="2"
+                                    android:textColor="@android:color/black"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true">
+
+                                <TextView
+                                    android:id="@+id/memberDateText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Member since"/>
+
+                                <TextView
+                                    android:id="@+id/memberDateValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_toRightOf="@+id/memberDateText"
+                                    android:text="06/14/14"/>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/profileScreenBody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profileScreenHeader"
+            android:background="@color/background_color_fragment">
+
+            <LinearLayout
+                android:id="@+id/userProfileMenuItemContainer"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_profile_menu_border">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Buying"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Selling"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:background="@drawable/add_profile_menu_items_border"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Waitlisted"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:background="@drawable/add_profile_menu_items_border"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:clickable="true"
+                    android:src="@drawable/btn_heart2x"/>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+

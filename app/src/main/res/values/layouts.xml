@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="isATabled">false</bool>
+    <integer name="notification_text_size">14</integer>
+</resources>

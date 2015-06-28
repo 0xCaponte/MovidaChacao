@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/toolbar_top"
+        layout="@layout/toolbar_login_and_singup_navigation"></include>
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_below="@+id/toolbar_top"
+        android:name="com.google.android.gms.maps.MapFragment"/>
+
+    <TextView
+        android:id="@+id/willing_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Willing to spend $90"
+        android:textSize="20sp"/>
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/willing_price"
+        android:background="@color/message_body"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/view_divider">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/btn_clamour_color"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/user_image">
+
+            <TextView
+                android:id="@+id/user_name_friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mike Godshall"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                />
+
+            <TextView
+                android:id="@+id/user_comment_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I'm looking for an all american gian flag. It can be used. Need it for a shoot that i am doing for a short film"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/fragment_bottom_post_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:paddingBottom="@dimen/dialog_add_post_padding"
+              android:paddingTop="@dimen/dialog_add_post_padding"
+              android:layout_height="wrap_content"
+              android:background="@color/colorPrimary">
+
+    <Button
+        android:id="@+id/btn_add_post"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_add_post_btn_height"
+        android:layout_marginLeft="@dimen/dialog_add_post_btn_margin"
+        android:layout_marginRight="@dimen/dialog_add_post_btn_margin"
+        android:background="@drawable/btn_sign_up_background"
+        android:text="@string/home_popup_btn_text_add"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dialog_add_post_btn_text_size"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btn_search_post"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_add_post_btn_height"
+        android:layout_marginLeft="@dimen/dialog_add_post_btn_margin"
+        android:layout_marginRight="@dimen/dialog_add_post_btn_margin"
+        android:layout_marginTop="@dimen/dialog_add_post_btn_margin_top"
+        android:layout_marginBottom="@dimen/dialog_add_post_btn_margin_top"
+        android:background="@drawable/btn_sign_up_background"
+        android:text="@string/home_popup_btn_text_search"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dialog_add_post_btn_text_size"
+        android:textStyle="bold"/>
+</LinearLayout>

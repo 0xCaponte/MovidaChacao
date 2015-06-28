@@ -1,8 +1,269 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--</style>-->
+
+
+    <style name="CustomTabPageIndicator">
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+    </style>
+
+
+    <style name="formLabels">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sign_up_edit_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="formEditText">
+        <item name="android:background">@color/GrisLigero</item>
+        <item name="android:layout_marginBottom">@dimen/sign_up_edit_text_margin</item>
+        <item name="android:layout_height">@dimen/sign_up_edit_text_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@color/GrisMedio</item>
+        <item name="android:textSize">@dimen/sign_up_edit_text_size</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="FacebookLoginButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/btn_sign_up_facebook_background</item>
+        <item name="android:layout_height">@dimen/introduction_sign_up_height</item>
+        <item name="android:layout_marginTop">@dimen/introduction_sign_up_facebook_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/introduction_sign_up_margin</item>
+        <item name="android:layout_marginRight">@dimen/introduction_sign_up_margin</item>
+    </style>
+
+    <style name="toolbar_borders">
+        <!--<item name="android:layout_marginLeft">@dimen/small_margin_dimen_points</item>-->
+        <!--<item name="android:layout_marginRight">@dimen/small_margin_dimen_points</item>-->
+        <item name="android:layout_marginTop">@dimen/small_margin_dimen_points</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin_dimen_points</item>
+    </style>
+
+    <style name="leftIconOfToolbar">
+        <item name="android:layout_height">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="RightIconOfToolbar">
+        <item name="android:layout_height">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:layout_width">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/standard_title_size_font</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="centerIconFragmentToolbar">
+        <item name="android:layout_height">@dimen/medium_size_icons_dimen_points</item>
+        <item name="android:layout_width">@dimen/medium_size_icons_dimen_points</item>
+    </style>
+
+
+    <!--Styles: Initial styles for Post Detail Comments-->
+
+    <style name="postDetailCommentImage">
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="android:layout_height">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:layout_width">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:background">#00DFCB</item>
+    </style>
+
+    <style name="postDetailCommentContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="postDetailCommentOwnerName">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/comment_owner_name_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="postDetailCommentOwnerComunFriends" parent="postDetailCommentOwnerName">
+        <item name="android:textSize">@dimen/comment_owner_commun_friends_text_size</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="postDetailComment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/standard_margin</item>
+        <item name="android:layout_marginLeft">@dimen/standard_margin</item>
+        <item name="android:layout_marginRight">@dimen/standard_margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/comment_owner_commun_friends_text_size</item>
+    </style>
+
+    <style name="postDetailIcons">
+
+        <item name="android:layout_width">@dimen/minimum_size_icons_dimen_points</item>
+        <item name="android:layout_height">@dimen/minimum_size_icons_dimen_points</item>
+        <item name="android:gravity">center|bottom</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:clickable">true</item>
+
+    </style>
+
+
+    <!--Styles: End styles for Post Detail Comments-->
+
+    <!--Init: Style of Particular Components -->
+
+
+    <style name="ImageViewPagerStyleContainer">
+        <item name="android:layout_height">@dimen/image_view_pager_container_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ImageViewPagerStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">@dimen/small_padding</item>
+    </style>
+
+    <style name="ImageViewForPager">
+        <item name="android:layout_height">@dimen/image_view_pager_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!--End: Style of Particular Components -->
+
+
+    <!-- Init: Style of Payment Views -->
+
+    <style name="paymentTopToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="leftIconPaymentToolbar">
+        <item name="android:layout_height">@dimen/medium_size_icons_dimen_points</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="rightIconPaymentToolbar">
+        <item name="android:layout_height">@dimen/medium_size_icons_dimen_points</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="centerTitlePaymentToolbar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/standard_title_size_font</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="paymentInfoEditText">
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingLeft">@dimen/standard_margin</item>
+        <item name="android:paddingRight">@dimen/small_margin_payments</item>
+        <item name="android:background">@color/GrisLigero</item>
+    </style>
+
+    <!-- End: Style of Payment Views -->
+
+
+    <style name="RightIconFragmentToolbar">
+        <item name="android:layout_height">@dimen/small_size_icons_dimen_points</item>
+        <item name="android:layout_width">@dimen/very_large_size_right_icon</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin_dimen_points</item>
+        <item name="android:layout_gravity">center|right</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/big_title_size_font</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="centerIconOfToolbar">
+        <item name="android:layout_height">@dimen/standard_size_icons_dimen_points</item>
+        <item name="android:layout_width">@dimen/large_size_icons_dimen_points</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/standard_title_size_font</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="homeTOPToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/home_bottom_toolbar_height</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="homeTopDetailToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="homeBottomDetailToolbar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/home_bottom_toolbar_height</item>
+        <item name="android:layout_gravity">bottom|center</item>
+        <item name="android:background">#FAF7F5</item>
+    </style>
+
+    <style name="includeToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/home_bottom_toolbar_height</item>
+    </style>
+
+    <style name="includeDetailPostToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/detail_post_bottom_toolbar_height</item>
+    </style>
+
+    <style name="includeFullComponent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="homeTOP1ToolbarButtons">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="homeTOP1ToolbarSpinner">
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="homeBottomToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/home_bottom_toolbar_height</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">#5B6771</item>
+    </style>
+
+    <style name="homeBottomToolbarButtons">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!--Flag an item-->
+    <style name="flagAnItemToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
 </resources>

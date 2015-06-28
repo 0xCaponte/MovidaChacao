@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_screen">
+
+    <include
+        android:id="@+id/add_post_toolbar"
+        layout="@layout/add_post_top_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="false"
+        android:layout_above="@+id/add_post_bottom_toolbar"
+        android:layout_below="@+id/add_post_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/add_post_text_size"
+                android:layout_marginLeft="10dp"
+                android:text="@string/add_post_main_image_title"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/main_image"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_post_thumbnail_height"
+                    android:layout_weight="0.7"
+                    android:layout_gravity="fill"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/add_photo_border"
+                    android:layout_marginRight="5dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/add_post_main_image_size"
+                        android:layout_height="@dimen/add_post_main_image_size"
+                        android:src="@drawable/add_main_photo"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/main_image_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:scaleType="fitXY"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_post_thumbnail_height"
+                    android:layout_weight="0.3"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/second_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:background="@drawable/add_photo_border"
+                            android:layout_marginBottom="5dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/add_post_small_image_size"
+                                android:layout_height="@dimen/add_post_small_image_size"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/btn_add_photo"/>
+
+                            <ImageView
+                                android:id="@+id/second_image_result"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:visibility="gone"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/third_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:background="@drawable/add_photo_border"
+                            android:layout_marginTop="5dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/add_post_small_image_size"
+                                android:layout_height="@dimen/add_post_small_image_size"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/btn_add_photo"/>
+
+                            <ImageView
+                                android:id="@+id/third_image_result"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:background="@color/btn_clamour_color"
+                                android:visibility="gone"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:text="@string/add_post_title"/>
+
+                <EditText
+                    android:id="@+id/post_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/add_post_edit_text_size"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/add_post_edit_text_background"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:paddingLeft="5dp"
+                    android:inputType="textCapSentences|textAutoCorrect"
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@+id/post_category"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/add_post_category"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7">
+
+                        <Spinner
+                            android:id="@+id/post_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/add_post_edit_text_size"
+                            android:spinnerMode="dropdown"
+                            android:popupBackground="@color/edit_text_background"
+                            android:background="@drawable/add_post_edit_text_background"/>
+
+                        <ImageView
+                            android:id="@+id/toolbar_group_spinner_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/add_post_edit_text_size"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+
+                            android:padding="20dp"
+                            android:src="@drawable/spinner_arrow_category"/>
+
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/post_location"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/add_post_edit_text_size"
+                        android:layout_weight="0.3"
+                        android:layout_marginLeft="5dp"
+                        android:hint="@string/add_post_location_hint"
+                        android:paddingLeft="5dp"
+                        android:background="@drawable/add_post_edit_text_background"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/add_post_text_size"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:imeOptions="actionNext"
+                        android:nextFocusDown="@+id/post_price"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/add_post_text_size"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/add_post_price"/>
+
+                        <EditText
+                            android:id="@+id/post_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/add_post_edit_text_size"
+                            android:hint="$"
+                            android:layout_marginTop="5dp"
+                            android:textColorHint="@color/colorPrimary"
+                            android:paddingLeft="5dp"
+                            android:background="@drawable/add_post_edit_text_background"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/add_post_text_size"
+                            android:textStyle="bold"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:nextFocusRight="@+id/post_original_price"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.45"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/edit_text_color"
+                            android:textSize="@dimen/add_post_text_size"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/add_post_original_price"/>
+
+                        <EditText
+                            android:id="@+id/post_original_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/add_post_edit_text_size"
+                            android:hint="$"
+                            android:layout_marginTop="5dp"
+                            android:textColorHint="@color/edit_text_color"
+                            android:paddingLeft="5dp"
+                            android:background="@drawable/add_post_original_price_background"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/add_post_text_size"
+                            android:textStyle="bold"
+                            android:inputType="text"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/post_credit_fee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/add_post_credit_card"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/add_post_condition"/>
+
+
+                <com.infteh.comboseekbar.ComboSeekBar
+                    android:id="@+id/seekbar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginRight="5dip"
+                    android:thumb="@drawable/seek_bar_thumb"
+                    app:multiline="true"
+                    app:textSize="14sp"
+                    app:color="#ffffff"
+                    />
+
+                <!--<SeekBar-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:max="4"-->
+                <!--android:thumb="@drawable/seek_bar_thumb"/>-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/add_post_description"/>
+
+                <EditText
+                    android:id="@+id/post_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="4"
+                    android:lines="4"
+                    android:maxLines="8"
+                    android:gravity="top|start"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColorHint="@color/edit_text_color"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/add_post_original_price_background"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/add_post_text_size"
+                    android:textStyle="bold"
+                    android:inputType="textMultiLine"
+                    android:imeOptions="actionDone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/add_post_bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/add_post_bottom_toolbar"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="line_background">#414856</color>
+    <color name="separator_background">#363b4a</color>
+    <color name="line_selected_background">#00DFCB</color>
+</resources>

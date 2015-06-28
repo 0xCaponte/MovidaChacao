@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
+
+    <CheckBox
+        android:id="@+id/group_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/groups_checkbox_margin_left"
+        android:button="@drawable/groups_checkbox"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/group_image"
+        android:layout_width="@dimen/groups_image_size"
+        android:layout_height="@dimen/groups_image_size"
+        android:layout_marginLeft="@dimen/groups_image_margin_left"
+        android:background="@color/btn_clamour_color"
+        android:scaleType="centerCrop" />
+
+    <!--<com.android.volley.toolbox.NetworkImageView-->
+    <!--android:id="@+id/group_image"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:background="@color/btn_clamour_color"-->
+    <!--android:scaleType="centerCrop" />-->
+
+    <TextView
+        android:id="@+id/group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/groups_text_margin_left"
+        android:text="Pinecrest MarketPlace"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/groups_text_size"
+        android:textStyle="bold" />
+
+</LinearLayout>

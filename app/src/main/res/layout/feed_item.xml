@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/notification_layout"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:clickable="true"
+              android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/notification_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/black"
+        android:layout_margin="10dp"
+        android:text="Your friend mentioned you in an item"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/notification_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/btn_clamour_color"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minLines="1"
+            android:layout_toRightOf="@+id/notification_image"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Toddler where the wild things are max costume"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/notification_follow"
+            />
+
+        <ImageButton
+            android:id="@+id/notification_follow"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/btn_follow"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/notification_btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/notification_decline"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:text="Decline"
+            android:layout_toLeftOf="@+id/notification_confirm"
+            android:background="@drawable/btn_decline_drawable"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/notification_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingRight="40dp"
+            android:paddingLeft="40dp"
+            android:text="Confirm"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_sign_up_background"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/message_body"/>
+
+
+</LinearLayout>
