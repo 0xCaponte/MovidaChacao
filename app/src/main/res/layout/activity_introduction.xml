@@ -43,7 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/introduction_layout_height"
         android:background="@color/transparent"
-        android:clickable="true" />
+        android:clickable="true"
+        android:id="@+id/linearLayout" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +52,8 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:elevation="30dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout">
 
         <RelativeLayout
             android:id="@+id/app_title"
@@ -86,12 +88,12 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="5dp"
-            android:gravity="center"
+            android:gravity="center|center_horizontal"
             android:text="@string/app_description"
             android:textColor="@color/app_description"
             android:textSize="@dimen/clamour_description_size" />
 
-        <Button
+         <Button
             android:id="@+id/btn_sign_up_email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/introduction_sign_up_height"
@@ -112,16 +114,6 @@
 
         </FrameLayout>
 
-        <Button
-            android:id="@+id/btn_log_in"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/introduction_login_height"
-            android:layout_marginTop="@dimen/introduction_login_margin_top"
-            android:background="@drawable/btn_login_background"
-            android:text="@string/btn_log_in"
-            android:textAllCaps="false"
-            android:textColor="@color/log_in"
-            android:textSize="@dimen/introduction_login_text" />
     </LinearLayout>
 
 </RelativeLayout>

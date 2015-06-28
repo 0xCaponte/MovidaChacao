@@ -19,17 +19,16 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import org.json.JSONObject;
-
-import java.util.Arrays;
-
 import com.reto.chacao.R;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.statics.ClamourApiValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.JsonObjectRequestUtil;
 import com.reto.chacao.util.MySingletonUtil;
+
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 /**
  * Created by Eduardo Luttinger on 19/05/2015.
@@ -108,8 +107,14 @@ public class FacebookLoginScreenFragment extends Fragment {
                                 @Override
                                 public void onResponse(JSONObject jsonObject) {
                                     Log.i(TAG, jsonObject.toString());
-                                    if(jsonObject.optString("code").equals(ClamourApiValues.SUCCESS_CODE)){
 
+                                    //Usuario deja de ser nuevo
+//                                    UserUtil.setRegister(this, true);
+
+                                    //Usuario uso facebook
+//                                    UserUtil.setFacebookRegister(this , false);
+
+                                    if(jsonObject.optString("code").equals(ClamourApiValues.SUCCESS_CODE)){
 
 
                                     }else{

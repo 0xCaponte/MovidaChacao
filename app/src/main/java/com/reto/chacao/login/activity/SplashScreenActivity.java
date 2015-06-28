@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.facebook.appevents.AppEventsLogger;
 import com.reto.chacao.R;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.main.activity.MovidaMainActivity;
@@ -71,6 +72,23 @@ public class SplashScreenActivity extends Activity {
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
+
 
 
 }

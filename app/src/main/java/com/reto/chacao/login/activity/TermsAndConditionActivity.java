@@ -48,14 +48,10 @@ public class TermsAndConditionActivity extends IntroToolBarActivity implements V
         }
         mTermsConditions.setText(s);
         mTermsConditions.setMovementMethod(LinkMovementMethod.getInstance());
-//        mTermsConditions.setLinkTextColor(ColorStateList.valueOf(R.color.btn_clamour_color));
-
 
         mContinue = (Button) findViewById(R.id.terms_conditions_button);
         mContinue.setOnClickListener(this);
 
-        mLoginButton = (Button) findViewById(R.id.btn_login);
-        mLoginButton.setOnClickListener(this);
     }
 
     @Override
@@ -70,12 +66,8 @@ public class TermsAndConditionActivity extends IntroToolBarActivity implements V
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.terms_conditions_button:
-                AppUtil.runActivity(MovidaMainActivity.class, this);
-                break;
-            case R.id.btn_login:
-                AppUtil.runActivity(LoginScreenActivity.class, this);
-        }
+
+        AppUtil.runActivity(MovidaMainActivity.class, this);
+
     }
 }

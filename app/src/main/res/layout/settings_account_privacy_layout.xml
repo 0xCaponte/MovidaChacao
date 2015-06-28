@@ -55,6 +55,7 @@
 
             </LinearLayout>
 
+            <!-- Cambiar po run boton para logout de facebook-->
             <ToggleButton
                 android:id="@+id/account_privacy_toogle"
                 android:layout_width="70dp"

@@ -14,7 +14,6 @@ import android.widget.GridView;
 
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
-
 import com.reto.chacao.R;
 import com.reto.chacao.login.adapter.IntroductionAdapter;
 import com.reto.chacao.login.fragment.FacebookSingUpScreenFragment;
@@ -66,9 +65,6 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
 
         setButtons();
         setGridViews();
-
-        //Usuario deja de ser nuevo
-        UserUtil.setRegister(this, true);
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -165,6 +161,13 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_sign_up_email:
+
+                //Usuario deja de ser nuevo
+                UserUtil.setRegister(this, true);
+
+                //Usuario no uso facebook
+                UserUtil.setFacebookRegister(this, false);
+
                 AppUtil.runActivity(TermsAndConditionActivity.class, this);
                 break;
         }

@@ -13,11 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
@@ -31,9 +29,13 @@ import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
+import com.reto.chacao.settings.fragment.SettingsFragment;
 import com.reto.chacao.statics.ClamourValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by ULISES HARRIS on 26/05/2015.
@@ -71,14 +73,14 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root;
-        root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         mPosts = setPostItems();
         setViews(root);
         setToolBar(root);
-        setTopToolbar(root);
 
+        ImageView settingsButton = (ImageView) root.findViewById(R.id.user_profile_settings);
+        settingsButton.setOnClickListener(this);
 
         if (UserUtil.getFirstTimeHome(getActivity()))
             mTutorial.setVisibility(View.GONE);
@@ -89,11 +91,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             onOneColumnClick();
 
         return root;
-    }
-
-    private void setTopToolbar(View root) {
-        mNotificationButton = (RelativeLayout) root.findViewById(R.id.toolbar_notification);
-        mNotificationButton.setOnClickListener(this);
     }
 
 
@@ -203,6 +200,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 mTutorial.setVisibility(View.GONE);
                 UserUtil.setFirstTimeHome(getActivity());
                 break;
+            case R.id.user_profile_settings:
+                getFragmentListener().goToFragment(new SettingsFragment());
+
         }
     }
 

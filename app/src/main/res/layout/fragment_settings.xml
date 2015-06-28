@@ -21,14 +21,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include
-                layout="@layout/settings_personal_information_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin"/>
 
             <include
-                layout="@layout/settings_credit_card_layout"
+                layout="@layout/settings_alerts_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin" />
+
+            <include
+                layout="@layout/settings_notification_preferences_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_margin"/>
@@ -37,20 +38,7 @@
                 layout="@layout/settings_account_privacy_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin"/>
-
-
-            <include
-                layout="@layout/settings_alerts_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin"/>
-
-            <include
-                layout="@layout/settings_notification_preferences_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin"/>
+                android:layout_marginTop="@dimen/standard_margin" />
 
         </LinearLayout>
 
