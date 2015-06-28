@@ -209,6 +209,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return events;
     }
 
+    public List<Event> getBySearch(String key) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Event> events = new ArrayList<Event>();
+
+        String selectQuery = "SELECT * FROM event AS e, place AS p WHERE e.ev_id = p.pl_id_event AND (e.ev_name LIKE ('%" +key
+                +"%') OR e.ev_description LIKE ('%"+key+"%'))";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Event ev = new Event();
+                ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+                ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+                ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+                ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+                ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+                ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+                ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+                ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
+
+                events.add(ev);
+
+            } while (c.moveToNext());
+        }
+        return events;
+    }
+
+
 //    querys by new
     public New getNew(int id) {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/toolbar_search_button"
             style="@style/homeTOP1ToolbarButtons"
             android:layout_alignParentLeft="true"

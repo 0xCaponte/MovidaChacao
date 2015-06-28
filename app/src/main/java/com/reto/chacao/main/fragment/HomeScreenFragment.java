@@ -1,10 +1,14 @@
 package com.reto.chacao.main.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -13,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
@@ -23,11 +29,13 @@ import com.reto.chacao.beans.Comment;
 import com.reto.chacao.beans.ItemCondition;
 import com.reto.chacao.beans.Post;
 import com.reto.chacao.beans.UserProfile;
+import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.filter.activity.FilterScreenActivity;
 import com.reto.chacao.listener.EndlessRecyclerOnScrollListener;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
+import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
 import com.reto.chacao.settings.fragment.SettingsFragment;
 import com.reto.chacao.statics.ClamourValues;
@@ -36,6 +44,7 @@ import com.reto.chacao.util.UserUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by ULISES HARRIS on 26/05/2015.
@@ -57,6 +66,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
+
+
 
     ImageSpan imageSpan;
 
@@ -81,6 +92,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         ImageView settingsButton = (ImageView) root.findViewById(R.id.user_profile_settings);
         settingsButton.setOnClickListener(this);
+        ImageView settingsButton2 = (ImageView) root.findViewById(R.id.toolbar_search_button);
+        settingsButton2.setOnClickListener(this);
 
         if (UserUtil.getFirstTimeHome(getActivity()))
             mTutorial.setVisibility(View.GONE);
@@ -202,8 +215,62 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 break;
             case R.id.user_profile_settings:
                 getFragmentListener().goToFragment(new SettingsFragment());
+                break;
+            case R.id.toolbar_search_button:
+                call_dialog();
 
         }
+    }
+
+    private void response_dialog(String mesagge){
+        AlertDialog ad = new AlertDialog.Builder(getActivity())
+                        .create();
+        ad.setCancelable(false);
+        ad.setTitle("Repuesta");
+        ad.setMessage(mesagge);
+        ad.setButton(getActivity().getString(R.string.app_title), new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        ad.show();
+    }
+
+    private void call_dialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Title");
+
+        // Set up the input
+        final EditText input = new EditText(getActivity());
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                List<Event> events = dbHelper.getBySearch(input.getText().toString());
+                for(Event e : events){
+                    Toast t = Toast.makeText(getActivity(), e.getName(), Toast.LENGTH_LONG);
+                    t.show();
+//                    response_dialog(e.getName());
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
     }
 
     @Override
