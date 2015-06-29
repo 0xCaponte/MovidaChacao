@@ -12,6 +12,7 @@ public class Event {
     String facebook;
     String twitter;
     String instagram;
+    String type;
     float latitude;
     float longitude;
 
@@ -97,5 +98,13 @@ public class Event {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
