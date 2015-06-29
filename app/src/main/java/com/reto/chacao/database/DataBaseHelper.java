@@ -41,7 +41,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_name TEXT," +
             "ev_description TEXT," +
             "ev_url TEXT," +
-            "ev_permanet INTEGER," +
+            "ev_category TEXT," +
+            "ev_tags TEXT," +
             "ev_type TEXT,"+
             "ev_facebook TEXT," +
             "ev_twitter TEXT," +
@@ -82,9 +83,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_REPORT);
         db.execSQL(CREATE_PLACE);
 
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet,ev_type) VALUES (1,'event1','descripcion 1',1,'Teatro')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet,ev_type) VALUES (2,'event2','descripcion 2',0,'Carrera')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_permanet,ev_type) VALUES (3,'event3','descripcion 3',1,'Jornada')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro','Cultura')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera','Deporte')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival','Cultura')");
 
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'place1', 10.496321, -66.848892)");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,2,'place1', 10.496321, -66.848892)");
@@ -137,7 +138,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ev.setId(c.getInt(c.getColumnIndex("ev_id")));
         ev.setName((c.getString(c.getColumnIndex("ev_name"))));
         ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
-        ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+        ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+        ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
         ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
         ev.setType(c.getString(c.getColumnIndex("ev_type")));
         ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
@@ -165,7 +167,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setId(c.getInt(c.getColumnIndex("ev_id")));
                 ev.setName((c.getString(c.getColumnIndex("ev_name"))));
                 ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
-                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+                ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
@@ -197,7 +200,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setId(c.getInt(c.getColumnIndex("ev_id")));
                 ev.setName((c.getString(c.getColumnIndex("ev_name"))));
                 ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
-                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+                ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
@@ -230,7 +234,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setId(c.getInt(c.getColumnIndex("ev_id")));
                 ev.setName((c.getString(c.getColumnIndex("ev_name"))));
                 ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
-                ev.setPermanet(c.getInt((c.getColumnIndex("ev_permanet"))));
+                ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+                ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));

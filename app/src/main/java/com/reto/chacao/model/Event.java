@@ -7,7 +7,8 @@ public class Event {
     int id;
     String name;
     String description;
-    int permanet;
+    String category;
+    String tags;
     String url;
     String facebook;
     String twitter;
@@ -68,12 +69,12 @@ public class Event {
         this.instagram = instagram;
     }
 
-    public int getPermanet() {
-        return permanet;
+    public String getCategory() {
+        return category;
     }
 
-    public void setPermanet(int permanet) {
-        this.permanet = permanet;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getUrl() {
@@ -106,5 +107,13 @@ public class Event {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }
