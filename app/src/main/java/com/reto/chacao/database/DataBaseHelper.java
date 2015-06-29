@@ -13,6 +13,8 @@ import android.util.Log;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.model.New;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String LOG = DataBaseHelper.class.getName();
 
     private static final String CREATE_EVENT = "CREATE TABLE event (" +
-            "ev_id INTEGER PRIMARY KEY," +
+            "ev_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "ev_name TEXT," +
             "ev_description TEXT," +
             "ev_url TEXT," +
@@ -48,20 +50,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_twitter TEXT," +
             "ev_instagram TEXT)";
     private static final String CREATE_PHOTO = "CREATE TABLE photo (" +
-            "pho_id INTEGER PRIMARY KEY," +
+            "pho_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "pho_id_type INTEGER," +
             "pho_type TEXT," +
             "pho_name TEXT," +
             "pho_url TEXT)";
     private static final String CREATE_NEW = "CREATE TABLE new (" +
-            "new_id INTEGER PRIMARY KEY," +
+            "new_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "new_name TEXT," +
             "new_description TEXT)";
     private static final String CREATE_REPORT = "CREATE TABLE report (" +
-            "id INTEGER PRIMARY KEY," +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "text TEXT)";
     private static final String CREATE_PLACE = "CREATE TABLE place (" +
-            "pl_id INTEGER," +
+            "pl_id INTEGER AUTOINCREMENT," +
             "pl_id_event INTEGER," +
             "pl_name TEXT," +
             "pl_description TEXT," +
@@ -83,9 +85,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_REPORT);
         db.execSQL(CREATE_PLACE);
 
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro','Cultura')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera','Deporte')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival','Cultura')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro;Festival;','Cultura')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera;Fitness','Deporte')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival;Idiomas','Cultura')");
 
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'place1', 10.496321, -66.848892)");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,2,'place1', 10.496321, -66.848892)");
@@ -122,6 +124,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 //    querys by event
+    public Boolean insertEvent(JSONArray args){
+        Log.e(LOG,"Insertando");
+        return true;
+
+    }
+    public Boolean updateEvent(JSONArray args){
+        Log.e(LOG,"Actualizando");
+        return true;
+    }
+    public Boolean deleteEvent(JSONArray args){
+        Log.e(LOG,"Borrando");
+        return true;
+
+    }
+
     public Event getEvent(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -251,7 +268,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return events;
     }
 
+    public List<Event> getByTag(String tag){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Event> events = new ArrayList<Event>();
 
+        String selectQuery = "SELECT * FROM event AS e, place AS p WHERE e.ev_id = p.pl_id_event AND e.ev_tags LIKE ('%" +tag
+                +"%')";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Event ev = new Event();
+                ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+                ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+                ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+                ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+                ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
+                ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+                ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+                ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+                ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+                ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+                ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
+
+                events.add(ev);
+
+            } while (c.moveToNext());
+        }
+        return events;
+    }
 //    querys by new
     public New getNew(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
