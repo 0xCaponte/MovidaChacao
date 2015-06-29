@@ -1,5 +1,6 @@
 package com.reto.chacao.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -8,12 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.reto.chacao.MovidaMapActivity;
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
 import com.reto.chacao.main.dialog.AddPostDialog;
 import com.reto.chacao.main.fragment.HomeScreenFragment;
-import com.reto.chacao.profile.fragment.UserProfileScreenFragment;
 import com.reto.chacao.statics.ClamourValues;
 
 /**
@@ -46,9 +47,9 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     private void setBottomToolbar() {
         mHomeButton = (ImageView) findViewById(R.id.toolbar_home_button);
         mHomeButton.setOnClickListener(this);
-        mProfileButton = (ImageView) findViewById(R.id.toolbar_go_to_profile_button);
+        mProfileButton = (ImageView) findViewById(R.id.toolbar_go_to_map);
         mProfileButton.setOnClickListener(this);
-        mAddPostButton = (ImageView) findViewById(R.id.toolbar_add_post_button);
+        mAddPostButton = (ImageView) findViewById(R.id.toolbar_go_to_AR);
         mAddPostButton.setOnClickListener(this);
     }
 
@@ -72,10 +73,12 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
             case R.id.toolbar_home_button:
                 runMyFragment(new HomeScreenFragment(), true);
                 break;
-            case R.id.toolbar_go_to_profile_button:
-                runMyFragment(new UserProfileScreenFragment(), true);
+            case R.id.toolbar_go_to_map:
+                Intent myTriggerActivityIntent=new Intent(this, MovidaMapActivity.class);
+                startActivity(myTriggerActivityIntent);
+
                 break;
-            case R.id.toolbar_add_post_button:
+            case R.id.toolbar_go_to_AR:
                 showAddPostPopUp();
                 break;
         }
