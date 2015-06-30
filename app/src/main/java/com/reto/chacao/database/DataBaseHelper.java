@@ -3,6 +3,7 @@ package com.reto.chacao.database;
 /**
  * Created by gustavo on 25/06/15.
  */
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,8 @@ import android.util.Log;
 
 import com.reto.chacao.model.Event;
 import com.reto.chacao.model.New;
+import com.reto.chacao.model.Photo;
+import com.reto.chacao.model.Place;
 
 import org.json.JSONArray;
 
@@ -51,7 +54,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_instagram TEXT)";
     private static final String CREATE_PHOTO = "CREATE TABLE photo (" +
             "pho_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "pho_id_type INTEGER," +
+            "pho_id_event INTEGER," +
             "pho_type TEXT," +
             "pho_name TEXT," +
             "pho_url TEXT)";
@@ -124,18 +127,90 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 //    querys by event
-    public Boolean insertEvent(JSONArray args){
-        Log.e(LOG,"Insertando");
-        return true;
+
+/*    Insertar enventos
+*            si es true el evento se inserto correctamente
+*            si es false es que hubo un error
+    */
+    public Boolean insertEvent(Event e, Place p, List<Photo> photos){
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean ret = true;
+        long id = 0;
+        ContentValues newRegistryEv = new ContentValues();
+        ContentValues newRegistryPl = new ContentValues();
+        ContentValues newRegistryPh = new ContentValues();
+        newRegistryEv.put("ev_name",e.getName());
+        newRegistryEv.put("ev_description",e.getDescription());
+        newRegistryEv.put("ev_url",e.getUrl());
+        newRegistryEv.put("ev_category",e.getCategory());
+        newRegistryEv.put("ev_tags",e.getTags());
+        newRegistryEv.put("ev_type",e.getType());
+        newRegistryEv.put("ev_facebook",e.getFacebook());
+        newRegistryEv.put("ev_twitter",e.getTwitter());
+        newRegistryEv.put("ev_instagram", e.getInstagram());
+
+        newRegistryPl.put("pl_name",p.getName());
+        newRegistryPl.put("pl_description",p.getDescription());
+        newRegistryPl.put("pl_url",p.getUrl());
+        newRegistryPl.put("pl_latitude",p.getLatitude());
+        newRegistryPl.put("pl_longitude",p.getLongitude());
+
+
+        db.beginTransaction();
+        try{
+//            insertando evento
+            id = db.insertOrThrow("event", null, newRegistryEv);
+//          insertando lugar
+            newRegistryPl.put("pl_id_event",id);
+            db.insertOrThrow("place", null, newRegistryPl);
+            //insertando foto(s)
+
+            for(Photo ph : photos){
+                newRegistryPh.put("pho_id_event", id);
+                newRegistryPh.put("pho_name",ph.getName());
+                newRegistryPh.put("pho_type",ph.getType());
+                newRegistryPh.put("pho_url", ph.getUrl());
+                db.insertOrThrow("photo",null,newRegistryPh);
+            }
+
+            db.setTransactionSuccessful();
+        }catch(Exception err){
+            err.printStackTrace();
+            ret =false;
+
+        }finally {
+            db.endTransaction();
+        }
+        return ret;
 
     }
     public Boolean updateEvent(JSONArray args){
         Log.e(LOG,"Actualizando");
         return true;
     }
-    public Boolean deleteEvent(JSONArray args){
-        Log.e(LOG,"Borrando");
-        return true;
+    public Boolean deleteEvent(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String values[] = {Integer.toString(id)};
+        boolean ret = true;
+        db.beginTransaction();
+        try {
+//        eliminando de photo
+            db.delete("photo", "pho_id_event=?", values);
+//        eliminando de place
+            db.delete("place", "pl_id_event=?", values);
+//        eliminando evento
+            db.delete("event", "id=?", values);
+            db.setTransactionSuccessful();
+        }catch(Exception err){
+            err.printStackTrace();
+            ret =false;
+
+        }finally {
+            db.endTransaction();
+        }
+        return ret;
+
+
 
     }
 
@@ -346,3 +421,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return new_list;
     }
 }
+
