@@ -1,5 +1,8 @@
 package com.reto.chacao.main.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -7,10 +10,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
+import com.reto.chacao.augmented_reality.AugmentedReality;
 import com.reto.chacao.main.dialog.AddPostDialog;
 import com.reto.chacao.main.fragment.HomeScreenFragment;
 import com.reto.chacao.profile.fragment.UserProfileScreenFragment;
@@ -53,15 +58,12 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     }
 
     private void showAddPostPopUp() {
-        AddPostDialog dialog = new AddPostDialog(this, R.style.DialogTheme);
-        dialog.setContentView(R.layout.popup_window_add_post);
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams wlp = window.getAttributes();
-        wlp.gravity = Gravity.BOTTOM;
-        wlp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        wlp.y = getResources().getDimensionPixelSize(R.dimen.home_bottom_toolbar_height);
-        window.setAttributes(wlp);
-        dialog.setCanceledOnTouchOutside(true);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("This ends the activity");
+        builder.setCancelable(true);
+        builder.setPositiveButton("I agree", new OkOnClickListener());
+        builder.setNegativeButton("No, no", new CancelOnClickListener());
+        AlertDialog dialog = builder.create();
         dialog.show();
     }
 
@@ -94,4 +96,21 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
         }
         return fragment;
     }
+
+    private final class CancelOnClickListener implements
+            DialogInterface.OnClickListener {
+        public void onClick(DialogInterface dialog, int which) {
+            Toast.makeText(getApplicationContext(), "Cancle selected, activity continues",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private final class OkOnClickListener implements
+            DialogInterface.OnClickListener {
+        public void onClick(DialogInterface dialog, int which) {
+            Intent intent = new Intent(MovidaMainActivity.this, AugmentedReality.class);
+            startActivity(intent);
+        }
+    }
+
 }
