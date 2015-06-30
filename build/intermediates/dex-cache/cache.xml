@@ -2,179 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-098c213530463446fa389b6e83c090550dde54c4.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0f254ec13d6671680482d2218f01ecf14dfa93e6">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-c097be506e141922c4160beb26f367b932caa3b1.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-20a40f32ec53495dac45ea900a2484fcff397018.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-a05b6e87733952d68f80aaf7f7551b4598c18e89.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-518efa330f4c306ec62544eb86a8aa0b0eee30c7.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-0602b58faabe64050dcc712e1eca6619477d73ca.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-1221afba4cd6e7c8e47e7dd17e3201f7c4e8e766.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.aat/comboseekbar/1.0.2/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="20958008b1e83c9388e013a26ffc78c0b621adba">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ed68ad8c5bacb3efb36848e2165a79348538dddf.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-9b3e5973a21dd0230a906beb20c3d9a5af73ec92.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ce6df4c989807ded04cd6010f676acae9fa7dc10.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-423c6ae51650f48d565b75a9014d22919e77b41e.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-634d067517aa2fdee918a40db3bb0445ac69664c.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-009e149b7d10e3a7cf72194bb35ecfd197015c41.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-00a6daae06d3c1fa210221d5c5df6512f3a6e003.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-85942fe760af0157ce0d51e819e4ff37838903d8.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-9f160fa86f54bdb23deb32c90cdf8124c5033c0d.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-2133957a775523f08761e6d00a7d48deb5cdb83c.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-9b902371a0d89af3f519aadd88378a235c85e93e.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-cfec4688a03e7a4216a3e6d66d6d97f807d83653.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/gson-2.2.4-6912fd4506aeca2416114c7588283f723647f472.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-fbffe45ab57b8500e368da509577465baff92fc0.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-7f3cc0a416bfe71bc6748766b687c690720bb804.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-e153fd2357ec92e0e955ff6fb24a319a19e70aa6.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-7a1fa37e142e29d3d56f796d85e9935bcd1d8f02.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-23f5acfdf963f90a1945b273ad2adc0560c1df43.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5b1510d2b05caea37b505a64d91bddcfb4105d4c.jar" />
     </item>
     <item
         jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
@@ -184,27 +16,6 @@
         <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-68da51cf1f024f71bc1140a1c59f59660757b82a.jar" />
     </item>
     <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5ed318d1bd4db7bcea9543c99c4d840aeb9707d6.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5a7561e9b7f51357c5a9d95ab91ccd269b71e3a8.jar" />
-    </item>
-    <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-55faf3447b24ece9117b55370fe29e9079b0d74a.jar" />
-    </item>
-    <item
         jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -212,11 +23,32 @@
         <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-6aaaed6a0180c61c3ff6fa0ef548c9c1c7198540.jar" />
     </item>
     <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.16/jars/classes.jar"
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="9313a30b510316c732b53064a86a2a4a12088d06">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-3f4d65ab54a754553c88010d35ec39e8be0c1188.jar" />
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-009e149b7d10e3a7cf72194bb35ecfd197015c41.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.viewpagerindicator/library/2.4.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ce49c3e19a7b46d1108ecbade33e5cbc0cc12d9e.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-20a40f32ec53495dac45ea900a2484fcff397018.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-fbffe45ab57b8500e368da509577465baff92fc0.jar" />
     </item>
     <item
         jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
@@ -226,18 +58,186 @@
         <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-d3c66e7ac4447da7af18e01f329abb2fdbfc3447.jar" />
     </item>
     <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5b1510d2b05caea37b505a64d91bddcfb4105d4c.jar" />
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-23f5acfdf963f90a1945b273ad2adc0560c1df43.jar" />
     </item>
     <item
-        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.viewpagerindicator/library/2.4.1/jars/classes.jar"
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
-        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ce49c3e19a7b46d1108ecbade33e5cbc0cc12d9e.jar" />
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-9f160fa86f54bdb23deb32c90cdf8124c5033c0d.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5a7561e9b7f51357c5a9d95ab91ccd269b71e3a8.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0f254ec13d6671680482d2218f01ecf14dfa93e6">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-c097be506e141922c4160beb26f367b932caa3b1.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-0602b58faabe64050dcc712e1eca6619477d73ca.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-7f3cc0a416bfe71bc6748766b687c690720bb804.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-a05b6e87733952d68f80aaf7f7551b4598c18e89.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-00a6daae06d3c1fa210221d5c5df6512f3a6e003.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ce6df4c989807ded04cd6010f676acae9fa7dc10.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-9b902371a0d89af3f519aadd88378a235c85e93e.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-098c213530463446fa389b6e83c090550dde54c4.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-55faf3447b24ece9117b55370fe29e9079b0d74a.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/gson-2.2.4-6912fd4506aeca2416114c7588283f723647f472.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-9b3e5973a21dd0230a906beb20c3d9a5af73ec92.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-518efa330f4c306ec62544eb86a8aa0b0eee30c7.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-7a1fa37e142e29d3d56f796d85e9935bcd1d8f02.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-1221afba4cd6e7c8e47e7dd17e3201f7c4e8e766.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-634d067517aa2fdee918a40db3bb0445ac69664c.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-5ed318d1bd4db7bcea9543c99c4d840aeb9707d6.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-e153fd2357ec92e0e955ff6fb24a319a19e70aa6.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.aat/comboseekbar/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fe2530582d119c4edb18df205754211bc382fd27">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-ed68ad8c5bacb3efb36848e2165a79348538dddf.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-cfec4688a03e7a4216a3e6d66d6d97f807d83653.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-423c6ae51650f48d565b75a9014d22919e77b41e.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-85942fe760af0157ce0d51e819e4ff37838903d8.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-2133957a775523f08761e6d00a7d48deb5cdb83c.jar" />
+    </item>
+    <item
+        jar="/Users/caponte/Documents/Chacao/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.16/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9313a30b510316c732b53064a86a2a4a12088d06">
+        <dex dex="/Users/caponte/Documents/Chacao/app/build/intermediates/pre-dexed/debug/classes-3f4d65ab54a754553c88010d35ec39e8be0c1188.jar" />
     </item>
 
 </items>
