@@ -59,9 +59,9 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
 
     private void showAddPostPopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("This ends the activity");
+        builder.setMessage("You're about to enter to the Augmented Reality View. Don't panic ;-) ");
         builder.setCancelable(true);
-        builder.setPositiveButton("I agree", new OkOnClickListener());
+        builder.setPositiveButton("Let's do this", new OkOnClickListener());
         builder.setNegativeButton("No, no", new CancelOnClickListener());
         AlertDialog dialog = builder.create();
         dialog.show();
