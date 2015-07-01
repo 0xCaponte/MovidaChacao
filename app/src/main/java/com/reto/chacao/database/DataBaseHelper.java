@@ -3,6 +3,7 @@ package com.reto.chacao.database;
 /**
  * Created by gustavo on 25/06/15.
  */
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,10 @@ import android.util.Log;
 
 import com.reto.chacao.model.Event;
 import com.reto.chacao.model.New;
+import com.reto.chacao.model.Photo;
+import com.reto.chacao.model.Place;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +42,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String LOG = DataBaseHelper.class.getName();
 
     private static final String CREATE_EVENT = "CREATE TABLE event (" +
-            "ev_id INTEGER PRIMARY KEY," +
+            "ev_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "ev_name TEXT," +
             "ev_description TEXT," +
             "ev_url TEXT," +
@@ -48,20 +53,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_twitter TEXT," +
             "ev_instagram TEXT)";
     private static final String CREATE_PHOTO = "CREATE TABLE photo (" +
-            "pho_id INTEGER PRIMARY KEY," +
-            "pho_id_type INTEGER," +
+            "pho_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "pho_id_event INTEGER," +
             "pho_type TEXT," +
             "pho_name TEXT," +
             "pho_url TEXT)";
     private static final String CREATE_NEW = "CREATE TABLE new (" +
-            "new_id INTEGER PRIMARY KEY," +
+            "new_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "new_name TEXT," +
             "new_description TEXT)";
     private static final String CREATE_REPORT = "CREATE TABLE report (" +
-            "id INTEGER PRIMARY KEY," +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "text TEXT)";
     private static final String CREATE_PLACE = "CREATE TABLE place (" +
-            "pl_id INTEGER," +
+            "pl_id INTEGER AUTOINCREMENT," +
             "pl_id_event INTEGER," +
             "pl_name TEXT," +
             "pl_description TEXT," +
@@ -83,9 +88,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_REPORT);
         db.execSQL(CREATE_PLACE);
 
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro','Cultura')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera','Deporte')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival','Cultura')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro;Festival;','Cultura')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera;Fitness','Deporte')");
+        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival;Idiomas','Cultura')");
 
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'place1', 10.496321, -66.848892)");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,2,'place1', 10.496321, -66.848892)");
@@ -122,6 +127,93 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 //    querys by event
+
+/*    Insertar enventos
+*            si es true el evento se inserto correctamente
+*            si es false es que hubo un error
+    */
+    public Boolean insertEvent(Event e, Place p, List<Photo> photos){
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean ret = true;
+        long id = 0;
+        ContentValues newRegistryEv = new ContentValues();
+        ContentValues newRegistryPl = new ContentValues();
+        ContentValues newRegistryPh = new ContentValues();
+        newRegistryEv.put("ev_name",e.getName());
+        newRegistryEv.put("ev_description",e.getDescription());
+        newRegistryEv.put("ev_url",e.getUrl());
+        newRegistryEv.put("ev_category",e.getCategory());
+        newRegistryEv.put("ev_tags",e.getTags());
+        newRegistryEv.put("ev_type",e.getType());
+        newRegistryEv.put("ev_facebook",e.getFacebook());
+        newRegistryEv.put("ev_twitter",e.getTwitter());
+        newRegistryEv.put("ev_instagram", e.getInstagram());
+
+        newRegistryPl.put("pl_name",p.getName());
+        newRegistryPl.put("pl_description",p.getDescription());
+        newRegistryPl.put("pl_url",p.getUrl());
+        newRegistryPl.put("pl_latitude",p.getLatitude());
+        newRegistryPl.put("pl_longitude",p.getLongitude());
+
+
+        db.beginTransaction();
+        try{
+//            insertando evento
+            id = db.insertOrThrow("event", null, newRegistryEv);
+//          insertando lugar
+            newRegistryPl.put("pl_id_event",id);
+            db.insertOrThrow("place", null, newRegistryPl);
+            //insertando foto(s)
+
+            for(Photo ph : photos){
+                newRegistryPh.put("pho_id_event", id);
+                newRegistryPh.put("pho_name",ph.getName());
+                newRegistryPh.put("pho_type",ph.getType());
+                newRegistryPh.put("pho_url", ph.getUrl());
+                db.insertOrThrow("photo",null,newRegistryPh);
+            }
+
+            db.setTransactionSuccessful();
+        }catch(Exception err){
+            err.printStackTrace();
+            ret =false;
+
+        }finally {
+            db.endTransaction();
+        }
+        return ret;
+
+    }
+    public Boolean updateEvent(JSONArray args){
+        Log.e(LOG,"Actualizando");
+        return true;
+    }
+    public Boolean deleteEvent(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String values[] = {Integer.toString(id)};
+        boolean ret = true;
+        db.beginTransaction();
+        try {
+//        eliminando de photo
+            db.delete("photo", "pho_id_event=?", values);
+//        eliminando de place
+            db.delete("place", "pl_id_event=?", values);
+//        eliminando evento
+            db.delete("event", "id=?", values);
+            db.setTransactionSuccessful();
+        }catch(Exception err){
+            err.printStackTrace();
+            ret =false;
+
+        }finally {
+            db.endTransaction();
+        }
+        return ret;
+
+
+
+    }
+
     public Event getEvent(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -251,7 +343,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return events;
     }
 
+    public List<Event> getByTag(String tag){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Event> events = new ArrayList<Event>();
 
+        String selectQuery = "SELECT * FROM event AS e, place AS p WHERE e.ev_id = p.pl_id_event AND e.ev_tags LIKE ('%" +tag
+                +"%')";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Event ev = new Event();
+                ev.setId(c.getInt(c.getColumnIndex("ev_id")));
+                ev.setName((c.getString(c.getColumnIndex("ev_name"))));
+                ev.setDescription((c.getString(c.getColumnIndex("ev_description"))));
+                ev.setCategory(c.getString((c.getColumnIndex("ev_category"))));
+                ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
+                ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
+                ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
+                ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
+                ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
+                ev.setLatitude(c.getFloat(c.getColumnIndex("pl_latitude")));
+                ev.setLongitude(c.getFloat(c.getColumnIndex("pl_longitude")));
+
+                events.add(ev);
+
+            } while (c.moveToNext());
+        }
+        return events;
+    }
 //    querys by new
     public New getNew(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -297,3 +421,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return new_list;
     }
 }
+

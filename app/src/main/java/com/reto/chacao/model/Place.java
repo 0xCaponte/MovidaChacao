@@ -8,7 +8,7 @@ public class Place {
     int id_event;
     String name;
     String description;
-    String place;
+    String url;
     float latitude;
     float longitude;
 
@@ -63,11 +63,11 @@ public class Place {
         this.id_event = id_event;
     }
 
-    public String getPlace() {
-        return place;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

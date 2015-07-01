@@ -246,5 +246,32 @@
     <string name="share_location_current">Current location</string>
     <string name="share_location_toolbar_button">Share</string>
 
+    <!--Array de string para los tags-->
+    <string-array name="sport_array">
+        <item>Futbol</item>
+        <item>Basketball</item>
+        <item>Voleyball</item>
+        <item>Natacion</item>
+        <item>Skate</item>
+        <item>BMX</item>
+        <item>Yoga</item>
+        <item>Tenis</item>
+        <item>Ultimate</item>
+        <item>Carrera</item>
+        <item>Fitness</item>
+    </string-array>
+
+    <string-array name="culture_array">
+        <item>Teatro</item>
+        <item>Cine</item>
+        <item>Idiomas</item>
+        <item>Festival</item>
+        <item>Ponencias</item>
+        <item>Arte</item>
+        <item>Musica</item>
+        <item>Danza</item>
+        <item>Gastronomia</item>
+        <item>Turismo</item>
+    </string-array>
 </resources>
 
