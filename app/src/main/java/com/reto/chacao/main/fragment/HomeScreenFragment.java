@@ -254,7 +254,11 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
                 DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-
+                try {
+                    dbHelper.onCreate(db);
+                }catch (Exception err){
+                    err.printStackTrace();
+                }
                 List<Event> events = dbHelper.getBySearch(input.getText().toString());
                 for(Event e : events){
                     Toast t = Toast.makeText(getActivity(), e.getName(), Toast.LENGTH_LONG);
