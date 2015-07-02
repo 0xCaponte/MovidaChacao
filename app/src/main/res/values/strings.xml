@@ -245,6 +245,8 @@
     <string name="share_location_new_address">Enter an address</string>
     <string name="share_location_current">Current location</string>
     <string name="share_location_toolbar_button">Share</string>
+    <string name="title_activity_augmented_reality">AugmentedReality</string>
+    <string name="license_key">K1y+2tRyuXquwa/9D3rJtZd6s6rbts4KP3dCUQ4vq9N3ri4Oc05qvk1ri71+mvFcyS9WLexNCNzZSmfHJJ39qSasPJcF7Y0xsZPXAGHJK8Xt0fZmVW9tOlfR+sJvKg2rOmGGzHJMpJOzfvqOEnPqzKoPycKt3hTMNJ7ergB69y5TYWx0ZWRfX1jVLiIg5AMbMi2mDQpLvfG53jJfv+B7bMVT7fctF2vURFt/tb+AKNmnlGtVEG69XkUWWBy2x/hw1wLGFUOBntMAV/MhIZ2gD9vAI629XEbluE2uV66mFGRnuhO0Xi2AkaseOqQ8vNkm3okFU2nxXERJHfOpJANzPtP6mGCILvPH9aYoTc1arUt3HSVdcIOljyZpZkiTZxQKCsjpsrZFywiZ5xweVrFTgWaeVgJgZS33d3N3MbpSLwIL2njpiAxKHH03EtkCIoeIjsssmhzn4inqIFnU5gOttgCzyG5xRC7PpnClHIGh5+K5/UD3OjXR2mukAwtCewrtUWKg342IqBZytKhkclkIQ2n5IHHPd4kkHJ3PJZYSv5jpHDyp+M0yMUSLB+fL8KFK97f7XXNskoifmm5eaOfqLO8U7+WqJc6rotk8DKJMEMdYqDb7szGFlyeWR7zGpyZCO/N5HnVO+A6uQxtGLGeLYGnGp9PJXlj95rtC6TADj7A=</string>
 
     <!--Array de string para los tags-->
     <string-array name="sport_array">
