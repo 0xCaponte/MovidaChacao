@@ -14,11 +14,20 @@ public class Event {
     String twitter;
     String instagram;
     String type;
+    String dateEnd;
     float latitude;
     float longitude;
 
 
     public Event() {
+    }
+
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
     public int getId() {

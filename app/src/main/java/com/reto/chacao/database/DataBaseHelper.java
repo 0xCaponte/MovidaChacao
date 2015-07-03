@@ -48,7 +48,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_url TEXT," +
             "ev_category TEXT," +
             "ev_tags TEXT," +
-            "ev_type TEXT,"+
+            "ev_type TEXT," +
+            "ev_dateEnd TEXT,"+
             "ev_facebook TEXT," +
             "ev_twitter TEXT," +
             "ev_instagram TEXT)";
@@ -66,7 +67,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "text TEXT)";
     private static final String CREATE_PLACE = "CREATE TABLE place (" +
-            "pl_id INTEGER AUTOINCREMENT," +
+            "pl_id INTEGER," +
             "pl_id_event INTEGER," +
             "pl_name TEXT," +
             "pl_description TEXT," +
@@ -145,6 +146,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         newRegistryEv.put("ev_category",e.getCategory());
         newRegistryEv.put("ev_tags",e.getTags());
         newRegistryEv.put("ev_type",e.getType());
+        newRegistryEv.put("ev_dateEnd",e.getDateEnd());
         newRegistryEv.put("ev_facebook",e.getFacebook());
         newRegistryEv.put("ev_twitter",e.getTwitter());
         newRegistryEv.put("ev_instagram", e.getInstagram());
@@ -234,6 +236,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
         ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
         ev.setType(c.getString(c.getColumnIndex("ev_type")));
+        ev.setDateEnd(c.getString(c.getColumnIndex("ev_dateEnd")));
         ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
         ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
         ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
@@ -263,6 +266,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setDateEnd(c.getString(c.getColumnIndex("ev_dateEnd")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
                 ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
                 ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
@@ -296,6 +300,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setDateEnd(c.getString(c.getColumnIndex("ev_dateEnd")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
                 ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
                 ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
@@ -330,6 +335,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setDateEnd(c.getString(c.getColumnIndex("ev_dateEnd")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
                 ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
                 ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
@@ -364,6 +370,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ev.setTags(c.getString((c.getColumnIndex("ev_tags"))));
                 ev.setUrl(c.getString((c.getColumnIndex("ev_url"))));
                 ev.setType(c.getString(c.getColumnIndex("ev_type")));
+                ev.setDateEnd(c.getString(c.getColumnIndex("ev_dateEnd")));
                 ev.setFacebook((c.getString(c.getColumnIndex("ev_facebook"))));
                 ev.setTwitter((c.getString(c.getColumnIndex("ev_twitter"))));
                 ev.setInstagram((c.getString(c.getColumnIndex("ev_instagram"))));
