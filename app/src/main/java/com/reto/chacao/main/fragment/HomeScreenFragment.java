@@ -49,10 +49,10 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Created by ULISES HARRIS on 26/05/2015.
+ * Created by Domingo De Abreu on 26/06/2015.
  */
 public class HomeScreenFragment extends AppFragment implements CompoundButton.OnCheckedChangeListener,
-        View.OnClickListener, OneColumnAdapter.PostViewClickListener, TwoColumnAdapter.PostTwoColumnViewClickListener, SwipeRefreshLayout.OnRefreshListener {
+        View.OnClickListener, OneColumnAdapter.PostViewClickListener, TwoColumnAdapter.PostTwoColumnViewClickListener {
 
     private static final String TAG = "HomeScreen-Fragment";
     private RelativeLayout mFilterLayout;
@@ -68,7 +68,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
-    private SwipeRefreshLayout mSwipeLayout;
 
 
 
@@ -106,24 +105,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         else if (mOneColumnToggle.isChecked())
             onOneColumnClick();
 
-        mSwipeLayout = (SwipeRefreshLayout) root.findViewById(R.id
-                .swipe_container);
-        mSwipeLayout.setOnRefreshListener(this);
-        mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
 
         return root;
-    }
-
-    @Override
-    public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override public void run() {
-                mSwipeLayout.setRefreshing(false);
-            }
-        }, 5000);
     }
 
     private void setToolBar(View root) {
