@@ -1,11 +1,18 @@
 package com.reto.chacao.augmented_reality;
 
+import android.location.Location;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.reto.chacao.R;
 import com.wikitude.architect.ArchitectView;
 import com.wikitude.architect.StartupConfiguration;
@@ -15,17 +22,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 
-public class AugmentedReality extends ActionBarActivity {
+public class AugmentedReality extends ActionBarActivity implements GoogleApiClient
+        .ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private ArchitectView architectView;
     private final String ArUrl = "ar/index.html";
+    private GoogleApiClient mGoogleApiClient;
+    private Location mLastLocation;
+    protected LocationRequest mLocationRequest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_augmented_reality);
+        buildGoogleApiClient();
         WebView.setWebContentsDebuggingEnabled(true);
         this.architectView = (ArchitectView)this.findViewById(R.id.architectView);
         final StartupConfiguration config = new StartupConfiguration(getString(R.string.license_key));
@@ -38,51 +54,41 @@ public class AugmentedReality extends ActionBarActivity {
         this.architectView.onPostCreate();
         try {
             this.architectView.load(ArUrl);
+            this.architectView.setLocation(10.4629175, -66.8666068, 100);
+            mLastLocation = new Location("");
+            mLastLocation.setLatitude(10.4629175);
+            mLastLocation.setLongitude(-66.8666068);
+            mLastLocation.setAccuracy(100);
             loadPoi();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.architectView.setLocation(10.487375, -66.937133,1);
+        //this.architectView.setCullingDistance(50);
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_augmented_reality, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         this.architectView.onResume();
+        mGoogleApiClient.connect();
+        if (mGoogleApiClient.isConnected()) {
+            startLocationUpdates();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         this.architectView.onPause();
+        stopLocationUpdates();
+        mGoogleApiClient.disconnect();
     }
 
     @Override
@@ -90,6 +96,57 @@ public class AugmentedReality extends ActionBarActivity {
         super.onDestroy();
         this.architectView.onDestroy();
     }
+
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        createLocationRequest();
+    }
+
+    protected void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(10000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+    }
+
+    protected void startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                mGoogleApiClient, mLocationRequest, this);
+    }
+
+    protected void stopLocationUpdates() {
+        LocationServices.FusedLocationApi.removeLocationUpdates(
+                mGoogleApiClient, this);
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        setupLocation(mLastLocation);
+        startLocationUpdates();
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        mLastLocation = location;
+        setupLocation(location);
+    }
+
 
     /**
      * Carga puntos de la base de datos al universo de realidad aumentada.
@@ -101,32 +158,107 @@ public class AugmentedReality extends ActionBarActivity {
         try {
             JSONObject jsonObj = new JSONObject();
 
-            jsonObj.put("latitude", 10.485434);
-            jsonObj.put("longitude", -66.938378);
+            // String strDistance = String.valueOf(distance);
+            // String[] parts = strDistance.split(".");
+            DistanceResult distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
+                    10.4660822, -66.86964);
+
+            jsonObj.put("latitude", 10.4660822);
+            jsonObj.put("longitude", -66.86964);
             jsonObj.put("altitude", 100); // TODO
             // Si el nombre es muy largo lo acorta y pone "..."
-            jsonObj.put("title", "La Coromoto");
-            jsonObj.put("description", 30 + " "
-                    + "mts");
+            jsonObj.put("title", "Colegio de Medicos");
+            jsonObj.put("description", distance.distance + " "
+                    + distance.unit);
             jsonObj.put("category", "Oficina");
 
             JSONObject jsonObj2 = new JSONObject();
 
-            jsonObj2.put("latitude", 10.488810);
-            jsonObj2.put("longitude", -66.937863);
+
+            // String strDistance = String.valueOf(distance);
+            // String[] parts = strDistance.split(".");
+            distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
+                    10.4594226, -66.8711889);
+            jsonObj2.put("latitude", 10.4594226);
+            jsonObj2.put("longitude", -66.8711889);
             jsonObj2.put("altitude", 100); // TODO
             // Si el nombre es muy largo lo acorta y pone "..."
-            jsonObj2.put("title", "San Agustin");
-            jsonObj2.put("description", 55 + " "
-                    + "mts");
+            jsonObj2.put("title", "Emil Friedman");
+            jsonObj2.put("description", distance.distance + " "
+                    + distance.unit);
             jsonObj2.put("category", "Oficina");
 
             jsonArr.put(jsonObj);
+            jsonArr.put(jsonObj2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         String invocation = "Movida.newData(" + jsonArr.toString() + ");";
         architectView.callJavascript(invocation);
+    }
+
+    /**
+     * Establece la ubicación de AR.
+     *
+     * @param location
+     *            la ubicación, puede ser null si no hay ninguna.
+     */
+    private void setupLocation(Location location) {
+        Log.w("AR","ADDED LOCATION");
+        if (architectView == null) {
+            return;
+        }
+
+        if (location.hasAltitude()) {
+            architectView.setLocation(location.getLatitude(),
+                    location.getLongitude(), location.getAltitude(),
+                    location.hasAccuracy() ? location.getAccuracy() : 1000);
+        } else {
+            architectView.setLocation(location.getLatitude(),
+                    location.getLongitude(),
+                    location.hasAccuracy() ? location.getAccuracy() : 1000);
+        }
+    }
+
+    private DistanceResult distance(double oLon, double oLat, double pLon,
+                                    double pLat) {
+
+        String unit = "mts.";
+
+        Location dest = new Location("Dest");
+        dest.setLatitude(pLat);
+        dest.setLongitude(pLon);
+
+        float distance = mLastLocation.distanceTo(dest);
+
+        if (distance > 1000) {
+            unit = "km.";
+            distance = distance / 1000;
+        }
+
+        DecimalFormat df = new DecimalFormat("#.#", new DecimalFormatSymbols(
+                Locale.ENGLISH));
+        String distanceStr = df.format(distance);
+        double finalDistance = Double.valueOf(distanceStr);
+
+        return new DistanceResult(finalDistance, unit);
+    }
+
+    /**
+     * Representa distancias basadas en metros.
+     *
+     * @author Domingo De Abreu
+     */
+    class DistanceResult {
+
+        double distance;
+        String unit;
+
+        public DistanceResult(double distance, String unit) {
+
+            this.distance = distance;
+            this.unit = unit;
+        }
     }
 }
