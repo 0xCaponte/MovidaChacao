@@ -108,7 +108,6 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         public TextView mPostCommentNumber;
         public RelativeLayout mPostComment;
 
-
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             mPostUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image);
@@ -119,7 +118,6 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
             mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
-            mPostCommentUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image_comment);
             mPostCommentUserName = (TextView) itemLayoutView.findViewById(R.id.user_name_comment);
             mPostCommentBody = (TextView) itemLayoutView.findViewById(R.id.comment_text);
             mPostCommentDate = (TextView) itemLayoutView.findViewById(R.id.comment_time);

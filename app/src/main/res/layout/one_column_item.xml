@@ -22,17 +22,6 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp">
 
-                <ImageView
-                    android:id="@+id/user_image"
-                    android:layout_width="@dimen/item_post_list_user_avatar"
-                    android:layout_height="@dimen/item_post_list_user_avatar"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/btn_clamour_color"
-                    android:src="@drawable/user5"
-                    android:padding="1dp"/>
-
                 <LinearLayout
                     android:id="@+id/post_info"
                     android:layout_width="wrap_content"
@@ -174,13 +163,12 @@
                     android:textSize="@dimen/item_post_list_comment_date"
                     />
 
-
                 <RelativeLayout
                     android:id="@+id/btn_post_more_comments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_below="@+id/user_image_comment"
+                    android:layout_below="@+id/comment_info"
                     android:clickable="true"
                     android:layout_marginTop="10dp">
 
