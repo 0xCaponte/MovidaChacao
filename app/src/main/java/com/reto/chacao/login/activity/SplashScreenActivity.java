@@ -2,12 +2,14 @@ package com.reto.chacao.login.activity;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Window;
 
 import com.facebook.appevents.AppEventsLogger;
 import com.reto.chacao.R;
 import com.reto.chacao.beans.UserProfile;
+import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.GcmManager;
@@ -41,6 +43,14 @@ public class SplashScreenActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_splash_screen);
+
+        DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        try {
+            dbHelper.onCreate(db);
+        }catch (Exception err){
+            err.printStackTrace();
+        }
 
         mGcmManager = new GcmManager(this);
 
