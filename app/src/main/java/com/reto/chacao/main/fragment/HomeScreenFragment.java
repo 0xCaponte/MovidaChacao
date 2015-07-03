@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,7 +52,7 @@ import java.util.List;
  * Created by ULISES HARRIS on 26/05/2015.
  */
 public class HomeScreenFragment extends AppFragment implements CompoundButton.OnCheckedChangeListener,
-        View.OnClickListener, OneColumnAdapter.PostViewClickListener, TwoColumnAdapter.PostTwoColumnViewClickListener {
+        View.OnClickListener, OneColumnAdapter.PostViewClickListener, TwoColumnAdapter.PostTwoColumnViewClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "HomeScreen-Fragment";
     private RelativeLayout mFilterLayout;
@@ -66,6 +68,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
+    private SwipeRefreshLayout mSwipeLayout;
 
 
 
@@ -103,9 +106,25 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         else if (mOneColumnToggle.isChecked())
             onOneColumnClick();
 
+        mSwipeLayout = (SwipeRefreshLayout) root.findViewById(R.id
+                .swipe_container);
+        mSwipeLayout.setOnRefreshListener(this);
+        mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
         return root;
     }
 
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                mSwipeLayout.setRefreshing(false);
+            }
+        }, 5000);
+    }
 
     private void setToolBar(View root) {
         mFilterLayout = (RelativeLayout) root.findViewById(R.id.home_filter_button);
@@ -294,12 +313,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 (0).getBody());
     }
 
+
     @Override
     public void postMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
         AppUtil.showAToast("Comments size: " + post.getComments().size());
     }
-
 
     @Override
     public void postTwoColumnViewListClicked(View v, int position) {
@@ -324,29 +343,31 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         AppUtil.showAToast("Comments size: " + post.getComments().size());
     }
 
+
     public ArrayList<Post> setPostItems() {
         Post post = new Post();
         post.setPost_id(1);
-        post.setTitle("White Collar");
-        post.setDescription("Very beautiful perl collar, in very good conditions");
+        post.setTitle("1ra Carrera Anual de Botes");
+        post.setDescription("1ra Carrera Anual de Botes patrocinada por la Alcadía de Chacao " +
+                "asdasd asd asd  asdas asd asd ");
         ItemCondition condition = new ItemCondition();
         condition.setId(0);
-        condition.setName("Brand New");
+        condition.setName("Ahora");
         post.setCondition(condition);
         post.setCreated(Calendar.getInstance().getTime());
         post.setLocation("100003");
         post.setPrice("50$");
         UserProfile user = new UserProfile();
         user.setUserId(1);
-        user.setFirstName("Matt");
-        user.setFamilyName("Groening");
+        user.setFirstName("Alcadía de Chacao");
+        user.setFamilyName("");
         post.setUser(user);
         Comment comment = new Comment();
         comment.setCreated(Calendar.getInstance().getTime());
         comment.setComment_id(2);
         comment.setCommenterFirstName("George");
         comment.setCommenterLastName("Clooney");
-        comment.setBody("Where do you bought the collar? I need to find one for my wife.");
+        comment.setBody("Finalmente una carrera de botes en Caracas!");
         ArrayList<Comment> comments = new ArrayList<Comment>();
         comments.add(comment);
         post.setComments(comments);
@@ -356,7 +377,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         return posts;
     }
-
 
     @Override
     protected AppFragmentListener getFragmentListener() {

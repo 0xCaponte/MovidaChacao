@@ -67,18 +67,8 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         holder.mPostUserName.setText(postUserName);
         holder.mPostTitle.setText(post.getTitle());
         holder.mPostDescription.setText(post.getDescription());
-        holder.mPostPrice.setText(post.getPrice());
         holder.mPostDate.setText(DateUtil.getTimeText(post.getCreated()));
         holder.mPostConditionItem.setText(post.getCondition().getName());
-        if (position % 2 == 0) {
-            holder.mPostStatus.setText("Sold");
-            holder.mPostSold.setBackgroundColor(mContext.getResources().getColor(R.color
-                    .item_sold));
-        } else {
-            holder.mPostStatus.setVisibility(View.INVISIBLE
-            );
-
-        }
 
         if (comments != null) {
             comment = comments.get(0);
@@ -108,9 +98,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         public TextView mPostTitle;
         public TextView mPostDescription;
         public TextView mPostDate;
-        public TextView mPostPrice;
         public TextView mPostConditionItem;
-        public TextView mPostStatus;
         public View mPostSold;
         public ImageView mPostFirstImage;
         public ImageView mPostCommentUserImage;
@@ -126,10 +114,8 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mPostUserName = (TextView) itemLayoutView.findViewById(R.id.user_name);
             mPostTitle = (TextView) itemLayoutView.findViewById(R.id.post_title);
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
-            mPostPrice = (TextView) itemLayoutView.findViewById(R.id.post_price);
             mPostDate = (TextView) itemLayoutView.findViewById(R.id.post_time);
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
-            mPostStatus = (TextView) itemLayoutView.findViewById(R.id.post_status);
             mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentUserName = (TextView) itemLayoutView.findViewById(R.id.user_name_comment);

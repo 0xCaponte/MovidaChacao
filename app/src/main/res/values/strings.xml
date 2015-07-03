@@ -72,7 +72,7 @@
     <string name="app_device_not_supported">This device is not supported.</string>
 
     <!-- Home-->
-    <string name="home_post_item_comments">%1$d comments</string>
+    <string name="home_post_item_comments">%1$d comentario</string>
     <string name="home_tutorial_btn_home">Browse items to buy</string>
     <string name="home_tutorial_btn_add">Post items to sell or find</string>
     <string name="home_tutorial_btn_profile">Your Profile</string>

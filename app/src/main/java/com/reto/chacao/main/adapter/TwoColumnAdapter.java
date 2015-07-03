@@ -65,16 +65,10 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
 
         holder.mPostTitle.setText(post.getTitle());
         holder.mPostDescription.setText(post.getDescription());
-        holder.mPostPrice.setText(post.getPrice());
         holder.mPostConditionItem.setText(post.getCondition().getName());
         if (position % 2 == 0) {
-            holder.mPostStatus.setText("Sold");
             holder.mPostSold.setBackgroundColor(mContext.getResources().getColor(R.color
-                    .item_sold));
-        } else {
-            holder.mPostStatus.setVisibility(View.INVISIBLE
-            );
-
+                    .happening));
         }
 
         if (comments != null) {
@@ -104,10 +98,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
         public ImageView mPostFirstImage;
         public TextView mPostCommentNumber;
         public RelativeLayout mPostComment;
-        public ImageView mPostCommentLike;
-        public TextView mPostPrice;
         public TextView mPostConditionItem;
-        public TextView mPostStatus;
         public View mPostSold;
 
 
@@ -117,9 +108,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             mPostUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image);
             mPostTitle = (TextView) itemLayoutView.findViewById(R.id.post_title);
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
-            mPostPrice = (TextView) itemLayoutView.findViewById(R.id.post_price);
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
-            mPostStatus = (TextView) itemLayoutView.findViewById(R.id.post_status);
             mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentNumber = (TextView) itemLayoutView.findViewById(R.id.text_more_comments);
