@@ -124,8 +124,6 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         mAddCommentButton.setOnClickListener(this);
         mBackButton = (ImageView) view.findViewById(R.id.detail_top_toolabar_back_button);
         mBackButton.setOnClickListener(this);
-        mFlagButton = (ToggleButton) view.findViewById(R.id.fragment_toolbar_flag_button);
-        mFlagButton.setOnClickListener(this);
     }
 
 

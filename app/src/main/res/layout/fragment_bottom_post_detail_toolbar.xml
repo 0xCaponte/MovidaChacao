@@ -9,14 +9,6 @@
         android:clickable="true"
         android:src="@drawable/btn_comment2x"/>
 
-    <ToggleButton
-        android:id="@+id/fragment_toolbar_flag_button"
-        style="@style/centerIconFragmentToolbar"
-        android:textOn=""
-        android:textOff=""
-        android:checked="false"
-        android:background="@drawable/selector_for_flag_icon"/>
-
     <Button
         android:id="@+id/detailPostBuyButton"
         style="@style/RightIconFragmentToolbar"

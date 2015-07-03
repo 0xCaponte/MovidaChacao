@@ -50,10 +50,8 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
     private void setViews(View itemView) {
         mImageViewPager = (ViewPager) itemView.findViewById(R.id.viewPager);
         mCirclePageIndicator = (CirclePageIndicator) itemView.findViewById(R.id.viewPagerIndicator);
-        mPostOwnerProfileImage = (NetworkImageView) itemView.findViewById(R.id.commentOwnerImage);
         mPostOwnerNameText = (TextView) itemView.findViewById(R.id.commentOwnerName);
         mPostOwnerCommentText = (TextView) itemView.findViewById(R.id.commentOwnerText);
-        mAddCommentButton = (Button) itemView.findViewById(R.id.detailPostMessageToSellerButton);
         mCommentCountText = (TextView) itemView.findViewById(R.id.detailPostCommentCountText);
 
     }
@@ -62,7 +60,6 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
         mPostDetailImageAdapter = new DetailPostViewPagerAdapter(itemView.getContext());
         mImageViewPager.setAdapter(mPostDetailImageAdapter);
         mCirclePageIndicator.setViewPager(mImageViewPager);
-        mAddCommentButton.setOnClickListener(this);
     }
 
 
