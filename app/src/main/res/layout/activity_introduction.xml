@@ -21,7 +21,8 @@
             android:horizontalSpacing="5dp"
             android:numColumns="1"
             android:stretchMode="spacingWidthUniform"
-            android:verticalSpacing="10dp" />
+            android:verticalSpacing="10dp"
+            android:scrollbars="none"/>
 
         <GridView
             android:id="@+id/right_grid_view"
@@ -36,7 +37,8 @@
             android:horizontalSpacing="5dp"
             android:numColumns="1"
             android:stretchMode="spacingWidthUniform"
-            android:verticalSpacing="10dp" />
+            android:verticalSpacing="10dp"
+            android:scrollbars="none"/>
     </LinearLayout>
 
     <LinearLayout

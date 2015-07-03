@@ -21,13 +21,13 @@ public class DateUtil {
         long diffInDays = TimeUnit.MILLISECONDS.toDays(diff);
 
         if (diffMinutes <= 0) {
-            return diffSeconds + " seconds ago";
+            return diffSeconds + " segs atrás";
         } else if (diffMinutes > 0 & diffHours <= 0) {
-            return diffMinutes + " mins ago";
+            return diffMinutes + " mins atrás";
         } else if (diffHours > 0 & diffInDays <= 0) {
-            return diffHours + " hours ago";
+            return diffHours + " horas atrás";
         }
 
-        return diffInDays + " days go";
+        return diffInDays + " días atrás";
     }
 }

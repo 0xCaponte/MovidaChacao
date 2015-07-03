@@ -17,6 +17,7 @@ import com.facebook.login.widget.LoginButton;
 import com.reto.chacao.R;
 import com.reto.chacao.login.adapter.IntroductionAdapter;
 import com.reto.chacao.login.fragment.FacebookSingUpScreenFragment;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
@@ -168,7 +169,7 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
                 //Usuario no uso facebook
                 UserUtil.setFacebookRegister(this, false);
 
-                AppUtil.runActivity(TermsAndConditionActivity.class, this);
+                AppUtil.runActivity(MovidaMainActivity.class, this);
                 break;
         }
 

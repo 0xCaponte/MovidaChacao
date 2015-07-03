@@ -64,7 +64,8 @@
                         android:textIsSelectable="true"
                         android:maxLines="2"
                         android:minLines="1"
-                        android:textSize="@dimen/item_post_list_description_text_size"/>
+                        android:textSize="@dimen/item_post_list_description_text_size"
+                        />
                 </LinearLayout>
 
                 <TextView
@@ -90,20 +91,6 @@
                     android:clickable="true"
                     android:src="@drawable/item1"/>
 
-                <TextView
-                    android:id="@+id/post_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/item_post_list_price_height"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/price_overlay_drawable"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/item_post_list_price_padding"
-                    android:paddingRight="@dimen/item_post_list_price_padding"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/item_post_list_price_text_size"
-                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -113,19 +100,6 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/post_status"
-                        android:layout_width="@dimen/item_post_list_status_width"
-                        android:layout_height="@dimen/item_post_list_status_height"
-                        android:background="@drawable/status_overlay_drawable"
-                        android:gravity="center"
-                        android:paddingLeft="@dimen/item_post_list_status_padding"
-                        android:paddingRight="@dimen/item_post_list_status_padding"
-                        android:text="Sold"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/item_post_list_price_text_size"
-                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/post_condition"
@@ -197,18 +171,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/item_post_list_comment_date"/>
+                    android:textSize="@dimen/item_post_list_comment_date"
+                    />
 
-                <ImageButton
-                    android:id="@+id/btn_post_first_comment_like"
-                    android:layout_width="@dimen/item_post_list_like_size"
-                    android:layout_height="@dimen/item_post_list_like_size"
-                    android:layout_below="@+id/user_image_comment"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_like"/>
 
                 <RelativeLayout
                     android:id="@+id/btn_post_more_comments"

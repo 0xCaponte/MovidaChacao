@@ -30,6 +30,7 @@
     <color name="background_status_item">#CCD0021B</color>
     <color name="item_sold">#D0021B</color>
     <color name="background_column_unchecked">#bebfc3</color>
+    <color name="happening">#00DFCB</color>
 
     <!-- Add Post -->
     <color name="background_screen">#363b4a</color>
