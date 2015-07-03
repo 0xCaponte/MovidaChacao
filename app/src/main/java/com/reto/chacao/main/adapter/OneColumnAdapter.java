@@ -119,8 +119,6 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         public TextView mPostCommentDate;
         public TextView mPostCommentNumber;
         public RelativeLayout mPostComment;
-        public ImageView mPostCommentLike;
-
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
@@ -134,16 +132,13 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mPostStatus = (TextView) itemLayoutView.findViewById(R.id.post_status);
             mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
-            mPostCommentUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image_comment);
             mPostCommentUserName = (TextView) itemLayoutView.findViewById(R.id.user_name_comment);
             mPostCommentBody = (TextView) itemLayoutView.findViewById(R.id.comment_text);
             mPostCommentDate = (TextView) itemLayoutView.findViewById(R.id.comment_time);
             mPostCommentNumber = (TextView) itemLayoutView.findViewById(R.id.text_more_comments);
-            mPostCommentLike = (ImageButton) itemLayoutView.findViewById(R.id.btn_post_first_comment_like);
             mPostComment = (RelativeLayout) itemLayoutView.findViewById(R.id
                     .btn_post_more_comments);
             mPostComment.setOnClickListener(this);
-            mPostCommentLike.setOnClickListener(this);
             mPostFirstImage.setOnClickListener(this);
         }
 
@@ -155,9 +150,6 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
                     break;
                 case R.id.btn_post_more_comments:
                     mListener.postMoreCommentClick(v, getAdapterPosition());
-                    break;
-                case R.id.btn_post_first_comment_like:
-                    mListener.postCommentLikeClick(v, getAdapterPosition());
                     break;
             }
         }

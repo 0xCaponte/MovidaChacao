@@ -73,7 +73,7 @@
         <item name="android:layout_margin">@dimen/standard_margin</item>
         <item name="android:layout_height">@dimen/standard_size_icons_dimen_points</item>
         <item name="android:layout_width">@dimen/standard_size_icons_dimen_points</item>
-        <item name="android:background">#00DFCB</item>
+        <item name="android:background">#FFA22C</item>
     </style>
 
     <style name="postDetailCommentContainer">

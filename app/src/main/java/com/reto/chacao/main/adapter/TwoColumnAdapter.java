@@ -124,9 +124,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentNumber = (TextView) itemLayoutView.findViewById(R.id.text_more_comments);
             mPostComment = (RelativeLayout) itemLayoutView.findViewById(R.id.btn_post_more_comments);
-            mPostCommentLike = (ImageButton) itemLayoutView.findViewById(R.id.btn_post_first_comment_like);
             mPostFirstImage.setOnClickListener(this);
-            mPostCommentLike.setOnClickListener(this);
             mPostComment.setOnClickListener(this);
         }
 
@@ -135,9 +133,6 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             switch (v.getId()) {
                 case R.id.post_main_image:
                     mListener.postTwoColumnViewListClicked(v, getAdapterPosition());
-                    break;
-                case R.id.btn_post_first_comment_like:
-                    mListener.postTwoCommentLikeClick(v, getAdapterPosition());
                     break;
                 case R.id.btn_post_more_comments:
                     mListener.postTwoMoreCommentClick(v, getAdapterPosition());
