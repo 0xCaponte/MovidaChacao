@@ -130,7 +130,6 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/small_margin_payments"
                     android:background="@color/GrisLigero"
-                    android:prompt="@string/spinner_category_promtp"
                     android:spinnerMode="dialog"/>
 
                 <ImageView
@@ -151,7 +150,6 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/small_margin_payments"
                     android:background="@color/GrisLigero"
-                    android:prompt="@string/spinner_category_promtp"
                     android:spinnerMode="dialog"/>
 
                 <ImageView

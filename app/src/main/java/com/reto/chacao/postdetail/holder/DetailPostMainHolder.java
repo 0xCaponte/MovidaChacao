@@ -35,7 +35,6 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
 
     private TextView mCommentCountText;
 
-    private Button mAddCommentButton;
 
     private Context mContext;
 
@@ -69,10 +68,6 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
         }
     }
 
-
-    public Button getAddCommentButton() {
-        return mAddCommentButton;
-    }
 
 
     public NetworkImageView getPostOwnerProfileImage() {

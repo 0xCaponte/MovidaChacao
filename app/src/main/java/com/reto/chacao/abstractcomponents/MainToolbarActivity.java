@@ -44,6 +44,8 @@ abstract public class MainToolbarActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(myToolbar);
         mToolbar.setContentInsetsAbsolute(0, 0);
         setSupportActionBar(mToolbar);
+/*        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);*/
 
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage(getString(R.string.progress_dialog_message));

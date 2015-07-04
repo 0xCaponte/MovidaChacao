@@ -74,7 +74,7 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
         //Setting data for the first spinner
         Spinner mCategorySpinner = (Spinner) mRootView.findViewById(R.id.first_category_spinner);
         ArrayAdapter<String> mSpinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, testData);
-        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCategorySpinner.setAdapter(mSpinnerAdapter);
         mCategorySpinner.setOnItemSelectedListener(this);
 

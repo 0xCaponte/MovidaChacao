@@ -10,12 +10,16 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -55,6 +59,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         View.OnClickListener, OneColumnAdapter.PostViewClickListener, TwoColumnAdapter.PostTwoColumnViewClickListener {
 
     private static final String TAG = "HomeScreen-Fragment";
+    private static final long TUTORIAL_SCREEN = 2000;
+    ImageSpan imageSpan;
+    SpannableString content;
     private RelativeLayout mFilterLayout;
     private ToggleButton mFilterToggle;
     private ToggleButton mOneColumnToggle;
@@ -65,15 +72,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private TwoColumnAdapter mTwoColumnsAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private RelativeLayout mTutorial;
-    private static final long TUTORIAL_SCREEN = 2000;
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
-
-
-
-    ImageSpan imageSpan;
-
-    SpannableString content;
+    private Toolbar mToolbar;
 
     public HomeScreenFragment() {
         super();
@@ -85,6 +86,29 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("onOptionsItemSelected", "yes");
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                call_dialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -92,10 +116,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         setViews(root);
         setToolBar(root);
 
+        mToolbar = (Toolbar) root.findViewById(R.id.home_top_toolbar); // Attaching the layout to
+/*
         ImageView settingsButton = (ImageView) root.findViewById(R.id.user_profile_settings);
         settingsButton.setOnClickListener(this);
         ImageView settingsButton2 = (ImageView) root.findViewById(R.id.toolbar_search_button);
-        settingsButton2.setOnClickListener(this);
+        settingsButton2.setOnClickListener(this);*/
 
         if (UserUtil.getFirstTimeHome(getActivity()))
             mTutorial.setVisibility(View.GONE);
@@ -215,18 +241,13 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 mTutorial.setVisibility(View.GONE);
                 UserUtil.setFirstTimeHome(getActivity());
                 break;
-            case R.id.user_profile_settings:
-                getFragmentListener().goToFragment(new SettingsFragment());
-                break;
-            case R.id.toolbar_search_button:
-                call_dialog();
 
         }
     }
 
-    private void response_dialog(String mesagge){
+    private void response_dialog(String mesagge) {
         AlertDialog ad = new AlertDialog.Builder(getActivity())
-                        .create();
+                .create();
         ad.setCancelable(false);
         ad.setTitle("Repuesta");
         ad.setMessage(mesagge);
@@ -239,7 +260,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         ad.show();
     }
 
-    private void call_dialog(){
+    private void call_dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Title");
 
@@ -258,11 +279,11 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 try {
                     dbHelper.onCreate(db);
-                }catch (Exception err){
+                } catch (Exception err) {
                     err.printStackTrace();
                 }
                 List<Event> events = dbHelper.getBySearch(input.getText().toString());
-                for(Event e : events){
+                for (Event e : events) {
                     Toast t = Toast.makeText(getActivity(), e.getName(), Toast.LENGTH_LONG);
                     t.show();
 //                    response_dialog(e.getName());
@@ -331,8 +352,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         Post post = new Post();
         post.setPost_id(1);
         post.setTitle("1ra Carrera Anual de Botes");
-        post.setDescription("1ra Carrera Anual de Botes patrocinada por la Alcadía de Chacao " +
-                "asdasd asd asd  asdas asd asd ");
+        post.setDescription("1ra Carrera Anual de Botes organizada por la Alcadía de Chacao con " +
+                "el fin de conscientizar sobre el uso del agua. Este evento se llevará acabo el día 18 de julio con el patrocinio de Evenpro.");
         ItemCondition condition = new ItemCondition();
         condition.setId(0);
         condition.setName("Ahora");

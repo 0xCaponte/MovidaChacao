@@ -122,8 +122,6 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         mDetailCommentChatSendButton.setOnClickListener(this);
         mAddCommentButton = (ImageView) view.findViewById(R.id.fragment_toolbar_comment_button);
         mAddCommentButton.setOnClickListener(this);
-        mBackButton = (ImageView) view.findViewById(R.id.detail_top_toolabar_back_button);
-        mBackButton.setOnClickListener(this);
     }
 
 
@@ -155,8 +153,6 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
             mDetailPostAdapter.notifyDataSetChanged();
 
             mChatContainer.setVisibility(View.GONE);
-            mDetailPostAdapter.mDetailPostMainHolder.getAddCommentButton().setVisibility(View.VISIBLE);
-
         }
 
     }
@@ -194,7 +190,6 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         boolean flag = true;
         if (mChatContainer.getVisibility() == View.VISIBLE) {
             mChatContainer.setVisibility(View.GONE);
-            mDetailPostAdapter.mDetailPostMainHolder.getAddCommentButton().setVisibility(View.VISIBLE);
             flag = false;
         }
         return flag;

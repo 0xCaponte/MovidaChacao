@@ -1,37 +1,37 @@
 <android.support.v7.widget.Toolbar
     android:id="@+id/bottomToolbar"
     style="@style/homeBottomToolbar"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        style="@style/toolbar_borders"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/toolbar_home_button"
             style="@style/homeBottomToolbarButtons"
-            android:layout_height="@dimen/home_bottom_toolbar_others"
+            android:layout_height="40dp"
             android:clickable="true"
             android:layout_gravity="center"
-            android:src="@drawable/icon_home"/>
+            android:src="@drawable/ic_home"/>
 
         <ImageView
             android:id="@+id/toolbar_go_to_AR"
             style="@style/homeBottomToolbarButtons"
-            android:layout_height="@dimen/home_bottom_toolbar_post"
+            android:layout_height="40dp"
             android:clickable="true"
             android:layout_gravity="center"
-            android:src="@drawable/btn_post2x"/>
+            android:src="@drawable/ic_radar"/>
 
         <ImageView
             android:id="@+id/toolbar_go_to_map"
             style="@style/homeBottomToolbarButtons"
-            android:layout_height="@dimen/home_bottom_toolbar_others"
+            android:layout_height="35dp"
             android:clickable="true"
             android:layout_gravity="center"
-            android:src="@drawable/btn_profile2x"/>
+            android:src="@drawable/ic_map"/>
     </LinearLayout>
 
 </android.support.v7.widget.Toolbar>

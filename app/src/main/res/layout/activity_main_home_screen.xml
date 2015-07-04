@@ -4,6 +4,10 @@
                 android:layout_height="match_parent">
 
 
+    <include
+        android:id="@+id/home_top_toolbar"
+        layout="@layout/main_toolbar"/>
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="fill_parent"

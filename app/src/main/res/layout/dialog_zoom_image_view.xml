@@ -15,7 +15,7 @@
         android:src="@drawable/btn_close"/>
 
 
-    <teravision.com.clamour.view.ZoomImageView
+    <com.reto.chacao.view.ZoomImageView
         android:id="@+id/zoomImage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/image_view_pager_container_height"

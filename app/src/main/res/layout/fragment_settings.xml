@@ -4,16 +4,9 @@
                 android:background="@color/black_divider_payment"
     >
 
-    <include layout="@layout/toolbar_settings"
-             android:id="@+id/settings_toolbar"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_alignParentTop="true"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/settings_toolbar"
         >
 
         <LinearLayout
@@ -33,12 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_margin"/>
-
-            <include
-                layout="@layout/settings_account_privacy_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin" />
 
         </LinearLayout>
 

@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
+    <color name="ColorPrimary">#FFFF7601</color>
+    <color name="ColorPrimaryDark">#ffdf7201</color>
     <color name="black">#000000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="black_overlay">#77000000</color>
