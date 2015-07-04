@@ -76,8 +76,66 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "pl_longitude FLOAT," +
             "PRIMARY KEY (pl_id, pl_id_event))";
 
+
     public DataBaseHelper(Context context) {
         super(context, NAME, FACTORY, VERSION);
+    }
+
+    private void load_data(SQLiteDatabase db){
+        //ev1
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Proidiomas','DIR: Centro Plaza, Torre B, piso 6','Idioma;','Cultura','Fijo')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'Centro Plaza', 10.497661, -66.846371)");
+        //ev2
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_url,ev_type) VALUES ('Cursos de Portugues','Quinta 65, 6ta Transversal con Av San Juan Bosco, Caracas\n" +
+                "0212-2679107','Idioma','Cultura','www.icbv.org.ve','Fijo')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (2,2,'Instituto Cultural Brasil-Venezuela', 10.504211, -66.851001)");
+
+        //ev3
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Cursos de Frances','Quinta Wilmarú Avenida Mohedano, Caracas\n" +
+                "0212-2644611','Idioma;','Cultura','Fijo')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (3,3,'Alianza Francesa', 10.503536, -66.857572)");
+
+        //ev4
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Cursos de Aleman','Torre Altávila, Avenida Luis Roche\n" +
+                "+ 58 212 814 3030','Idioma;','Cultura','Fijo')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (4,4,'Goethe-Institut Caracas', 10.501405, -66.848544)");
+
+        //ev5 PDVSA La estancia
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Yoga PDVSA La Estancia','Horarios\n" +
+                "Martes: 5:30PM a 6:30PM\n" +
+                "Sábados: 11:00AM a 12:00M\n" +
+                "Para la mujer embarazada:\n" +
+                "Jueves: 5:30PM a 6:30PM\n" +
+                "Viernes: 11:00AM a 12:00M','Fitness;','Deporte','Movil')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (5,5,'PDVSA La Estancia', 10.495116, -66.847530)");
+
+        //ev6 Centro Cultura Cacao
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('CCS FORUM 2015','Larry Black\n" +
+                "cssforum2015@gmail.com\n" +
+                "Centro Cultural Chacao Av.Tamanaco. El Rosal','Ponencia;','Cultura','Movil')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (6,6,'Centro Cultural Chacao', 10.490290, -66.863381)");
+
+        //ev7 Sala Cabrujas
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_dateEnd,ev_type) VALUES ('Charla sobre Festival Nuevas Bandas','Sala Cabrujas 7pm','Musica;Concierto','Cultura','07/07/2015','Movil')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (7,7,'Sala Cabrujas', 10.497285, -66.843743)");
+
+        //ev8 Eugenio Mendoza
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (8,0,'Polideportivo Eugenio Medoza', 10.504332, -66.856002)");
+
+        //ev9
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('FOTOMARATÓN ACNUR','El FOTOMARATÓN ACNUR,  es un concurso de fotografía, una actividad de entretenimiento dirigido a los aficionados de las fotos, donde deberán interpretar un tema a través de imágenes.\n" +
+                "\n" +
+                "Sin importar el grado de conocimiento que se posea del lenguaje fotográfico, el objetivo del FOTOMARATÓN es que puedan vivir la experiencia de retratar la ciudad y sus habitantes en el marco de una campaña en específico.\n" +
+                "Punto de Salida: Plaza Miranda, Altamira','Carrera;Fotografia','Cultura','Movil')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (9,9,'Plaza Miranda', 10.504595, -66.851025)");
+
+        //ev10
+        db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Yoga Parque Miranda','Parque Miranda','Fitness','Deporte','Fijo')");
+        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (10,10,'Parque Miranda', 10.4941731, -66.8456668)");
+
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (1,'new1','descripcion 1')");
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (2,'new2','descripcion 2')");
+        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (3,'new3','descripcion 3')");
     }
 
     @Override
@@ -89,20 +147,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_REPORT);
         db.execSQL(CREATE_PLACE);
 
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (1,'event1','descripcion 1','Teatro;Festival;','Cultura')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (2,'event2','descripcion 2','Carrera;Fitness','Deporte')");
-        db.execSQL("INSERT INTO event (ev_id,ev_name,ev_description,ev_tags,ev_type) VALUES (3,'event3','descripcion 3','Festival;Idiomas','Cultura')");
-
-        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'place1', 10.496321, -66.848892)");
-        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,2,'place1', 10.496321, -66.848892)");
-        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (2,2,'place2', 10.503574, -66.857480)");
-        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (3,3,'place3', 10.496699, -66.841161)");
-        db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (4,3,'place4', 10.497548, -66.856450)");
-
-
-        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (1,'new1','descripcion 1')");
-        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (2,'new2','descripcion 2')");
-        db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (3,'new3','descripcion 3')");
+        load_data(db);
     }
 
     @Override
@@ -186,11 +231,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return ret;
 
     }
+
     public Boolean updateEvent(JSONArray args){
-        Log.e(LOG,"Actualizando");
+        Log.e(LOG, "Actualizando");
         return true;
     }
-    public Boolean deleteEvent(int id){
+    public Boolean deleteEvent(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String values[] = {Integer.toString(id)};
         boolean ret = true;

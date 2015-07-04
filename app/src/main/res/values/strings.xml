@@ -11,25 +11,25 @@
     <string name="btn_sign_email">No Registrarse</string>
     <string name="btn_sign_facebook">Registrarse con Facebook</string>
     <string name="btn_log_in">Acceder</string>
-    <string name="introduction_verification_info">We just send you an email with a verification code. Please check your email and enter the code here to activate the account</string>
-    <string name="introduction_verification_code_hint">Verification code</string>
-    <string name="introduction_verification_btn_text">Verify</string>
-    <string name="introduction_verification_lost">Lost verification code?</string>
-    <string name="introduction_get_verification_code">Get verification code</string>
+    <string name="introduction_verification_info">Acabamos de enviarte un correo con un codigo de verificacion. Por favor revisa tu correo e ingresa el codigo aqui para activar tu cuenta</string>
+    <string name="introduction_verification_code_hint">Codigo de verificacion</string>
+    <string name="introduction_verification_btn_text">Verificar</string>
+    <string name="introduction_verification_lost">¿Perdiste el codigo de verificacion?</string>
+    <string name="introduction_get_verification_code">Obten tu codigo de verificacion</string>
 
     <!--Login Screen Values-->
-    <string name="sing_up_screen_first_name_label">First Name</string>
-    <string name="sing_up_screen_last_name_label">Last Name</string>
+    <string name="sing_up_screen_first_name_label">Nombre</string>
+    <string name="sing_up_screen_last_name_label">Apellido</string>
     <string name="login_screen_email_label">Email</string>
-    <string name="login_screen_password_label">Password</string>
-    <string name="login_screen_forgot_password">Forgot password?</string>
-    <string name="login_screen_or">or</string>
-    <string name="number_error">Is not a valid number</string>
-    <string name="email_error">Is not a valid email address</string>
-    <string name="field_required">This field is required</string>
-    <string name="email_request">Please enter your email address</string>
-    <string name="button_next">Next</string>
-    <string name="button_buy">Buy</string>
+    <string name="login_screen_password_label">Clave</string>
+    <string name="login_screen_forgot_password">¿Olvidate tu contraseña?</string>
+    <string name="login_screen_or">o</string>
+    <string name="number_error">Es un numero invalido</string>
+    <string name="email_error">No es un email valido</string>
+    <string name="field_required">Este campo es obligatorio</string>
+    <string name="email_request">Por favor ingresa tu correo electronico</string>
+    <string name="button_next">Siguiente</string>
+    <string name="button_buy">Comprar</string>
 
 
     <!--Facebook-->
@@ -37,53 +37,53 @@
     <string name="facebook_button_login">Facebook</string>
 
     <!-- Geolocatation -->
-    <string name="geolocation_toolbar_text">Find groups near you</string>
-    <string name="geolocation_title">Let us detect where you are located</string>
-    <string name="geolocation_btn_current_location">Current location</string>
-    <string name="geolocation_enter_manually">Manually enter your zip code</string>
-    <string name="geolocation_alert_message">Are you sure you want to send the zip code
+    <string name="geolocation_toolbar_text">Encuentra grupos cerca de ti</string>
+    <string name="geolocation_title">Vamos de detectar donde se encuentra</string>
+    <string name="geolocation_btn_current_location">Localizacion actual</string>
+    <string name="geolocation_enter_manually">Ingrese tu codigo zip</string>
+    <string name="geolocation_alert_message">¿Estas seguro que deseas enviar el codigo zip
         %1$s?</string>
-    <string name="geolocation_alert_positive">Yes</string>
+    <string name="geolocation_alert_positive">Si</string>
     <string name="geolocation_alert_negative">No</string>
     <string name="geolocation_zip_code_hint">10003</string>
 
     <!-- Groups -->
-    <string name="groups_init_toolbar_text">Groups near you</string>
-    <string name="groups_init_title">We found %1$d groups near you!</string>
-    <string name="groups_init_sub_title">Select as many group as you wish to join and the group moderator will get back to you</string>
-    <string name="groups_init_button_text">Request invites</string>
-    <string name="groups_init_empty_title">Sorry, there\'s no group near you yet</string>
-    <string name="groups_init_empty_sub_title">We will email you as soon as we have a group near you</string>
+    <string name="groups_init_toolbar_text">Grupos cerca de ti</string>
+    <string name="groups_init_title">Encontrarmos %1$d grupos cerca de ti</string>
+    <string name="groups_init_sub_title">Selecciona los grupos a los cuales te deseas unir y el moderador del grupo te respondera</string>
+    <string name="groups_init_button_text">Solicitar invitacion</string>
+    <string name="groups_init_empty_title">No hay grupos cerca</string>
+    <string name="groups_init_empty_sub_title">Te contactaremos tan pronto como tengamos un grupo cerca de ti</string>
     <string name="groups_init_empty_okay_button">Okay</string>
-    <string name="groups_init_empty_start_group">You can also start your own group</string>
-    <string name="groups_init_empty_start_group_button">Start my own group</string>
-    <string name="groups_init_dialog">Getting groups...</string>
-    <string name="groups_init_dialog_request">Sending groups request...</string>
+    <string name="groups_init_empty_start_group">Tu tambien puedes crear tu propio grupo</string>
+    <string name="groups_init_empty_start_group_button">Empezar mi propio grupo</string>
+    <string name="groups_init_dialog">Obteniendo grupos...</string>
+    <string name="groups_init_dialog_request">Enviando peticion a grupos...</string>
 
 
     <!--Application Messages-->
-    <string name="progress_dialog_message">Please Wait...</string>
-    <string name="device_type_smartphone">SmartPhone</string>
-    <string name="device_type_tablet">tablet</string>
+    <string name="progress_dialog_message">Por favor espere...</string>
+    <string name="device_type_smartphone">Telefono inteligente</string>
+    <string name="device_type_tablet">Tablet</string>
 
     <!--Application Error Messages-->
-    <string name="facebook_login_error">Error trying to login with facebook, try it later!</string>
-    <string name="app_login_error">Error trying to login, try it later!</string>
-    <string name="app_device_not_supported">This device is not supported.</string>
+    <string name="facebook_login_error">Error iniciando sesion con facebook, por favor intente mas tarde</string>
+    <string name="app_login_error">Error iniciando sesion, por favor intente mas tarde</string>
+    <string name="app_device_not_supported">Este dispositvo no esta soportado</string>
 
     <!-- Home-->
     <string name="home_post_item_comments">%1$d comentario</string>
-    <string name="home_tutorial_btn_home">Browse items to buy</string>
-    <string name="home_tutorial_btn_add">Post items to sell or find</string>
-    <string name="home_tutorial_btn_profile">Your Profile</string>
-    <string name="home_popup_btn_text_add">Post an item to sell</string>
-    <string name="home_popup_btn_text_search">I\'m in search of...</string>
+    <string name="home_tutorial_btn_home"> Busca articulos para comprar</string>
+    <string name="home_tutorial_btn_add">Publica articulos para buscar o vender</string>
+    <string name="home_tutorial_btn_profile">Tu perfil</string>
+    <string name="home_popup_btn_text_add">Publica un objeto para vender</string>
+    <string name="home_popup_btn_text_search">Estoy buscando...</string>
 
     <!-- Filter-->
     <string name="filter_toolbar_title">Filtrar</string>
-    <string name="filter_toolbar_btn_text">Save</string>
-    <string name="filter_item_condition_header">Item Condition</string>
-    <string name="filter_category_header">Item Category</string>
+    <string name="filter_toolbar_btn_text">Guardar</string>
+    <string name="filter_item_condition_header">Condicion</string>
+    <string name="filter_category_header">Categoria</string>
     <!--Array list of groups only for test proposals-->
     <string-array name="group_arrays">
         <item>Pinecrest Marketplace</item>
@@ -91,108 +91,107 @@
         <item>Ulises\'s Harris Hood</item>
     </string-array>
 
-    <string name="group_prompt">Choose a Group</string>
+    <string name="group_prompt">Escoge un grupo</string>
 
     <!--Add Post-->
-    <string name="add_post_main_image_title">Main thumbnail image</string>
-    <string name="add_post_toolbar_title">Post an item to sell</string>
-    <string name="add_post_button">Post this item</string>
-    <string name="add_post_title">What are you selling?</string>
-    <string name="add_post_category">Lets make it easy for people to find it</string>
-    <string name="add_post_price">For how much?</string>
-    <string name="add_post_location_hint">Location</string>
-    <string name="add_post_original_price">The original price</string>
-    <string name="add_post_credit_card">Credit card processing fee: %1$s</string>
-    <string name="add_post_condition">What\'s the condition of the item?</string>
-    <string name="add_post_description">Add a description (text in bold wil be shown in
-        thumbnail</string>
+    <string name="add_post_main_image_title">Imagen principal</string>
+    <string name="add_post_toolbar_title">Publica un objeto para vender</string>
+    <string name="add_post_button">Publica este objeto</string>
+    <string name="add_post_title">¿Que estas vendiendo?</string>
+    <string name="add_post_category">Vamos a hacer que sea facil para la gente encontrarlo</string>
+    <string name="add_post_price"> ¿Por cuanto?</string>
+    <string name="add_post_location_hint">Lugar</string>
+    <string name="add_post_original_price">Precio original</string>
+    <string name="add_post_credit_card">Procesan el impuesto de la tarjeta de credito: %1$s</string>
+    <string name="add_post_condition">¿Cual es el estado del objeto?</string>
+    <string name="add_post_description">Agrega una descripcion</string>
 
     <!-- Search Post -->
-    <string name="search_post_toolbar_title">I\'m in search of...</string>
-    <string name="search_post_title">What are you looking for?</string>
-    <string name="search_post_category">Lets make it easy for people to respond</string>
-    <string name="search_post_price">How much do you want to spend?</string>
-    <string name="search_post_comment">Add a comment</string>
-    <string name="search_post_button">Send out this search</string>
+    <string name="search_post_toolbar_title">Estoy buscando...</string>
+    <string name="search_post_title">¿Que estas buscando?</string>
+    <string name="search_post_category">Vamos a hacer que sea para la gente responder</string>
+    <string name="search_post_price">¿Cuanto quieres gastar?</string>
+    <string name="search_post_comment">Agrega un comentario</string>
+    <string name="search_post_button">Envia esta busqueda</string>
 
     <!-- Payment Method Selection -->
-    <string name="payment_selection_message">You are so close to getting this item!</string>
-    <string name="payment_method_title">Payment method</string>
-    <string name="credit_card_button">Pay with Credit Card</string>
-    <string name="paypal_button">Pay with PayPal</string>
-    <string name="cash_payment_button">Pay with Cash</string>
-    <string name="toolbar_payments_options_title">Choose payment</string>
-    <string name="title_activity_payment_selection">PaymentSelectionActivity</string>
+    <string name="payment_selection_message">Estas muy cerca de obtener este objeto</string>
+    <string name="payment_method_title">Metodo de pago</string>
+    <string name="credit_card_button">Paga con Tarjeta de Credito</string>
+    <string name="paypal_button">Paga con PayPal</string>
+    <string name="cash_payment_button">Pago en efectivo</string>
+    <string name="toolbar_payments_options_title">Escoger metodo de pago</string>
+    <string name="title_activity_payment_selection">ActividadSeleccionMetodoDePago</string>
     <string name="description_zoom_touch_close">Prueba</string>
 
     <!-- Payment Finish Purchase -->
-    <string name="payments_finish_toolbar_title">Congratulations!</string>
-    <string name="payments_finish_toolbar_subtitle">This item can\'t wait to go home with you.</string>
-    <string name="banner_finish_payment_message">You reserved (purchased, if global group):</string>
-    <string name="option_finish_payment_message">Here\'s what you can do next:</string>
-    <string name="contact_seller_finish_payment">Message the seller</string>
-    <string name="view_item_finish_paymet">View item</string>
-    <string name="back_group_finish_payment">Back to {Group Name}</string>
-    <string name="share_facebook_finish_payment">Share on Facebook</string>
-    <string name="share_twitter_finish_payment">Share on Twitter</string>
+    <string name="payments_finish_toolbar_title">Felicitacion</string>
+    <string name="payments_finish_toolbar_subtitle">Este objeto no puede esperar a ir a casa contigo</string>
+    <string name="banner_finish_payment_message">You reserva:</string>
+    <string name="option_finish_payment_message">Aqui esta lo que puedes hacer despues:</string>
+    <string name="contact_seller_finish_payment">Mensaje al vendedor</string>
+    <string name="view_item_finish_paymet">Ver objeto</string>
+    <string name="back_group_finish_payment">Ir a {Group Name}</string>
+    <string name="share_facebook_finish_payment">Compartir en Facebook</string>
+    <string name="share_twitter_finish_payment">Compartir en Twitter</string>
 
     <!-- Message the Seller -->
-    <string name="message_seller_toolbar_title">Message the seller</string>
-    <string name="empty_comment_chat_hint">What would you like to say</string>
-    <string name="message_seller_banner_text">Congratulations! This item can\'t wait to go home with you.</string>
-    <string name="send_button_text">Send</string>
-    <string name="title_activity_credit_card_payment">CreditCardPaymentActivity</string>
+    <string name="message_seller_toolbar_title">Mensaje al vendedor</string>
+    <string name="empty_comment_chat_hint">¿Que te gustaria decir?</string>
+    <string name="message_seller_banner_text">Felicidades, este objeto no puede esperar ir a casa contigo.</string>
+    <string name="send_button_text">Enviado</string>
+    <string name="title_activity_credit_card_payment">ActividadTarjetaDeCreditoPago</string>
 
     <!-- Notification -->
-    <string name="notification_toolbar_title">My Notification</string>
-    <string name="notification_message_actionbar">Messages</string>
+    <string name="notification_toolbar_title">Mis Notificaciones</string>
+    <string name="notification_message_actionbar">Mensajes</string>
     <string name="notification_feed_actionbar">Feed</string>
-    <string name="notification_progress_title">Getting messages...</string>
+    <string name="notification_progress_title">Obteniendo Mensajes...</string>
 
     <!--User Profile Screen-->
-    <string name="profile_toolbar_title">Your Profile</string>
+    <string name="profile_toolbar_title">Tu perfil</string>
 
 
     <!--Detail Post-->
-    <string name="detail_post_add_comment_text">Message to seller</string>
-    <string name="commentCount">comments</string>
+    <string name="detail_post_add_comment_text">Mensaje al vendedor</string>
+    <string name="commentCount">comentarios</string>
 
     <!--send a Messages panel-->
-    <string name="send_a_message_edit_text_hint">What would you like to say?</string>
-    <string name="send_a_message_button_text">Send</string>
-    <string name="new_credit_card_option_string">Use a new credit card</string>
-    <string name="new_billing_address_option_string">Use a new billing address</string>
+    <string name="send_a_message_edit_text_hint">¿Que te gustaria decir?</string>
+    <string name="send_a_message_button_text">Enviado</string>
+    <string name="new_credit_card_option_string">Usa una nueva tarjeta de credito</string>
+    <string name="new_billing_address_option_string">Usa una nueva direccion de facturacion</string>
 
     <!-- In search of Detail -->
-    <string name="btn_in_search_of">I have this item</string>
-    <string name="willing_to_spend">Willing to spend %1$s</string>
-    <string name="someone_is_in_search">Someone is in search of...\n %1$s</string>
+    <string name="btn_in_search_of">Tengo este objeto</string>
+    <string name="willing_to_spend">Dispuesto a gastar %1$s</string>
+    <string name="someone_is_in_search">Alguien esta en la busqueda de...\n %1$s</string>
     <string name="cvv_credit_card_form_string">CVV</string>
-    <string name="credit_card_form_credit_string">Credit Card</string>
-    <string name="full_address_field_string">Full Address</string>
-    <string name="city_address_string">City</string>
-    <string name="zipcode_address_string">Zipcode</string>
+    <string name="credit_card_form_credit_string">Tarjeta de Credito</string>
+    <string name="full_address_field_string">Direcion</string>
+    <string name="city_address_string">Ciudad</string>
+    <string name="zipcode_address_string">CodigoZip</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hola fragmento blanco</string>
 
     <!-- Settings Strings -->
-    <string name="personal_information_string">Personal Information</string>
-    <string name="personal_information_firstname">First</string>
-    <string name="personal_information_lastname">Last</string>
-    <string name="personal_information_email">Email</string>
-    <string name="personal_information_password">Password</string>
-    <string name="personal_information_address">Address</string>
-    <string name="paypal_login_string">Paypal log in</string>
-    <string name="add_another_card_string">+ add another card</string>
-    <string name="log_out_paypal_string">Log out of Paypal</string>
-    <string name="account_privacy_string">Account Privacy</string>
-    <string name="public_toogle_main_string">Public</string>
-    <string name="public_toogle_secondary_string">(everyone can see my profile)</string>
-    <string name="not_public_toogle_main_string">Public OFF</string>
-    <string name="not_public_toogle_secondary_string">(Only I can see my profile)</string>
-    <string name="settings_alerts_keywords">Palabras Clave</string>
-    <string name="spinner_category_promtp">Elige una Categoría</string>
+    <string name="personal_information_string">Informacion Personal</string>
+    <string name="personal_information_firstname">Primer</string>
+    <string name="personal_information_lastname">Segundo</string>
+    <string name="personal_information_email">Correo</string>
+    <string name="personal_information_password">Clave</string>
+    <string name="personal_information_address">Direccion</string>
+    <string name="paypal_login_string">Iniciar sesion con PayPal</string>
+    <string name="add_another_card_string">+ agregar otra tarjeta</string>
+    <string name="log_out_paypal_string">Cerrar sesion de Paypal</string>
+    <string name="account_privacy_string">Privacidad</string>
+    <string name="public_toogle_main_string">Publico</string>
+    <string name="public_toogle_secondary_string">(todos pueden ver mi perfil)</string>
+    <string name="not_public_toogle_main_string">Publico OFF</string>
+    <string name="not_public_toogle_secondary_string">(Solo yo puedo ver mi perfil)</string>
+    <string name="settings_alerts_keywords">Palabras clave</string>
+    <string name="spinner_category_promtp">Escoge una categoria</string>
     <!--Array list of categories only for test proposals-->
     <string-array name="category_array">
         <item>Elige una Categoría</item>
@@ -202,7 +201,6 @@
         <item>Aire Libre</item>
         <item>Caminata</item>
         <item>Maratón</item>
-        <item>Furniture</item>
         <item>Fútbol</item>
         <item>Basketball</item>
     </string-array>
@@ -215,35 +213,35 @@
     </string>
 
     <!--Flag an Item-->
-    <string name="soldByText">Sold by:</string>
-    <string name="whyFlagText">Why do you want to report this post?</string>
-    <string name="thankForFlag">Thank you for flagging this post. The group admin will review this item and any changes or decisions will be made within the next 24 hours</string>
-    <string name="inappropiate_flag_text">inappropriate</string>
-    <string name="counterfeit_flag_text">counterfeit</string>
-    <string name="duplicateitem_flag_text">duplicate item</string>
-    <string name="wrongcategory_flag_text">wrong category</string>
-    <string name="go_to_group_from_flag">Back to {Group name}</string>
-
+    <string name="soldByText">Vendido por:</string>
+    <string name="whyFlagText">¿Por que quieres reportar esta publicacion?</string>
+    <string name="thankForFlag">Gracias por marcar esta publicacion . El administrador del grupo revisará este tema y cualquier cambio o decisión será hecha dentro de las próximas 24 horas</string>
+    <string name="inappropiate_flag_text">inapropiado</string>
+    <string name="counterfeit_flag_text">falsificacion</string>
+    <string name="duplicateitem_flag_text">elemento duplicado</string>
+    <string name="wrongcategory_flag_text">categoria equivocada</string>
+    <string name="go_to_group_from_flag">Regresar a {Group name}</string>
+    
     <string name="settings_alerts_title">Alertas para eventos</string>
 
-    <string name="terms_condition_button">Continue</string>
+    <string name="terms_condition_button">Continuar</string>
     <!--For test propousals-->
     <string name="item_description_test">Toodler Where The Wild Things Are Max Costume</string>
 
     <!-- Email Subjects -->
-    <string name="clamour_create_group">I want to start a Clamour group!</string>
-    <string name="settings_alert_keywords_hint">Put your Keywords here</string>
+    <string name="clamour_create_group">Quiero empezar un grupo en Clamour</string>
+    <string name="settings_alert_keywords_hint">Coloca tus palabras clave aqui</string>
     <string name="settings_alert_category_title">Categoría</string>
     <string name="settings_notification_title">Notificaciones</string>
 
     <!-- Share Location -->
-    <string name="share_location_toolbar_title">Share Location</string>
-    <string name="share_location_title">Choose how you would like to share your location</string>
-    <string name="share_location_billing">Billing Address</string>
-    <string name="share_location_new_address">Enter an address</string>
-    <string name="share_location_current">Current location</string>
-    <string name="share_location_toolbar_button">Share</string>
-    <string name="title_activity_augmented_reality">AugmentedReality</string>
+    <string name="share_location_toolbar_title">Compartir lugar</string>
+    <string name="share_location_title">Escoge como quieres compartir tu lugar</string>
+    <string name="share_location_billing">Direccion de facturacion</string>
+    <string name="share_location_new_address">Ingrese una direccion</string>
+    <string name="share_location_current">Lugar Actual</string>
+    <string name="share_location_toolbar_button">Compartir</string>
+    <string name="title_activity_augmented_reality">Realidad Aumentada</string>
     <string name="license_key">K1y+2tRyuXquwa/9D3rJtZd6s6rbts4KP3dCUQ4vq9N3ri4Oc05qvk1ri71+mvFcyS9WLexNCNzZSmfHJJ39qSasPJcF7Y0xsZPXAGHJK8Xt0fZmVW9tOlfR+sJvKg2rOmGGzHJMpJOzfvqOEnPqzKoPycKt3hTMNJ7ergB69y5TYWx0ZWRfX1jVLiIg5AMbMi2mDQpLvfG53jJfv+B7bMVT7fctF2vURFt/tb+AKNmnlGtVEG69XkUWWBy2x/hw1wLGFUOBntMAV/MhIZ2gD9vAI629XEbluE2uV66mFGRnuhO0Xi2AkaseOqQ8vNkm3okFU2nxXERJHfOpJANzPtP6mGCILvPH9aYoTc1arUt3HSVdcIOljyZpZkiTZxQKCsjpsrZFywiZ5xweVrFTgWaeVgJgZS33d3N3MbpSLwIL2njpiAxKHH03EtkCIoeIjsssmhzn4inqIFnU5gOttgCzyG5xRC7PpnClHIGh5+K5/UD3OjXR2mukAwtCewrtUWKg342IqBZytKhkclkIQ2n5IHHPd4kkHJ3PJZYSv5jpHDyp+M0yMUSLB+fL8KFK97f7XXNskoifmm5eaOfqLO8U7+WqJc6rotk8DKJMEMdYqDb7szGFlyeWR7zGpyZCO/N5HnVO+A6uQxtGLGeLYGnGp9PJXlj95rtC6TADj7A=</string>
 
     <!--Array de string para los tags-->

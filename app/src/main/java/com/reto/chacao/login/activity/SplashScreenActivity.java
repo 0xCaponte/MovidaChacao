@@ -47,7 +47,7 @@ public class SplashScreenActivity extends Activity {
         DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         try {
-            dbHelper.onCreate(db);
+            dbHelper.onUpgrade(db,2,3);
         }catch (Exception err){
             err.printStackTrace();
         }
