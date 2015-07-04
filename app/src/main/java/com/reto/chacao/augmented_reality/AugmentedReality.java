@@ -1,5 +1,6 @@
 package com.reto.chacao.augmented_reality;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.reto.chacao.R;
+import com.reto.chacao.database.DataBaseHelper;
+import com.reto.chacao.model.Event;
 import com.wikitude.architect.ArchitectView;
 import com.wikitude.architect.StartupConfiguration;
 
@@ -24,6 +27,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -54,10 +58,10 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
         this.architectView.onPostCreate();
         try {
             this.architectView.load(ArUrl);
-            this.architectView.setLocation(10.4629175, -66.8666068, 100);
+            this.architectView.setLocation(10.4930584, -66.8596415, 100);
             mLastLocation = new Location("");
-            mLastLocation.setLatitude(10.4629175);
-            mLastLocation.setLongitude(-66.8666068);
+            mLastLocation.setLatitude(10.4930584);
+            mLastLocation.setLongitude(-66.8596415);
             mLastLocation.setAccuracy(100);
             loadPoi();
         } catch (IOException e) {
@@ -127,6 +131,11 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
     public void onConnected(Bundle bundle) {
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
+        if(mLastLocation == null){
+            mLastLocation = new Location("eve");
+            mLastLocation.setLatitude(10.4930584);
+            mLastLocation.setLongitude(-66.8596415);
+        }
         setupLocation(mLastLocation);
         startLocationUpdates();
     }
@@ -156,40 +165,52 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
         JSONArray jsonArr = new JSONArray();
 
         try {
-            JSONObject jsonObj = new JSONObject();
+
+            DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            List<Event> events = dbHelper.getAllEvents();
+
+            for(Event e:events){
+                JSONObject jsonObj = new JSONObject();
+                DistanceResult distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
+                        e.getLatitude(), e.getLongitude());
+
+                jsonObj.put("latitude", e.getLatitude());
+                jsonObj.put("longitude", e.getLongitude());
+                jsonObj.put("altitude", 100); // TODO
+                // Si el nombre es muy largo lo acorta y pone "..."
+                jsonObj.put("title", e.getName());
+                jsonObj.put("description", distance.distance + " "
+                        + distance.unit);
+                jsonObj.put("category", e.getCategory());
+                jsonArr.put(jsonObj);
+
+            }
+
 
             // String strDistance = String.valueOf(distance);
             // String[] parts = strDistance.split(".");
-            DistanceResult distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
-                    10.4660822, -66.86964);
 
-            jsonObj.put("latitude", 10.4660822);
-            jsonObj.put("longitude", -66.86964);
-            jsonObj.put("altitude", 100); // TODO
-            // Si el nombre es muy largo lo acorta y pone "..."
-            jsonObj.put("title", "Colegio de Medicos");
-            jsonObj.put("description", distance.distance + " "
-                    + distance.unit);
-            jsonObj.put("category", "Oficina");
 
-            JSONObject jsonObj2 = new JSONObject();
+//            JSONObject jsonObj2 = new JSONObject();
 
 
             // String strDistance = String.valueOf(distance);
             // String[] parts = strDistance.split(".");
-            distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
-                    10.4594226, -66.8711889);
-            jsonObj2.put("latitude", 10.4594226);
-            jsonObj2.put("longitude", -66.8711889);
-            jsonObj2.put("altitude", 100); // TODO
-            // Si el nombre es muy largo lo acorta y pone "..."
-            jsonObj2.put("title", "Emil Friedman");
-            jsonObj2.put("description", distance.distance + " "
-                    + distance.unit);
-            jsonObj2.put("category", "Oficina");
+//            distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
+//                    10.4594226, -66.8711889);
+//            jsonObj2.put("latitude", 10.4594226);
+//            jsonObj2.put("longitude", -66.8711889);
+//            jsonObj2.put("altitude", 100); // TODO
+//            // Si el nombre es muy largo lo acorta y pone "..."
+//            jsonObj2.put("title", "Emil Friedman");
+//            jsonObj2.put("description", distance.distance + " "
+//                    + distance.unit);
+//            jsonObj2.put("category", "Oficina");
 
-            jsonArr.put(jsonObj);
-            jsonArr.put(jsonObj2);
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -68,7 +68,7 @@
             android:value="AIzaSyBTNOJlI5ESwfSDQYTNNof8zyycuEu-MSE"/>-->
 
         <activity
-            android:name=".MovidaMapActivity"
+            android:name=".map.MovidaMapActivity"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
         <activity

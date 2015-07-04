@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.reto.chacao.MovidaMapActivity;
+import com.reto.chacao.map.MovidaMapActivity;
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
