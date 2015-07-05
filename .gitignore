@@ -10,4 +10,7 @@
 .idea/*
 .gradle/*
 comboseekbar/*
+comboseekbar
+.idea/*
+app/app.iml
 
