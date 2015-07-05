@@ -62,8 +62,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     ImageSpan imageSpan;
     SpannableString content;
-    private RelativeLayout mFilterLayout;
-    private ToggleButton mFilterToggle;
     private ToggleButton mOneColumnToggle;
     private ToggleButton mTwoColumnsToggle;
     private RecyclerView mOneColumnRecyclerView;
@@ -136,9 +134,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     private void setToolBar(View root) {
-        mFilterLayout = (RelativeLayout) root.findViewById(R.id.home_filter_button);
-        mFilterLayout.setOnClickListener(this);
-        mFilterToggle = (ToggleButton) root.findViewById(R.id.home_filter_toggle);
         mOneColumnToggle = (ToggleButton) root.findViewById(R.id.home_one_column_toggle);
         mOneColumnToggle.setTransformationMethod(null);
         mOneColumnToggle.setOnClickListener(this);
@@ -228,9 +223,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.home_filter_button:
-                onFilterClick();
-                break;
             case R.id.home_one_column_toggle:
                 onOneColumnClick();
                 break;
