@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/commentOwnerText"
             style="@style/postDetailComment"
-            android:maxHeight="50dp"
+            android:maxHeight="70dp"
             android:ellipsize="end"
             android:layout_below="@+id/commentOwnerRecipient"
             android:text="1ra Carrera Anual de Botes organizada por la Alcadía de Chacao con el fin de conscientizar sobre el uso del agua. Este evento se llevará acabo el día 18 de julio con el patrocinio de Evenpro."

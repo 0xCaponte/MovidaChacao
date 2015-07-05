@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="ColorPrimary">#FFFF7601</color>
-    <color name="ColorPrimaryDark">#ffdf7201</color>
+    <color name="ColorPrimary">#0056A4</color>
+    <color name="ColorPrimaryDark">#162B62</color>
     <color name="black">#000000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="black_overlay">#77000000</color>
@@ -12,7 +12,7 @@
     <!-- Introduction -->
     <color name="app_title">#5D6870</color>
     <color name="app_description">#9F9FA3</color>
-    <color name="btn_clamour_color">#FFA22C</color>
+    <color name="btn_clamour_color">#0056A4</color>
     <color name="sign_up_facebook">#0079C1</color>
     <color name="log_in">#404047</color>
     <color name="border_button_log_in">#c4c4c4</color>
@@ -26,13 +26,13 @@
     <color name="GrisLinea">#ffd6d5d5</color>
 
     <!-- Home -->
-    <color name="background_color_fragment">#272C39</color>
+    <color name="background_color_fragment">#ff163539</color>
     <color name="background_filter_toggle_button_checked">#FFA22C</color>
     <color name="background_filter_toggle_button_unchecked">#5D6870</color>
     <color name="background_status_item">#CCD0021B</color>
     <color name="item_sold">#FFA22C</color>
     <color name="background_column_unchecked">#bebfc3</color>
-    <color name="happening">#FFA22C</color>
+    <color name="happening">#5183C0</color>
 
     <!-- Add Post -->
     <color name="background_screen">#363b4a</color>

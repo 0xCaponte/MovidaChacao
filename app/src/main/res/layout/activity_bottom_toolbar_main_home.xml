@@ -23,7 +23,7 @@
             android:layout_height="40dp"
             android:clickable="true"
             android:layout_gravity="center"
-            android:src="@drawable/ic_radar"/>
+            android:src="@drawable/ic_ra"/>
 
         <ImageView
             android:id="@+id/toolbar_go_to_map"
