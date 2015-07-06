@@ -2,11 +2,249 @@
 <items version="2" >
 
     <item
-        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.aat/comboseekbar/1.0.2/jars/classes.jar"
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="d8fcb7f820e0ff262204d8414800e344cb8ba4b8">
-        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-0f3e2f86d82b4fc0ef6ecf6594764f8956aef28a.jar" />
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-91508f18a459bac7af8f6ec26bb72f83b75cbbee.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.aat\comboseekbar\1.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bcaf1c433a5e398d2caee3a8771555a0a6e59902">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-06de7a5db5a90cb029d64b0671b4a041eee76431.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\gson-2.2.4-1eea73a80c8ed199446dd122e1513a34aa0dabe1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-ccc738951c6f8b70df88ac0999b71da54655ee38.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-ae8ca9af94d8efb5ae28c2ef855d4cdd87c00778.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-faac1617091d652b6703cfd50bd805d3ea819698.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-0c4aad453867ed463fa5c1696d552e65d9f4f3ee.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-98f800ebc35f351afc15d7f297e79b75a3033a69.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-99eb611b8854dc02b2aa7e1c976da50d75998b54.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\libs\wikitudesdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7c5e5c9b24600f61ff5348ab0a7310e5d84138c7">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\wikitudesdk-690ff9e75cb12307075c890616d7f33b8d2c2a72.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-0b382c9a9326c22f857c9cb6673d898996bb3cfc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-b68e209bfcf5cfefcb597f3b8449ed34a8117073.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-2a0139d5598708eb15da12e6e72d8bb89c921fda.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-fac29ac3a9a3011c2d231b8f556910afd879cc53.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-ca7971afa3314ac832c49804ff48eb59ffaa4e21.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-10190c0f38dc9a4e5f1453fc3cef3c983e116814.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-a3c0d261c4944a640d0bfd2c5523ce9b702fb820.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-46ad82d5b7cfd29d848966de2a2bec2bd3d6a0ad.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-5def2ca1719cc941218e7b6c8568ca05a21a2002.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-b260bb7cd07fb72b7a2ce18b6002d1ec80f81e6e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-9708eb0b03173032d1419271e1687768264fb7e5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-7ccbf52867a01bed29c4e332bf012e74451545d5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-47fe8563ba280172dc8038a6bb921f33afe262b9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-b96d62a8ed7ef7137503817470cbd36485480e9f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-b0f965bb1b0c971e4198887c1da4099b44be8f5c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-faae611a6e8d5f0c72d8959b940a9fd1b1ebc2cd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-74c882875d00bdebb5859d2d29df8b1d99e440c9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library\1.0.16\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9313a30b510316c732b53064a86a2a4a12088d06">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-e1ed97b17c9cc6a82ff2b477b3428be4a046d79f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-60c93fe3b9b4d22629a49b08b24047db29a5276c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-6364b01af5eebe702328a0e2aed43704f1dc611c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-1fc63e87bd42af66cfaaaa655c28b02c095098d6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-850b2a16b3a05bb7277326970473190a7d74439b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0f254ec13d6671680482d2218f01ecf14dfa93e6">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-7acd77285d3a1c522b1736e9c883205989fc295a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-343edbace30b018a8b1fc4c428b6446531c24654.jar" />
+    </item>
+    <item
+        jar="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="C:\Users\Andrea Balbas\Documents\Movida Chacao\app\build\intermediates\pre-dexed\debug\classes-d599f5c18f97186eed792eaa74112636eb4a4e0b.jar" />
     </item>
 
 </items>
