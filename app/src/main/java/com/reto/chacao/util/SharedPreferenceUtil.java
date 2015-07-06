@@ -14,7 +14,7 @@ public class SharedPreferenceUtil {
     public static SharedPreferences settings;
     public static Editor editor;
 
-    public static final String PREFS_NAME = "CLAMOUR_PREFS";
+    public static final String PREFS_NAME = "MOVIDA_PREFS";
 
     public SharedPreferenceUtil() {
         super();

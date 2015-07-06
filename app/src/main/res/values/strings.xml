@@ -1,4 +1,9 @@
 <resources>
+
+    <string name="SHARED_PREFS_FILE">RetoChacaoPreferences</string>
+    <string name="KEY_INTRODUCTION">com.reto.chacao.IntroductionKey</string>
+
+
     <string name="app_name">Movida Chacao</string>
 
     <string name="hello_world">Hello world!</string>
@@ -9,7 +14,7 @@
 
     <!-- Introduction -->
     <string name="btn_sign_email">No Registrarse</string>
-    <string name="btn_sign_facebook">Registrarse con Facebook</string>
+    <string name="btn_sign_facebook">Conectate con Facebook</string>
     <string name="btn_log_in">Acceder</string>
     <string name="introduction_verification_info">Acabamos de enviarte un correo con un codigo de verificacion. Por favor revisa tu correo e ingresa el codigo aqui para activar tu cuenta</string>
     <string name="introduction_verification_code_hint">Codigo de verificacion</string>
@@ -230,7 +235,7 @@
 
     <!-- Email Subjects -->
     <string name="clamour_create_group">Quiero empezar un grupo en Clamour</string>
-    <string name="settings_alert_keywords_hint">Coloca tus palabras clave aqui</string>
+    <string name="settings_alert_keywords_hint">Chacao, Altamira</string>
     <string name="settings_alert_category_title">Categoría</string>
     <string name="settings_notification_title">Notificaciones</string>
 
@@ -243,6 +248,7 @@
     <string name="share_location_toolbar_button">Compartir</string>
     <string name="title_activity_augmented_reality">Realidad Aumentada</string>
     <string name="license_key">K1y+2tRyuXquwa/9D3rJtZd6s6rbts4KP3dCUQ4vq9N3ri4Oc05qvk1ri71+mvFcyS9WLexNCNzZSmfHJJ39qSasPJcF7Y0xsZPXAGHJK8Xt0fZmVW9tOlfR+sJvKg2rOmGGzHJMpJOzfvqOEnPqzKoPycKt3hTMNJ7ergB69y5TYWx0ZWRfX1jVLiIg5AMbMi2mDQpLvfG53jJfv+B7bMVT7fctF2vURFt/tb+AKNmnlGtVEG69XkUWWBy2x/hw1wLGFUOBntMAV/MhIZ2gD9vAI629XEbluE2uV66mFGRnuhO0Xi2AkaseOqQ8vNkm3okFU2nxXERJHfOpJANzPtP6mGCILvPH9aYoTc1arUt3HSVdcIOljyZpZkiTZxQKCsjpsrZFywiZ5xweVrFTgWaeVgJgZS33d3N3MbpSLwIL2njpiAxKHH03EtkCIoeIjsssmhzn4inqIFnU5gOttgCzyG5xRC7PpnClHIGh5+K5/UD3OjXR2mukAwtCewrtUWKg342IqBZytKhkclkIQ2n5IHHPd4kkHJ3PJZYSv5jpHDyp+M0yMUSLB+fL8KFK97f7XXNskoifmm5eaOfqLO8U7+WqJc6rotk8DKJMEMdYqDb7szGFlyeWR7zGpyZCO/N5HnVO+A6uQxtGLGeLYGnGp9PJXlj95rtC6TADj7A=</string>
+    <string name="log_out_facebbok">Desconectate de Facebook</string>
 
     <!--Array de string para los tags-->
     <string-array name="sport_array">

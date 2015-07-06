@@ -16,7 +16,7 @@
     <dimen name="introduction_sign_up_margin">30dp</dimen>
     <dimen name="introduction_logo_margin_top">20dp</dimen>
     <dimen name="introduction_grids_height">300dp</dimen>
-    <dimen name="introduction_layout_height">350dp</dimen>
+    <dimen name="introduction_layout_height">320dp</dimen>
     <dimen name="introduction_grid_column_width">210dp</dimen>
     <dimen name="introduction_grid_item_height">250dp</dimen>
 

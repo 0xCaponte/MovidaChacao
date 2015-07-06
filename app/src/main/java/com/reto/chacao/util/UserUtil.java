@@ -1,6 +1,7 @@
 package com.reto.chacao.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.reto.chacao.beans.UserProfile;
 
@@ -21,6 +22,7 @@ public class UserUtil {
     public static String PREFERENCE_API_TOKEN = "api-token";
 
     public static String PREFERENCE_REGISTER = "register";
+    public static String PREFERENCE_FACEBOOK_REGISTER = "register-facebook";
     public static String PREFERENCE_FIRST_TIME_HOME = "first-time-home";
 
 
@@ -66,11 +68,11 @@ public class UserUtil {
     }
 
     public static void setFacebookRegister(Context context, boolean register) {
-        SharedPreferenceUtil.save(context, PREFERENCE_REGISTER, register);
+        SharedPreferenceUtil.save(context, PREFERENCE_FACEBOOK_REGISTER, register);
     }
 
     public static boolean getFacebookRegister(Context context) {
-        return SharedPreferenceUtil.getBoolean(context, PREFERENCE_REGISTER);
+        return SharedPreferenceUtil.getBoolean(context, PREFERENCE_FACEBOOK_REGISTER);
     }
 
     public static void setFirstTimeHome(Context context) {

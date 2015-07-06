@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/primary_dark_material_dark">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primary_dark_material_dark">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +20,9 @@
             android:gravity="center"
             android:horizontalSpacing="5dp"
             android:numColumns="1"
-            android:stretchMode="spacingWidthUniform"
-            android:verticalSpacing="10dp"
-            android:scrollbars="none"/>
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"/>
 
         <GridView
             android:id="@+id/right_grid_view"
@@ -36,40 +36,40 @@
             android:gravity="center"
             android:horizontalSpacing="5dp"
             android:numColumns="1"
-            android:stretchMode="spacingWidthUniform"
-            android:verticalSpacing="10dp"
-            android:scrollbars="none"/>
+            android:scrollbars="none"
+            android:stretchMode="none"
+            android:verticalSpacing="10dp"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/introduction_layout_height"
         android:background="@color/transparent"
-        android:clickable="true"
-        android:id="@+id/linearLayout" />
+        android:clickable="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/linearLayout"
         android:background="@color/colorPrimary"
         android:elevation="30dp"
-        android:orientation="vertical"
-        android:layout_below="@+id/linearLayout">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/app_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/introduction_logo_margin_top">
+            android:layout_marginTop="@dimen/standard_margin">
 
             <ImageView
                 android:id="@+id/app_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/letras_mc" />
+                android:src="@drawable/letras_mc"/>
         </RelativeLayout>
 
         <TextView
@@ -77,27 +77,47 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/app_title"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:gravity="center|center_horizontal"
             android:text="@string/app_description"
             android:textColor="@color/app_description"
-            android:textSize="@dimen/clamour_description_size" />
+            android:textSize="16sp"/>
 
-         <Button
-            android:id="@+id/btn_sign_up_email"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/continue_label"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/introduction_sign_up_height"
-            android:layout_marginLeft="@dimen/introduction_sign_up_margin"
-            android:layout_marginRight="@dimen/introduction_sign_up_margin"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_sign_up_background"
-            android:text="@string/btn_sign_email"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/introduction_sign_up_text"
-            android:textStyle="bold" />
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginBottom="@dimen/standard_margin"
+            >
+
+            <TextView
+                android:id="@+id/btn_sign_up_email"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/introduction_sign_up_height"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="Continuar"
+                android:textAllCaps="false"
+                android:textColor="#F65501"
+                android:textSize="25sp"
+                android:textStyle="normal"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_toRightOf="@+id/btn_sign_up_email"
+                android:layout_toEndOf="@+id/btn_sign_up_email"
+                android:layout_alignTop="@+id/btn_sign_up_email"
+                android:layout_alignBottom="@+id/btn_sign_up_email"/>
+
+        </RelativeLayout>
+
 
         <FrameLayout
             android:id="@+id/singup_fragment_container"

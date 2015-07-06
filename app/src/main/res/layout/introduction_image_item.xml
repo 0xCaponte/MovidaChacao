@@ -9,5 +9,5 @@
         android:layout_height="@dimen/introduction_grid_item_height"
         android:background="@color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/item1" />
+        android:src="@drawable/item9" />
 </LinearLayout>
