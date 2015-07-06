@@ -341,35 +341,70 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
 
     public ArrayList<Post> setPostItems() {
-        Post post = new Post();
-        post.setPost_id(1);
-        post.setTitle("1ra Carrera Anual de Botes");
-        post.setDescription("1ra Carrera Anual de Botes organizada por la Alcadía de Chacao con " +
-                "el fin de conscientizar sobre el uso del agua. Este evento se llevará acabo el día 18 de julio con el patrocinio de Evenpro.");
-        ItemCondition condition = new ItemCondition();
-        condition.setId(0);
-        condition.setName("Ahora");
-        post.setCondition(condition);
-        post.setCreated(Calendar.getInstance().getTime());
-        post.setLocation("100003");
-        post.setPrice("50$");
-        UserProfile user = new UserProfile();
-        user.setUserId(1);
-        user.setFirstName("Alcadía de Chacao");
-        user.setFamilyName("");
-        post.setUser(user);
-        Comment comment = new Comment();
-        comment.setCreated(Calendar.getInstance().getTime());
-        comment.setComment_id(2);
-        comment.setCommenterFirstName("George");
-        comment.setCommenterLastName("Clooney");
-        comment.setBody("Finalmente una carrera de botes en Caracas!");
-        ArrayList<Comment> comments = new ArrayList<Comment>();
-        comments.add(comment);
-        post.setComments(comments);
+
+        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        List<Event> events = dbHelper.getAllEvents();
+
+
         ArrayList<Post> posts = new ArrayList<Post>();
-        posts.add(post);
-        posts.add(post);
+
+
+        for(Event e : events){
+            ArrayList<Comment> comments = new ArrayList<Comment>();
+            Post post = new Post();
+            ItemCondition condition = new ItemCondition();
+            UserProfile user = new UserProfile();
+
+
+
+            post.setPost_id(e.getId());
+            post.setTitle(e.getName());
+            post.setDescription(e.getDescription());
+
+            condition.setId(e.getId());
+            condition.setName("Ahora");
+            post.setCondition(condition);
+            post.setCreated(Calendar.getInstance().getTime());
+//            post.setLocation("100003");
+//            post.setPrice("50$");
+
+            user.setUserId(e.getId());
+            user.setFirstName("Alcadía de Chacao");
+            user.setFamilyName("");
+            post.setUser(user);
+
+
+            List<com.reto.chacao.model.Comment> cm = dbHelper.getCommentByEvent(e.getId());
+
+            if(cm.size() >= 1){
+                for(com.reto.chacao.model.Comment c : cm){
+                    Comment commentTmp = new Comment();
+                    commentTmp.setComment_id(c.getId());
+                    commentTmp.setCommenterFirstName(c.getUser());
+                    commentTmp.setBody(c.getText());
+                    commentTmp.setCreated(Calendar.getInstance().getTime());
+
+                    comments.add(commentTmp);
+                }
+
+                post.setComments(comments);
+
+            }
+
+//            comment.setComment_id(2);
+//            comment.setCommenterFirstName("George");
+//            comment.setCommenterLastName("Clooney");
+//            comment.setBody("Finalmente una carrera de botes en Caracas!");
+
+
+
+
+            posts.add(post);
+
+        }
+
 
         return posts;
     }

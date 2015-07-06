@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.reto.chacao.model.Comment;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.model.New;
 import com.reto.chacao.model.Photo;
@@ -76,6 +77,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "pl_longitude FLOAT," +
             "PRIMARY KEY (pl_id, pl_id_event))";
 
+    private static final String CREATE_COMMENT  = "CREATE TABLE comment (" +
+            "cm_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "cm_id_event INTEGER," +
+            "cm_user TEXT," +
+            "cm_text TEXT," +
+            "cm_date TEXT," +
+            "cm_photo TEXT)";
+
 
     public DataBaseHelper(Context context) {
         super(context, NAME, FACTORY, VERSION);
@@ -85,15 +94,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //ev1
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Proidiomas','DIR: Centro Plaza, Torre B, piso 6','Idioma;','Cultura','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (1,1,'Centro Plaza', 10.497661, -66.846371)");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (1,'Domingo de Abreu', 'Al fin un lugar donde aprender idiomas en general')");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (1,'Carlos Aponte', 'Idiomaaaas!!!')");
         //ev2
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_url,ev_type) VALUES ('Cursos de Portugues','Quinta 65, 6ta Transversal con Av San Juan Bosco, Caracas\n" +
                 "0212-2679107','Idioma','Cultura','www.icbv.org.ve','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (2,2,'Instituto Cultural Brasil-Venezuela', 10.504211, -66.851001)");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (2,'Domingo de Abreu', 'o melhor é aprender Português')");
+
 
         //ev3
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Cursos de Frances','Quinta Wilmarú Avenida Mohedano, Caracas\n" +
                 "0212-2644611','Idioma;','Cultura','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (3,3,'Alianza Francesa', 10.503536, -66.857572)");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (3,'Gustavo Ortega', 'un deux trois quatre cinq six sept huit neuf dix')");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (3,'Carlos Aponte', 'omelet du fromage omelet du fromage omelet du fromage omelet du fromage')");
 
         //ev4
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Cursos de Aleman','Torre Altávila, Avenida Luis Roche\n" +
@@ -108,6 +123,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "Jueves: 5:30PM a 6:30PM\n" +
                 "Viernes: 11:00AM a 12:00M','Fitness;','Deporte','Movil')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (5,5,'PDVSA La Estancia', 10.495116, -66.847530)");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (5,'Karen Troiano', 'La mejor forma de estirar los musculos y relajar el cuerpoi')");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_user, cm_text) VALUES (5,'Domingo de Abreu', 'Vine gracias a una amiga, ahora no me quiero ir')");
 
         //ev6 Centro Cultura Cacao
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('CCS FORUM 2015','Larry Black\n" +
@@ -133,6 +150,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Yoga Parque Miranda','Parque Miranda','Fitness','Deporte','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (10,10,'Parque Miranda', 10.4941731, -66.8456668)");
 
+
         db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (1,'new1','descripcion 1')");
         db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (2,'new2','descripcion 2')");
         db.execSQL("INSERT INTO new (new_id,new_name,new_description) VALUES (3,'new3','descripcion 3')");
@@ -146,6 +164,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_PHOTO);
         db.execSQL(CREATE_REPORT);
         db.execSQL(CREATE_PLACE);
+        db.execSQL(CREATE_COMMENT);
 
         load_data(db);
     }
@@ -159,6 +178,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS photo");
         db.execSQL("DROP TABLE IF EXISTS report");
         db.execSQL("DROP TABLE IF EXISTS place");
+        db.execSQL("DROP TABLE IF EXISTS comment");
 
         //Se crea la nueva versión de la tabla
         onCreate(db);
@@ -429,6 +449,36 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return events;
     }
+
+
+//querys by comments
+
+    public List<Comment> getCommentByEvent(int id_event){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Comment> comments = new ArrayList<Comment>();
+
+        String selectQuery = "SELECT * FROM comment AS c WHERE c.cm_id_event = '" +id_event+"'" ;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Comment cm = new Comment();
+                cm.setId(c.getInt(c.getColumnIndex("cm_id")));
+                cm.setUser((c.getString(c.getColumnIndex("cm_user"))));
+                cm.setText((c.getString(c.getColumnIndex("cm_text"))));
+                cm.setId_event(c.getInt((c.getColumnIndex("cm_id_event"))));
+                cm.setPhoto(c.getString((c.getColumnIndex("cm_photo"))));
+
+                comments.add(cm);
+
+            } while (c.moveToNext());
+        }
+        return comments;
+    }
+
 //    querys by new
     public New getNew(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
