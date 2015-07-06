@@ -1,6 +1,7 @@
 package com.reto.chacao.login.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class IntroductionAdapter extends BaseAdapter {
         if (convertView == null) {
 
             /****** Inflate tabitem.xml file for each row ( Defined below ) *******/
-            v = mInflater.inflate(R.layout.introduction_image_item, null);
+            v = mInflater.inflate(R.layout.introduction_image_item, parent, false);
 
             /****** View Holder Object to contain tabitem.xml file elements ******/
 

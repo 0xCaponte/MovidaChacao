@@ -2,21 +2,28 @@ package com.reto.chacao.settings.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
+import com.reto.chacao.login.fragment.FacebookSingUpScreenFragment;
 import com.reto.chacao.main.activity.MovidaMainActivity;
+import com.reto.chacao.util.UserUtil;
 
 
-public class SettingsFragment extends AppFragment implements AdapterView.OnItemSelectedListener {
+public class SettingsFragment extends AppFragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private static final String TAG = "Settings-Fragment";
     private View mRootView;
@@ -52,10 +59,29 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
         mRootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
         setCategoryData();
+        setFacebookData();
         inflateNotificationPreferences();
 
 
         return mRootView;
+    }
+
+    private void setFacebookData() {
+        if (UserUtil.getFacebookRegister(getActivity()) ) {
+            LinearLayout mFacebookLayout = (LinearLayout) mRootView.findViewById(R.id
+                    .facebook_button_log);
+            mFacebookLayout.removeViewAt(0);
+            View mLogoutLayout = getActivity().getLayoutInflater().inflate(R.layout
+                    .element_facebook_button, mFacebookLayout, true);
+            Button mFacebookButton = (Button) mLogoutLayout.findViewById(R.id
+                    .facebook_settings_button);
+            mFacebookButton.setOnClickListener(this);
+        } else {
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.singup_fragment_container, new FacebookSingUpScreenFragment(R
+                    .layout.fragment_facebook_setting_button)).commit();
+        }
     }
 
     @Override
@@ -81,14 +107,14 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
         //Setting data for the second spinner
         mCategorySpinner = (Spinner) mRootView.findViewById(R.id.second_category_spinner);
         mSpinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, testData);
-        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCategorySpinner.setAdapter(mSpinnerAdapter);
         mCategorySpinner.setOnItemSelectedListener(this);
 
         //Setting data for the third spinner
         mCategorySpinner = (Spinner) mRootView.findViewById(R.id.third_category_spinner);
         mSpinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, testData);
-        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCategorySpinner.setAdapter(mSpinnerAdapter);
         mCategorySpinner.setOnItemSelectedListener(this);
     }
@@ -116,5 +142,17 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch ( v.getId()) {
+            case R.id.facebook_settings_button:
+                facebookButtonInteraction();
+        }
+    }
+
+    private void facebookButtonInteraction() {
+        Log.w("FACEBOOK", "Logging out....");
     }
 }

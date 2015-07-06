@@ -27,6 +27,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_margin"/>
 
+            <include
+                layout="@layout/settings_facebook_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginBottom="60dp"/>
+
         </LinearLayout>
 
     </ScrollView>
@@ -47,7 +54,7 @@
             android:layout_marginTop="@dimen/standard_margin"
             android:layout_marginBottom="@dimen/standard_margin"
             android:background="@drawable/btn_sign_up_background"
-            android:text="Save"
+            android:text="Guardar"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"/>
 

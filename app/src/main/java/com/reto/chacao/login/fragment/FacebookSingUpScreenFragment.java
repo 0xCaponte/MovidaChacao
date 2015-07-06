@@ -20,7 +20,9 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.reto.chacao.App;
 import com.reto.chacao.R;
+import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.statics.ClamourApiValues;
@@ -36,7 +38,7 @@ import java.util.Arrays;
 /**
  * Created by Eduardo Luttinger on 19/05/2015.
  */
-public class FacebookSingUpScreenFragment extends Fragment {
+public class FacebookSingUpScreenFragment extends AppFragment {
 
 
     private static final String TAG = "FacebookSingUpScreen";
@@ -44,7 +46,15 @@ public class FacebookSingUpScreenFragment extends Fragment {
     private CallbackManager mCallbackManager;
     private UserProfile mUserProfile;
     private ProgressDialog mProgressDialog;
+    private Integer mLayout;
 
+    public FacebookSingUpScreenFragment() {
+        this.mLayout = R.layout.fragment_facebook_sign_up_button;
+    }
+
+    public FacebookSingUpScreenFragment(Integer mLayout) {
+        this.mLayout = mLayout;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +71,7 @@ public class FacebookSingUpScreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View loginView = inflater.inflate(R.layout.fragment_facebook_sign_up_button, container, false);
+        View loginView = inflater.inflate(mLayout, container, false);
 
         //Facebook Button init
         mLoginButton = (LoginButton) loginView.findViewById(R.id.singUPFacebookButton);
@@ -196,6 +206,21 @@ public class FacebookSingUpScreenFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
+    }
+
+    @Override
+    public String getMyTag() {
+        return null;
+    }
+
+    @Override
+    protected AppFragmentListener getFragmentListener() {
+        return null;
+    }
+
+    @Override
+    protected boolean onBackPressed() {
+        return false;
     }
 }
 

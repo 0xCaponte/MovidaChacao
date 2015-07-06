@@ -1,6 +1,8 @@
 package com.reto.chacao.login.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -9,8 +11,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
 
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
@@ -32,7 +34,7 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
     private IntroductionAdapter mLeftAdapter;
     private IntroductionAdapter mRightAdapter;
 
-    private Button mSignUpEmail;
+    private RelativeLayout mContinueLayout;
     private LoginButton mSignUpFacebook;
 
     private boolean mLeftScrollUp = false;
@@ -134,8 +136,8 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
     }
 
     private void setButtons() {
-        mSignUpEmail = (Button) findViewById(R.id.btn_sign_up_email);
-        mSignUpEmail.setOnClickListener(this);
+        mContinueLayout = (RelativeLayout) findViewById(R.id.continue_label);
+        mContinueLayout.setOnClickListener(this);
     }
 
     private void setScrollingUp(final GridView gridView) {
@@ -161,13 +163,14 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_sign_up_email:
-
+            case R.id.continue_label:
                 //Usuario deja de ser nuevo
                 UserUtil.setRegister(this, true);
 
                 //Usuario no uso facebook
                 UserUtil.setFacebookRegister(this, false);
+
+                Log.e(TAG, UserUtil.getRegister(this) ? "true" : "false");
 
                 AppUtil.runActivity(MovidaMainActivity.class, this);
                 break;

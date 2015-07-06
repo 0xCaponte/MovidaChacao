@@ -25,7 +25,7 @@
             <TextView
                 android:id="@+id/commentBuyerName"
                 style="@style/postDetailCommentOwnerName"
-                android:text="Christy Hayes"
+                android:text="Domingo De Abreu"
                 />
         </LinearLayout>
 
@@ -35,7 +35,7 @@
             android:layout_below="@+id/commentBuyerRecipient"
             android:layout_toRightOf="@+id/commentBuyerImage"
             android:bufferType="spannable"
-            android:text="I want this item now!!!! i Just need it!"
+            android:text="Finalmente! He estado esperando algo como esto!"
             android:textSize="12sp"
             />
 
@@ -65,7 +65,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/commentBuyerText"
             android:src="@drawable/btn_trash"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
         <ImageView

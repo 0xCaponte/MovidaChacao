@@ -34,11 +34,21 @@
 
     <style name="FacebookLoginButton">
         <item name="android:textStyle">bold</item>
-        <item name="android:background">@drawable/btn_sign_up_facebook_background</item>
+        <item name="android:textColor">@color/sign_up_facebook</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:layout_height">@dimen/introduction_sign_up_height</item>
         <item name="android:layout_marginTop">@dimen/introduction_sign_up_facebook_margin_top</item>
         <item name="android:layout_marginLeft">@dimen/introduction_sign_up_margin</item>
         <item name="android:layout_marginRight">@dimen/introduction_sign_up_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SettingsFacebookLoginButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/background_facebook_button</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="toolbar_borders">

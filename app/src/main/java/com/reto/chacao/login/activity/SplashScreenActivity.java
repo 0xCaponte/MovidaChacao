@@ -25,6 +25,7 @@ public class SplashScreenActivity extends Activity {
 
 
     private static final String TAG = "SplashScreenActivity";
+    private static final String KEY_INTRODUCTION = "com.reto.chacao.IntroductionKey";
 
     private static final long SPLASH_SCREEN_DELAY = 2500;
 
