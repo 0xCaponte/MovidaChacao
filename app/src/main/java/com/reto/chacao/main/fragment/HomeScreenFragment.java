@@ -4,9 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,9 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
@@ -43,13 +39,14 @@ import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
-import com.reto.chacao.settings.fragment.SettingsFragment;
 import com.reto.chacao.statics.ClamourValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -254,7 +251,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
     private void call_dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Title");
+        builder.setTitle("¿ Qué tipo de evento buscas ?");
 
         // Set up the input
         final EditText input = new EditText(getActivity());
@@ -263,7 +260,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         builder.setView(input);
 
         // Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -274,15 +271,25 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 } catch (Exception err) {
                     err.printStackTrace();
                 }
-                List<Event> events = dbHelper.getBySearch(input.getText().toString());
-                for (Event e : events) {
-                    Toast t = Toast.makeText(getActivity(), e.getName(), Toast.LENGTH_LONG);
-                    t.show();
-//                    response_dialog(e.getName());
+
+                List<String> claves = Arrays.asList(input.getText().toString().split(" "));
+                HashSet<Event> set = new HashSet<Event>();
+
+                // Busca Todas las palabras claves
+                for (String s : claves) {
+
+                    // Guarda todos los evento sque coindican con al menos una palabra clave
+                    List<Event> events = dbHelper.getBySearch(input.getText().toString());
+                    for (Event e : events) {
+                        set.add(e);
+                    }
                 }
+
+                // Cargar esos eventos a la vista.
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -392,14 +399,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 post.setComments(comments);
 
             }
-
-//            comment.setComment_id(2);
-//            comment.setCommenterFirstName("George");
-//            comment.setCommenterLastName("Clooney");
-//            comment.setBody("Finalmente una carrera de botes en Caracas!");
-
-
-
 
             posts.add(post);
 
