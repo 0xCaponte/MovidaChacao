@@ -3,6 +3,9 @@ package com.reto.chacao.map;
 import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -20,11 +23,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.reto.chacao.R;
+import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.model.Event;
+import com.reto.chacao.util.MapUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.location.Criteria.ACCURACY_FINE;
+import static android.location.LocationManager.GPS_PROVIDER;
+import static android.location.LocationManager.NETWORK_PROVIDER;
+import static android.location.LocationManager.PASSIVE_PROVIDER;
 
 public class MovidaMapActivity extends Activity {
 
@@ -64,6 +74,13 @@ public class MovidaMapActivity extends Activity {
     private ImageView mProfileButton;
     private ImageView mAddPostButton;
 
+    // Checkboxs
+    private CheckBox cultura;
+    private CheckBox c_servicios;
+    private CheckBox c_eventos;
+    private CheckBox deporte;
+    private CheckBox d_servicios;
+    private CheckBox d_eventos;
 
     // Lista de eventos Fijos de cultura
     private ArrayList<Marker> cultura_servicios = new ArrayList<Marker>();
@@ -78,13 +95,80 @@ public class MovidaMapActivity extends Activity {
     private ArrayList<Marker> deporte_eventos = new ArrayList<Marker>();
 
 
+    //Establece los filtros iniciales
+    private void setFilters(MapProfile m){
+
+        cultura.setChecked(m.isFiltro_cultura());
+        c_servicios.setChecked(m.isFiltro_cultura_servicios());
+        c_eventos.setChecked(m.isFiltro_cultura_eventos());
+        deporte.setChecked(m.isFiltro_deporte());
+        d_servicios.setChecked(m.isFiltro_deporte_servicios());
+        d_eventos.setChecked(m.isFiltro_deporte_eventos());
+
+    }
+
+    // Hace visibles los marcadores pertinentes
+    private void loadMarkers(){
+
+        if (!cultura_eventos.isEmpty()) {
+                for (Marker m : cultura_eventos) {
+                    m.setVisible(cultura.isChecked() || c_eventos.isChecked());
+                }
+        }
+
+        if (!cultura_servicios.isEmpty()) {
+                for (Marker m : cultura_servicios) {
+                    m.setVisible(cultura.isChecked() || c_servicios.isChecked());
+                }
+        }
+
+        if (!deporte_eventos.isEmpty()) {
+                for (Marker m : deporte_eventos) {
+                    m.setVisible((deporte.isChecked() || d_eventos.isChecked()));
+                }
+        }
+
+        if (!deporte_servicios.isEmpty()) {
+                for (Marker m : deporte_servicios) {
+                    m.setVisible(deporte.isChecked() || d_servicios.isChecked());
+                }
+        }
+    }
+
+    private Location masReciente(Location location1, Location location2) {
+        if (location1 == null)
+            return location2;
+
+        if (location2 == null)
+            return location1;
+
+        if (location2.getTime() > location1.getTime())
+            return location2;
+        else
+            return location1;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        // Set filtros cultura
+        cultura = (CheckBox) findViewById(R.id.filtro_cultura);
+        c_servicios = (CheckBox) findViewById(R.id.filtro_cultura_servicios);
+        c_eventos = (CheckBox) findViewById(R.id.filtro_cultura_eventos);
+
+        // Set filtros deportes
+        deporte = (CheckBox) findViewById(R.id.filtro_deporte);
+        d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);
+        d_eventos = (CheckBox) findViewById(R.id.filtro_deporte_eventos);
+
         main_context = getApplicationContext();
+        MapProfile mp = MapUtil.getMapFilters(main_context);
+
+        //Establece los filtros iniciales
+        setFilters(mp);
 
         //Crea el mapa
         createMapView();
@@ -95,12 +179,49 @@ public class MovidaMapActivity extends Activity {
         // Carga los marcadores
         addMarkers();
 
-        // Set filtro cultura
-        final CheckBox cultura = (CheckBox) findViewById(R.id.filtro_cultura);
+        // Initial Markers
+        loadMarkers();
+
+        // My location
+        googleMap.setMyLocationEnabled(true);
+
+        googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
+            @Override
+            public boolean onMyLocationButtonClick() {
+
+                LocationManager manager = (LocationManager) MovidaMapActivity.this
+                        .getSystemService(LOCATION_SERVICE);
+                Criteria criteria = new Criteria();
+                criteria.setAccuracy(ACCURACY_FINE);
+                String provider = manager.getBestProvider(criteria, true);
+                Location mejor;
+
+                if (provider != null)
+                    mejor = manager.getLastKnownLocation(provider);
+                else
+                    mejor = null;
+
+                Location latestLocation = masReciente(mejor, manager.getLastKnownLocation(GPS_PROVIDER));
+                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(NETWORK_PROVIDER));
+                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
+
+                LatLng l = new LatLng(latestLocation.getLatitude(),latestLocation.getLongitude());
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 14.0f));
+
+                return true;
+            }
+        });
+
+        //Click Listener
         cultura.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroCultura(MovidaMapActivity.this, cultura.isChecked());
+                MapUtil.setFiltroCulturaEventos(MovidaMapActivity.this, cultura.isChecked());
+                MapUtil.setFiltroCulturaServicios(MovidaMapActivity.this, cultura.isChecked());
 
                 if (!cultura_eventos.isEmpty()) {
                     for (Marker m : cultura_eventos) {
@@ -116,11 +237,15 @@ public class MovidaMapActivity extends Activity {
             }
         });
 
-        final CheckBox c_servicios = (CheckBox) findViewById(R.id.filtro_cultura_servicios);
+
+        //Click Listener
         c_servicios.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroCulturaServicios(MovidaMapActivity.this, c_servicios.isChecked());
 
                 if (!cultura_servicios.isEmpty()) {
                     for (Marker m : cultura_servicios) {
@@ -130,11 +255,15 @@ public class MovidaMapActivity extends Activity {
             }
         });
 
-        final CheckBox c_eventos = (CheckBox) findViewById(R.id.filtro_cultura_eventos);
+
+        //Click Listener
         c_eventos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroCulturaEventos(MovidaMapActivity.this, c_eventos.isChecked());
 
                 if (!cultura_eventos.isEmpty()) {
                     for (Marker m : cultura_eventos) {
@@ -145,33 +274,39 @@ public class MovidaMapActivity extends Activity {
         });
 
 
-        // Set filtro deportes
-        final CheckBox deporte = (CheckBox) findViewById(R.id.filtro_deporte);
+        //Click Listener
         deporte.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if (!deporte_eventos.isEmpty()) {
-                    for (Marker m : deporte_eventos) {
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroDeportes(MovidaMapActivity.this, deporte.isChecked());
+                MapUtil.setFiltroDeportesEventos(MovidaMapActivity.this, deporte.isChecked());
+                MapUtil.setFiltroDeportesServicios(MovidaMapActivity.this, deporte.isChecked());
 
-                        m.setVisible(deporte.isChecked());
+                if (!cultura_eventos.isEmpty()) {
+                    for (Marker m : cultura_eventos) {
+                        m.setVisible(cultura.isChecked());
                     }
                 }
 
-                if (!deporte_servicios.isEmpty()) {
-                    for (Marker m : deporte_servicios) {
-                        m.setVisible(deporte.isChecked());
+                if (!cultura_servicios.isEmpty()) {
+                    for (Marker m : cultura_servicios) {
+                        m.setVisible(cultura.isChecked());
                     }
                 }
             }
         });
 
-        final CheckBox d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);
+        //Click Listener
         d_servicios.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroDeportesServicios(MovidaMapActivity.this, d_servicios.isChecked());
 
                 if (!deporte_servicios.isEmpty()) {
                     for (Marker m : deporte_servicios) {
@@ -181,11 +316,15 @@ public class MovidaMapActivity extends Activity {
             }
         });
 
-        final CheckBox d_eventos = (CheckBox) findViewById(R.id.filtro_deporte_eventos);
+
+        //Click Listener
         d_eventos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                //Guardo el cambio de filtro
+                MapUtil.setFiltroDeportesEventos(MovidaMapActivity.this, d_eventos.isChecked());
 
                 if (!deporte_eventos.isEmpty()) {
                     for (Marker m : deporte_eventos) {
@@ -194,8 +333,6 @@ public class MovidaMapActivity extends Activity {
                 }
             }
         });
-
-
     }
 
 
@@ -286,9 +423,7 @@ public class MovidaMapActivity extends Activity {
                         }else if(tag.equals("Cine")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_cine));
                         }else if(tag.equals("Idioma")){
-
                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_idioma));
-
                         }else if(tag.equals("Arte")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_arte));
                         }else if(tag.equals("Musica")){

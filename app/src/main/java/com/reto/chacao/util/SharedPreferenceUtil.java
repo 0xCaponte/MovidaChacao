@@ -4,10 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-/**
- * Created by ULISES HARRIS on 21/05/2015.
- */
-
 
 public class SharedPreferenceUtil {
 

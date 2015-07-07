@@ -8,11 +8,13 @@ import android.view.Window;
 
 import com.facebook.appevents.AppEventsLogger;
 import com.reto.chacao.R;
+import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.GcmManager;
+import com.reto.chacao.util.MapUtil;
 import com.reto.chacao.util.UserUtil;
 
 import java.util.Timer;
@@ -67,6 +69,10 @@ public class SplashScreenActivity extends Activity {
 
                 // Usuarios nuevo -> Introducción
                 if (!UserUtil.getRegister(SplashScreenActivity.this)) {
+
+                    //Filtro inicial de los mapas
+                    MapProfile map = new MapProfile();
+                    MapUtil.saveMapFilters(SplashScreenActivity.this, map);
 
                     AppUtil.runActivity(IntroductionScreenActivity.class, SplashScreenActivity.this);
 
