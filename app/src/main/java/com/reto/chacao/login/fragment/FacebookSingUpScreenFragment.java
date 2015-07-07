@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +19,12 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.reto.chacao.App;
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.statics.ClamourApiValues;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.JsonObjectRequestUtil;
 import com.reto.chacao.util.MySingletonUtil;
@@ -128,7 +126,7 @@ public class FacebookSingUpScreenFragment extends AppFragment {
                             if ("".equals(mUserProfile.getEmail())) {
 
                            //     Intent emailRequestIntent = new Intent(getActivity(), EmailReqestScreenActivity.class);
-                             //   emailRequestIntent.putExtra(ClamourValues.EMAIL_REQUEST_INTENT_EXTRA, mUserProfile);
+                             //   emailRequestIntent.putExtra(MovidaValues.EMAIL_REQUEST_INTENT_EXTRA, mUserProfile);
                                // startActivity(emailRequestIntent);
 
                             } else {
@@ -171,7 +169,7 @@ public class FacebookSingUpScreenFragment extends AppFragment {
 
                     mUserProfile.setApiToken(AppUtil.getValuesFromApiMessageObject("apiToken", jsonObject));
                     mUserProfile.setConfirmationToken(AppUtil.getValuesFromApiMessageObject("confirmationToken", jsonObject));
-                    AppUtil.runActivity(MovidaMainActivity.class, getActivity(), ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
+                    AppUtil.runActivity(MovidaMainActivity.class, getActivity(), MovidaValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
 
                 }else{
 

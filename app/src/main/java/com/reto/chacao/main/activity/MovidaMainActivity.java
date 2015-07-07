@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -20,10 +17,9 @@ import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
 import com.reto.chacao.augmented_reality.AugmentedReality;
-import com.reto.chacao.main.dialog.AddPostDialog;
 import com.reto.chacao.main.fragment.HomeScreenFragment;
 import com.reto.chacao.settings.fragment.SettingsFragment;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 
 /**
  * Created by Eduardo Luttinger on 05/06/2015.
@@ -43,7 +39,7 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ClamourValues.setAppFragmentListener(this);
+        MovidaValues.setAppFragmentListener(this);
         setBottomToolbar();
     }
 
@@ -98,12 +94,12 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
 
     @Override
     protected AppFragment getAppFragment() {
-        AppFragment fragment = (AppFragment) getIntent().getSerializableExtra(ClamourValues.SERIALIZABLE_FRAGMENT);
+        AppFragment fragment = (AppFragment) getIntent().getSerializableExtra(MovidaValues.SERIALIZABLE_FRAGMENT);
         if(fragment == null){
             fragment = new HomeScreenFragment();
         }else{
             Bundle bundle = new Bundle();
-            bundle.putString("POST_DETAIL",getIntent().getStringExtra(ClamourValues.FRAGMENT_BUNDLE));
+            bundle.putString("POST_DETAIL",getIntent().getStringExtra(MovidaValues.FRAGMENT_BUNDLE));
             fragment.setArguments(bundle);
         }
         return fragment;

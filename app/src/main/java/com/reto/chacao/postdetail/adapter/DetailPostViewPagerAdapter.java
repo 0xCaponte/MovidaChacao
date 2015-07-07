@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 import com.reto.chacao.R;
 import com.reto.chacao.postdetail.dialog.ZoomableImageDialog;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 
 /**
  * Created by Eduardo Luttinger on 28/05/2015.
@@ -84,7 +84,7 @@ public class DetailPostViewPagerAdapter extends PagerAdapter implements View.OnC
             case R.id.detailPostImage:
                 int zoomImage = mResources[(Integer) view.getTag()];
                 Bundle params = new Bundle();
-                params.putInt(ClamourValues.IMAGE_TO_ZOOM_ID, zoomImage);
+                params.putInt(MovidaValues.IMAGE_TO_ZOOM_ID, zoomImage);
                 ZoomableImageDialog dialog = new ZoomableImageDialog();
                 dialog.setArguments(params);
                 dialog.show(mActivity.getFragmentManager(),"ZoomableImage");

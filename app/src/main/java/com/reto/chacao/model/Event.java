@@ -1,9 +1,12 @@
 package com.reto.chacao.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by gustavo on 25/06/15.
  */
-public class Event {
+public class Event implements Parcelable {
     int id;
     String name;
     String description;
@@ -124,5 +127,25 @@ public class Event {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(category);
+        dest.writeString(tags);
+        dest.writeString(url);
+        dest.writeString(facebook);
+        dest.writeString(twitter);
+        dest.writeString(instagram);
+        dest.writeString(type);
+        dest.writeFloat(latitude);
+        dest.writeFloat(longitude);
+
     }
 }
