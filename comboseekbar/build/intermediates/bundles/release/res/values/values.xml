@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/Movida%20Chacao/comboseekbar/src/main/res/values/color.xml -->
+    <!-- From: file:/Users/domingodeabreu/Documents/RetoChacao/comboseekbar/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="line_background">#414856</color>
     <color name="line_selected_background">#00DFCB</color>
     <color name="separator_background">#363b4a</color>
     <declare-styleable name="ComboSeekBar"><attr format="boolean" name="multiline"/><attr format="color" name="myColor"/><attr format="dimension" name="textSize"/></declare-styleable>
-    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/Movida%20Chacao/comboseekbar/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/domingodeabreu/Documents/RetoChacao/comboseekbar/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">android-comboseekbar</string>
-    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/Movida%20Chacao/comboseekbar/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/domingodeabreu/Documents/RetoChacao/comboseekbar/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>
 </resources>
