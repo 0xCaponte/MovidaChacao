@@ -261,20 +261,74 @@ public class MovidaMapActivity extends Activity {
             // Divide en servicios, eventos y categoria.
             for(Event e : events){
 
+                Marker m = null;
+
+                String tag =  e.getTags();
+                int pos = tag.indexOf(';');
+
+                if (pos != -1) {
+                    tag = tag.substring(0, pos);
+                }
+
+                m = googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(e.getLatitude(), e.getLongitude()))
+                        .title(e.getName())
+                        .snippet(e.getDescription())
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_teatro)));
+                
                 // Servicios
                 if (e.getType().equals("Fijo")){
 
-                    Marker m = googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(e.getLatitude(), e.getLongitude()))
-                            .title(e.getName())
-                            .snippet(e.getDescription())
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-
                     if(e.getCategory().equals("Cultura")){
+
+                        if (tag.equals("Teatro")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_teatro));
+                        }else if(tag.equals("Cine")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_cine));
+                        }else if(tag.equals("Idioma")){
+
+                           m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_idioma));
+
+                        }else if(tag.equals("Arte")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_arte));
+                        }else if(tag.equals("Musica")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_musica));
+                        }else if(tag.equals("Danza")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_danza));
+                        }else if(tag.equals("Gastronomia")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_gastronomia));
+                        }else{
+                            //No hay icono de festival,  ponencia o turismo
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_musica));
+                        }
 
                         cultura_servicios.add(m);
 
                     }else{
+
+                        if (tag.equals("Fultbol")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_futbol));
+                        }else if(tag.equals("Basketball")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_basquet));
+                        }else if(tag.equals("Voleyball")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_voleyball));
+                        }else if(tag.equals("Natacion")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_natacion));
+                        }else if(tag.equals("Skate")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_skate));
+                        }else if(tag.equals("BMX")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_skate));
+                        }else if(tag.equals("Yoga")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_yoga));
+                        }else if(tag.equals("Tennis")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_tenis));
+                        }else if(tag.equals("Carrera")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_fitness));
+                        }else if(tag.equals("Fitness")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_fitness));
+                        }else{
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_futbol));
+                        }
 
                         deporte_servicios.add(m);
                     }
@@ -282,19 +336,56 @@ public class MovidaMapActivity extends Activity {
                     // Eventos
                 }else{
 
-                    Marker m2 = googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(e.getLatitude(), e.getLongitude()))
-                            .title(e.getName())
-                            .snippet(e.getDescription())
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-
                     if(e.getCategory().equals("Cultura")) {
 
-                        cultura_eventos.add(m2);
+                        if (tag.equals("Teatro")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_teatro));
+                        }else if(tag.equals("Cine")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_cine));
+                        }else if(tag.equals("Idiomas")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_idioma));
+                        }else if(tag.equals("Arte")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_arte));
+                        }else if(tag.equals("Musica")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_musica));
+                        }else if(tag.equals("Danza")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_danza));
+                        }else if(tag.equals("Gastronomia")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_gastronomia));
+                        }else{
+                            //No hay icono de festival,  ponencia o turismo
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_musica));
+                        }
+
+                        cultura_eventos.add(m);
 
                     } else {
 
-                        deporte_eventos.add(m2);
+                        if (tag.equals("Fultbol")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_futbol));
+                        }else if(tag.equals("Basketball")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_basquet));
+                        }else if(tag.equals("Voleyball")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_voleyball));
+                        }else if(tag.equals("Natacion")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_natacion));
+                        }else if(tag.equals("Skate")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_skate));
+                        }else if(tag.equals("BMX")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_skate));
+                        }else if(tag.equals("Yoga")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_yoga));
+                        }else if(tag.equals("Tennis")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_tenis));
+                        }else if(tag.equals("Carrera")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_fitness));
+                        }else if(tag.equals("Fitness")){
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_fitness));
+                        }else{
+                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_futbol));
+                        }
+
+                        deporte_eventos.add(m);
                     }
 
                 }
