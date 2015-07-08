@@ -14,3 +14,4 @@ comboseekbar
 .idea/*
 app/app.iml
 local.properties
+build/*
