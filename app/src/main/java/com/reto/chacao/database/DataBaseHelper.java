@@ -52,7 +52,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             "ev_category TEXT," +
             "ev_tags TEXT," +
             "ev_type TEXT," +
-            "ev_dateStart," +
+            "ev_dateStart TEXT," +
             "ev_dateEnd TEXT,"+
             "ev_facebook TEXT," +
             "ev_twitter TEXT," +
