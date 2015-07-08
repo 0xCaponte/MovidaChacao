@@ -295,7 +295,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void postMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
+        PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(Post.TAG, mPosts.get(position));
+        arguments.putBoolean("COMMENT",true);
+        postDetailScreenFragment.setArguments(arguments);
+        getFragmentListener().goToFragment(postDetailScreenFragment);
     }
 
     @Override
@@ -321,10 +326,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
         Bundle arguments = new Bundle();
         arguments.putSerializable(Post.TAG, mPosts.get(position));
-        arguments.putBoolean("COMMENT",true);
+        arguments.putBoolean("COMMENT", true);
         postDetailScreenFragment.setArguments(arguments);
         getFragmentListener().goToFragment(postDetailScreenFragment);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
     }
 
 
