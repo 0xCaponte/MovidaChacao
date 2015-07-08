@@ -369,7 +369,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 for(com.reto.chacao.model.Comment c : cm){
                     Comment commentTmp = new Comment();
                     commentTmp.setComment_id(c.getId());
-                    commentTmp.setCommenterFirstName(c.getUser());
+                    commentTmp.setCommenterFirstName(c.getFirstname());
+                    commentTmp.setCommenterLastName(c.getLastname());
                     commentTmp.setBody(c.getText());
                     commentTmp.setCreated(Calendar.getInstance().getTime());
 
@@ -424,7 +425,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 for(com.reto.chacao.model.Comment c : cm){
                     Comment commentTmp = new Comment();
                     commentTmp.setComment_id(c.getId());
-                    commentTmp.setCommenterFirstName(c.getUser());
+                    commentTmp.setCommenterFirstName(c.getFirstname());
+                    commentTmp.setCommenterLastName(c.getLastname());
                     commentTmp.setBody(c.getText());
                     commentTmp.setCreated(Calendar.getInstance().getTime());
 
