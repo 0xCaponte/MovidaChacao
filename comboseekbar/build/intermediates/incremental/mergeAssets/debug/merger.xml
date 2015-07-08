@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/domingo/RetoChacao/retochacao/comboseekbar/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/domingo/RetoChacao/retochacao/comboseekbar/src/debug/assets"/></dataSet></merger>
+<<<<<<< HEAD
+<merger version="3"><dataSet config="main"><source path="C:\Users\Andrea Balbas\Documents\MovidaChacao\comboseekbar\src\main\assets"/></dataSet><dataSet config="debug"><source path="C:\Users\Andrea Balbas\Documents\MovidaChacao\comboseekbar\src\debug\assets"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="main"><source path="D:\Reto_Chacao\retochacao\comboseekbar\src\main\assets"/></dataSet><dataSet config="debug"><source path="D:\Reto_Chacao\retochacao\comboseekbar\src\debug\assets"/></dataSet></merger>
+>>>>>>> 2aca66ef1308fbf8d359672bc9a049796569ffa4

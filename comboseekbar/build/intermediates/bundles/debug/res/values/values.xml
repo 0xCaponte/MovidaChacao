@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/domingo/RetoChacao/retochacao/comboseekbar/src/main/res/values/color.xml -->
+<<<<<<< HEAD
+    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/MovidaChacao/comboseekbar/src/main/res/values/color.xml -->
+=======
+    <!-- From: file:/D:/Reto_Chacao/retochacao/comboseekbar/src/main/res/values/color.xml -->
+>>>>>>> 2aca66ef1308fbf8d359672bc9a049796569ffa4
     <eat-comment/>
     <color name="line_background">#414856</color>
     <color name="line_selected_background">#00DFCB</color>
     <color name="separator_background">#363b4a</color>
     <declare-styleable name="ComboSeekBar"><attr format="boolean" name="multiline"/><attr format="color" name="myColor"/><attr format="dimension" name="textSize"/></declare-styleable>
-    <!-- From: file:/home/domingo/RetoChacao/retochacao/comboseekbar/src/main/res/values/strings.xml -->
+<<<<<<< HEAD
+    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/MovidaChacao/comboseekbar/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">android-comboseekbar</string>
-    <!-- From: file:/home/domingo/RetoChacao/retochacao/comboseekbar/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/MovidaChacao/comboseekbar/src/main/res/values/styles.xml -->
+=======
+    <!-- From: file:/D:/Reto_Chacao/retochacao/comboseekbar/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">android-comboseekbar</string>
+    <!-- From: file:/D:/Reto_Chacao/retochacao/comboseekbar/src/main/res/values/styles.xml -->
+>>>>>>> 2aca66ef1308fbf8d359672bc9a049796569ffa4
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>
 </resources>

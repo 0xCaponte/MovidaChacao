@@ -105,7 +105,7 @@ updateRangeValues: function updateRangeValuesFn() {
     
     // update UI labels accordingly
     $("#panel-distance-value").html(maxRangeValue);
-    $("#panel-distance-places").html((placesInRange != 1) ? (placesInRange + " Places") : (placesInRange + " Place"));
+    $("#panel-distance-places").html((placesInRange != 1) ? (placesInRange + " actividades") : (placesInRange + " Place"));
     // update culling distance, so only palces within given range are rendered
     AR.context.scene.cullingDistance = Math.max(maxRangeMeters, 1);
     // update radar's maxDistance so radius of radar is updated too
