@@ -17,94 +17,105 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/item_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/post_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/user_image"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/user_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/item_post_list_user_text_size"/>
-
-                    <TextView
-                        android:id="@+id/post_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:textIsSelectable="true"
-                        android:textSize="@dimen/item_post_list_title_size"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/post_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:textIsSelectable="true"
-                        android:maxLines="2"
-                        android:minLines="1"
-                        android:textSize="@dimen/item_post_list_description_text_size"
-                        />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/post_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/item_post_list_date_text_size"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_post_list_image_height">
-
-                <ImageView
-                    android:id="@+id/post_main_image"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:clickable="true"
-                    android:src="@drawable/item1"/>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/post_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/user_image"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/item_post_list_user_text_size"/>
+
+                        <TextView
+                            android:id="@+id/post_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/item_post_list_title_size"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/post_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:minLines="1"
+                            android:singleLine="false"
+                            android:textSize="@dimen/item_post_list_description_text_size"
+                            />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/post_condition"
-                        android:layout_width="@dimen/item_post_list_status_width"
-                        android:layout_height="@dimen/item_post_list_price_height"
-                        android:background="@drawable/price_overlay_drawable"
-                        android:gravity="center"
-                        android:paddingLeft="@dimen/item_post_list_condition_padding"
-                        android:paddingRight="@dimen/item_post_list_condition_padding"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/item_post_list_condition_text_size"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+                        android:id="@+id/post_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/item_post_list_date_text_size"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_post_list_image_height">
+
+                    <ImageView
+                        android:id="@+id/post_main_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:clickable="true"
+                        android:src="@drawable/item1"/>
 
 
-            </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/post_condition"
+                            android:layout_width="@dimen/item_post_list_status_width"
+                            android:layout_height="@dimen/item_post_list_price_height"
+                            android:background="@drawable/price_overlay_drawable"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/item_post_list_condition_padding"
+                            android:paddingRight="@dimen/item_post_list_condition_padding"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/item_post_list_condition_text_size"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
 
             <View
                 android:id="@+id/sold_view"
@@ -140,7 +151,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:textSize="12sp"/>
+                        android:textStyle="bold"
+                        android:textSize="13sp"/>
 
                     <TextView
                         android:id="@+id/comment_text"
@@ -148,9 +160,11 @@
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
                         android:ellipsize="end"
-                        android:maxLines="1"
+                        android:maxLines="2"
                         android:minLines="1"
+                        android:singleLine="true"
                         android:textSize="@dimen/item_post_list_comment_text"/>
+
                 </LinearLayout>
 
                 <TextView

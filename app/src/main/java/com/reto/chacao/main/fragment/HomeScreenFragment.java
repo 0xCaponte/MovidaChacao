@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -59,8 +61,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     ImageSpan imageSpan;
     SpannableString content;
-    private ToggleButton mOneColumnToggle;
-    private ToggleButton mTwoColumnsToggle;
     private RecyclerView mOneColumnRecyclerView;
     private RecyclerView mTwoColumnsRecyclerView;
     private OneColumnAdapter mOneColumnAdapter;
@@ -70,6 +70,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
     private Toolbar mToolbar;
+    private FloatingActionButton mFloatingToogle;
+    private Boolean mShowingTwoColumns;
 
     public HomeScreenFragment() {
         super();
@@ -110,7 +112,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         mPosts = setPostItems();
 
         setViews(root);
-        setToolBar(root);
 
         mToolbar = (Toolbar) root.findViewById(R.id.home_top_toolbar); // Attaching the layout to
 /*
@@ -122,38 +123,15 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         if (UserUtil.getFirstTimeHome(getActivity()))
             mTutorial.setVisibility(View.GONE);
 
-        if (mTwoColumnsToggle.isChecked())
-            onTwoColumnClick();
-        else if (mOneColumnToggle.isChecked())
-            onOneColumnClick();
-
 
         return root;
     }
 
-    private void setToolBar(View root) {
-        mOneColumnToggle = (ToggleButton) root.findViewById(R.id.home_one_column_toggle);
-        mOneColumnToggle.setTransformationMethod(null);
-        mOneColumnToggle.setOnClickListener(this);
-        imageSpan = new ImageSpan(getActivity(), R.drawable.btn_one_column);
-        content = new SpannableString("X");
-        content.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mOneColumnToggle.setText(content);
-        mOneColumnToggle.setTextOn(content);
-        mOneColumnToggle.setTextOff(content);
-
-        mTwoColumnsToggle = (ToggleButton) root.findViewById(R.id.home_two_columns_toggle);
-        mTwoColumnsToggle.setTransformationMethod(null);
-        mTwoColumnsToggle.setOnClickListener(this);
-        imageSpan = new ImageSpan(getActivity(), R.drawable.btn_two_columns);
-        content = new SpannableString("X");
-        content.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mTwoColumnsToggle.setText(content);
-        mTwoColumnsToggle.setTextOn(content);
-        mTwoColumnsToggle.setTextOff(content);
-    }
 
     private void setViews(View root) {
+        mFloatingToogle = (FloatingActionButton) root.findViewById(R.id.FABToogle);
+        mFloatingToogle.setOnClickListener(this);
+        mShowingTwoColumns = true;
         mOneColumnRecyclerView = (RecyclerView) root.findViewById(R.id.home_list_view);
         mOneColumnRecyclerView.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -190,19 +168,13 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     private void onTwoColumnClick() {
-        if (mOneColumnToggle.isChecked()) {
-            mOneColumnToggle.setChecked(false);
-        }
-        mTwoColumnsToggle.setChecked(true);
+        mFloatingToogle.setImageResource(R.drawable.btn_two_columns);
         mTwoColumnsRecyclerView.setVisibility(View.VISIBLE);
         mOneColumnRecyclerView.setVisibility(View.GONE);
     }
 
     private void onOneColumnClick() {
-        if (mTwoColumnsToggle.isChecked()) {
-            mTwoColumnsToggle.setChecked(false);
-        }
-        mOneColumnToggle.setChecked(true);
+        mFloatingToogle.setImageResource(R.drawable.btn_one_column);
         mOneColumnRecyclerView.setVisibility(View.VISIBLE);
         mTwoColumnsRecyclerView.setVisibility(View.GONE);
     }
@@ -221,11 +193,14 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.home_one_column_toggle:
-                onOneColumnClick();
-                break;
-            case R.id.home_two_columns_toggle:
-                onTwoColumnClick();
+            case R.id.FABToogle:
+                if ( mShowingTwoColumns ) {
+                    onTwoColumnClick();
+                    mShowingTwoColumns = false;
+                } else {
+                    onOneColumnClick();
+                    mShowingTwoColumns = true;
+                }
                 break;
             case R.id.home_tutorial:
                 mTutorial.setVisibility(View.GONE);
@@ -324,7 +299,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void postMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
+        PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(Post.TAG, mPosts.get(position));
+        arguments.putBoolean("COMMENT",true);
+        postDetailScreenFragment.setArguments(arguments);
+        getFragmentListener().goToFragment(postDetailScreenFragment);
     }
 
     @Override
@@ -347,7 +327,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void postTwoMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
+        PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(Post.TAG, mPosts.get(position));
+        arguments.putBoolean("COMMENT", true);
+        postDetailScreenFragment.setArguments(arguments);
+        getFragmentListener().goToFragment(postDetailScreenFragment);
     }
 
     // Carga los eventos que retornaron de la vista

@@ -77,7 +77,8 @@
     <string name="app_device_not_supported">Este dispositvo no esta soportado</string>
 
     <!-- Home-->
-    <string name="home_post_item_comments">%1$d comentario</string>
+    <string name="home_post_item_comment">%1$d comentario</string>
+    <string name="home_post_item_comments">%1$d comentarios</string>
     <string name="home_tutorial_btn_home"> Busca articulos para comprar</string>
     <string name="home_tutorial_btn_add">Publica articulos para buscar o vender</string>
     <string name="home_tutorial_btn_profile">Tu perfil</string>
