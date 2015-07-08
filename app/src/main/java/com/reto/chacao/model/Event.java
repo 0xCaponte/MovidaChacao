@@ -18,6 +18,7 @@ public class Event implements Parcelable {
     String instagram;
     String type;
     String dateEnd;
+    String dateStart;
     float latitude;
     float longitude;
 
@@ -133,6 +134,14 @@ public class Event implements Parcelable {
         return 0;
     }
 
+    public String getDateStart() {
+        return dateStart;
+    }
+
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeString(name);
@@ -146,6 +155,7 @@ public class Event implements Parcelable {
         dest.writeString(type);
         dest.writeFloat(latitude);
         dest.writeFloat(longitude);
+
 
     }
 }
