@@ -5,7 +5,7 @@ import com.reto.chacao.abstractcomponents.AppFragment;
 /**
  * Created by Eduardo Luttinger on 21/05/2015.
  */
-public class ClamourValues {
+public class MovidaValues {
 
 
     public static String CLAMOUR_GOOGLE_API_ID = "clamour-956";

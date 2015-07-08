@@ -26,7 +26,7 @@ import com.reto.chacao.beans.Category;
 import com.reto.chacao.beans.ItemCondition;
 import com.reto.chacao.filter.adapter.FilterAdapter;
 import com.reto.chacao.statics.ClamourApiValues;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.JsonObjectRequestUtil;
 import com.reto.chacao.util.MySingletonUtil;
@@ -56,7 +56,7 @@ public class FilterScreenActivity extends IntroToolBarActivity implements Filter
         setNextButtonText(getString(R.string.filter_toolbar_btn_text));
 
         Bundle bundle = getIntent().getExtras();
-        mGroupId = bundle.getInt(ClamourValues.GROUP_ID);
+        mGroupId = bundle.getInt(MovidaValues.GROUP_ID);
 
         setViews();
         getCategories();

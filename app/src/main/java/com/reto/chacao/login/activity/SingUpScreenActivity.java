@@ -154,7 +154,7 @@ public class SingUpScreenActivity extends IntroToolBarActivity {
                 ClamourApiValues.GET_SALT_URL,
                 mUserProfile.toJsonObject(), saltResponseListener, saltResponseError);
 
-//        AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
+//        AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, MovidaValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
         //JSON REQUEST CALL
         MySingletonUtil.getInstance(this).addToRequestQueue(req);
 
@@ -194,7 +194,7 @@ public class SingUpScreenActivity extends IntroToolBarActivity {
                     UserUtil.setRegister(SingUpScreenActivity.this, true);
 
                     Log.i(TAG, "Corriendo pantalla de verificacion de cuenta creada");
-               //     AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, ClamourValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
+               //     AppUtil.runActivity(VerifyCodeScreenActivity.class, SingUpScreenActivity.this, MovidaValues.VERIFICATION_CODE_INTENT_EXTRA, mUserProfile);
 
 
                 } else {

@@ -9,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import java.util.List;
-
 import com.reto.chacao.R;
+
+import java.util.List;
 
 /**
  * Created by Eduardo Luttinger on 05/06/2015.
@@ -55,6 +55,7 @@ abstract public class MainToolbarActivity extends AppCompatActivity {
         AppFragment fragmentToRun = getAppFragment();
 
         if(fragmentToRun != null){
+
             runMyFragment(fragmentToRun,Boolean.TRUE);
         }
 

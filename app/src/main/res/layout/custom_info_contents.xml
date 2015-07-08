@@ -29,4 +29,11 @@
             android:src="@drawable/logo_chacao"/>
     </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        android:id="@+id/detalles"
+        android:layout_gravity="bottom" />
+
 </LinearLayout>

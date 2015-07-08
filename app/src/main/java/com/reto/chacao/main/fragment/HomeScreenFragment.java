@@ -39,7 +39,7 @@ import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
@@ -108,6 +108,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         mPosts = setPostItems();
+
         setViews(root);
         setToolBar(root);
 
@@ -207,7 +208,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     private void onFilterClick() {
-        AppUtil.runActivity(FilterScreenActivity.class, getActivity(), ClamourValues.GROUP_ID, 2);
+        AppUtil.runActivity(FilterScreenActivity.class, getActivity(), MovidaValues.GROUP_ID, 2);
     }
 
     @Override
@@ -261,6 +262,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         // Set up the buttons
         builder.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -286,6 +288,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 }
 
                 // Cargar esos eventos a la vista.
+
+
             }
         });
 
@@ -346,25 +350,19 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         AppUtil.showAToast("Comments size: " + post.getComments().size());
     }
 
-
-    public ArrayList<Post> setPostItems() {
+    // Carga los eventos que retornaron de la vista
+    public ArrayList<Post> setSearchPostItems(ArrayList<Event> events){
 
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        List<Event> events = dbHelper.getAllEvents();
-
-
         ArrayList<Post> posts = new ArrayList<Post>();
 
-
         for(Event e : events){
+
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();
             UserProfile user = new UserProfile();
-
-
 
             post.setPost_id(e.getId());
             post.setTitle(e.getName());
@@ -374,14 +372,66 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             condition.setName("Ahora");
             post.setCondition(condition);
             post.setCreated(Calendar.getInstance().getTime());
-//            post.setLocation("100003");
-//            post.setPrice("50$");
 
             user.setUserId(e.getId());
             user.setFirstName("Alcadía de Chacao");
             user.setFamilyName("");
             post.setUser(user);
 
+            List<com.reto.chacao.model.Comment> cm = dbHelper.getCommentByEvent(e.getId());
+
+            if(cm.size() >= 1){
+                for(com.reto.chacao.model.Comment c : cm){
+                    Comment commentTmp = new Comment();
+                    commentTmp.setComment_id(c.getId());
+                    commentTmp.setCommenterFirstName(c.getUser());
+                    commentTmp.setBody(c.getText());
+                    commentTmp.setCreated(Calendar.getInstance().getTime());
+
+                    comments.add(commentTmp);
+                }
+
+                post.setComments(comments);
+
+            }
+
+            posts.add(post);
+
+        }
+
+        return posts;
+    }
+
+
+    // Trae TODOS los eventos de la BD y los carga
+    public ArrayList<Post> setPostItems() {
+
+        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        List<Event> events = dbHelper.getAllEvents();
+
+        ArrayList<Post> posts = new ArrayList<Post>();
+
+        for(Event e : events){
+            ArrayList<Comment> comments = new ArrayList<Comment>();
+            Post post = new Post();
+            ItemCondition condition = new ItemCondition();
+            UserProfile user = new UserProfile();
+
+            post.setPost_id(e.getId());
+            post.setTitle(e.getName());
+            post.setDescription(e.getDescription());
+
+            condition.setId(e.getId());
+            condition.setName("Ahora");
+            post.setCondition(condition);
+            post.setCreated(Calendar.getInstance().getTime());
+
+            user.setUserId(e.getId());
+            user.setFirstName("Alcadía de Chacao");
+            user.setFamilyName("");
+            post.setUser(user);
 
             List<com.reto.chacao.model.Comment> cm = dbHelper.getCommentByEvent(e.getId());
 
