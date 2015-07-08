@@ -51,7 +51,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/mclogo"
+        android:icon="@drawable/logopin"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
