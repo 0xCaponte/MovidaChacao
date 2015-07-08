@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -75,8 +76,15 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             comment = comments.get(0);
             String commentUserName = comment.getCommenterFirstName() + " " + comment.getCommenterLastName();
             Resources res = mContext.getResources();
-            String numberComments = String.format(res.getString(R.string.home_post_item_comments), comments.size());
+            String numberComments ;
+            if ( comments.size() > 1 ) {
+                numberComments = String.format(res.getString(R.string.home_post_item_comments), comments.size());
+            } else {
+                numberComments = String.format(res.getString(R.string.home_post_item_comment), comments.size());
+            }
             holder.mPostCommentNumber.setText(numberComments);
+        } else {
+            holder.mPostComment.setVisibility(View.INVISIBLE);
         }
 
     }
@@ -92,6 +100,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        public LinearLayout mItemLayout;
         public ImageView mPostUserImage;
         public TextView mPostTitle;
         public TextView mPostDescription;
@@ -104,7 +113,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-
+            mItemLayout = (LinearLayout) itemLayoutView.findViewById(R.id.item_layout);
             mPostUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image);
             mPostTitle = (TextView) itemLayoutView.findViewById(R.id.post_title);
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
@@ -113,6 +122,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentNumber = (TextView) itemLayoutView.findViewById(R.id.text_more_comments);
             mPostComment = (RelativeLayout) itemLayoutView.findViewById(R.id.btn_post_more_comments);
+            mItemLayout.setOnClickListener(this);
             mPostFirstImage.setOnClickListener(this);
             mPostComment.setOnClickListener(this);
         }
@@ -120,6 +130,9 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.item_layout:
+                    mListener.postTwoColumnViewListClicked(v, getAdapterPosition());
+                    break;
                 case R.id.post_main_image:
                     mListener.postTwoColumnViewListClicked(v, getAdapterPosition());
                     break;

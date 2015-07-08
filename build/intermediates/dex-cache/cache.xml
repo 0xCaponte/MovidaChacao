@@ -2,249 +2,256 @@
 <items version="2" >
 
     <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-cecc758c7da68c705f5a3d670d25fa0f5fb675b8.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-8c98678a3c0c40503ace1833645c76f3d7d2f5c2.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-3e3ffa1401ab13284f3823a931bb45ae7cc06898.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-cd66e1831f59d120b9b714a62fac676dc13df498.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-3e2ceff9f5c87087a29b4abafbf0fed5a3abc0f9.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/libs/wikitudesdk.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="7c5e5c9b24600f61ff5348ab0a7310e5d84138c7">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/wikitudesdk-446cf4319fe68e825b42ec9f7acabfe89be5b1d8.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-92219b628abfa0252d23a5fd50efc1f009eb1eaf.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-eedce787a48c6c7f45e0f45ac4add8c95634920e.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.aat/comboseekbar/1.0.2/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4ccea614dd0a7abde6f87d0ac0463cdea4efd1f7">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-e12101d6af55fcaf92c22130e41983d1cb97bff9.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.viewpagerindicator/library/2.4.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-91a2dc6c06ff4d773d891744ad499b2a441a40ec.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.16/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9313a30b510316c732b53064a86a2a4a12088d06">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-aeaadcc19962970db0b88683039a781f0d3f8ef8.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-1f52f51dbc5a3d5978c705e34d2c0fb4da19193e.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jar="/home/domingo/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/gson-2.2.4-d195ea7af7927ee597d434035095a8ab089552fd.jar" />
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/gson-2.2.4-c08c3f111dc4e153e753be5909bfdcab7d31fd71.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-0d982192a3d7ac75d26e06066dfb609c3ade73d9.jar" />
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-e1d5a3d130e02e8ddc617873e44400abbbf270df.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-7ac3e57fe2d4cb47c82aef4ae4102fc34202d1a1.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-68d5a0e145066c1f86fab664bd9474b60c2a1d3f.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-b4d28a1035dcc22aa10390a2ea3ffa29ee7d177b.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-cc6a814dee86e98381d139128bf97a9f116dd686.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-95f9c6a32d8470ceb00ac80bb02221b2bf4d6a05.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-13ceb2b30bd52b73709533661169b70b4f70bf55.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-1e6a9787698f9c6ba5633dae9c1009b0b3af3a9c.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-ec43bf31944ae5e86db9b8130bb37949f1a1d050.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-ba3d9bff79a57ea068232e7f1959880b2fa021ab.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-2df742385a4e6c0915d0229be2ee7388a17cd12e.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-759c790e4b541d49c91f2322e626e333121d3a1e.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-be1c9d7354fa31870a59f17023c892be14398825.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-4f365aa634cdbd304af22e26e5e4c7a818392925.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-aad5ff6bd6fc5df4f221d6251d15650a57c654dd.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0f254ec13d6671680482d2218f01ecf14dfa93e6">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-eca4945ab84927b6ca220ff32bd85fae13250fbc.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-4c7a4779adc7c1132248313411197ba58eb0bb22.jar" />
-    </item>
-    <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-8c1e4a1d3e7422a3b1496487903297567a4e38a6.jar" />
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-215336e6df989dee6de9e4c32c18b28e65842d81.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-52e894a5b893f17c615a9beb1e6dfe964a1a3fb5.jar" />
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-1b6e1ef6c8eb32b454a3abf8633181836d594ca9.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-2a3fc10b336a42e03d1b76967b427c45b695a6ae.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-b2122b86c61aacba0c9cd035c21ec16ecdaff7c5.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.16/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9313a30b510316c732b53064a86a2a4a12088d06">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-5dff2a602d57c30d684ab4cce7a215e67eba33a3.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/libs/wikitudesdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7c5e5c9b24600f61ff5348ab0a7310e5d84138c7">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/wikitudesdk-b305592620e44a3396adf1421bda49b0de4b0e6d.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.viewpagerindicator/library/2.4.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-cdcb26399b7d1b972690fc1717ee1c74a786b3dd.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-87fa060c5448e65790ded97287a74ed6a205fc3c.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-1640e93cc41ff47bac789170f79c8620688e20a0.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-fbcc5c5e59829f83fa085d78f269178b2bfd2a11.jar" />
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-bacfb515f4a20f04104e87330986dc34da437cae.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-74fc3f2e3a7f6fb8db332f56d66ec9331144d860.jar" />
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-0afdcd073873c53ee30e33a77d648d06aca0018e.jar" />
     </item>
     <item
-        jar="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-c302d181ac084604dc8db297ed7c5f2c6716db54.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-6b2d4ff7870bbb28effc814f3623f8c81ca8ced2.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-70f60527f99a83cc58e93637cbc497c386f6392b.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-041b48501683d3ef0dbef6812224056d3b24a7c9.jar" />
+    </item>
+    <item
+        jar="/home/domingo/DevelopmentIDE/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-17611a428c4ed0bedb3c3134930dac09fd2ac26e.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0f254ec13d6671680482d2218f01ecf14dfa93e6">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-3c0b36fa02a3b012cd12f12770c9475993cb2883.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-8d98387f17919bb0db455393f2ff6e2d029637ae.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-972f1506078d4b9489dc3bf5f778108ebcb49ee3.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-83256fc2fd1e751390ee5a4dda559db84efafec7.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-732b2653984473a5441cd351bc48679b71bf86c0.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-c30f20f11018563ac79cda822a39e3296a40789e.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-9c7d989f11e35ed96d1e23e9a8926ce5ce3881f6.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex dex="/Users/domingodeabreu/Documents/RetoChacao/app/build/intermediates/pre-dexed/debug/classes-13f3224a3ea193595fbc7b92c1942adab548f1a4.jar" />
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-3b7d760a492f3c6c08ec6eb9b660676ffbac50a2.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-df261c305d7834acd9601be2e757ec944689c3e3.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-01f9f5fb2c933cbf507c1e652708703f2fcc1ab1.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-cc51251db52e22478caf422fe9d70b61890549b3.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-e1604b1df5700a223225b93dbcad353e0f56a5b9.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-b567b3e07678207468772059b6a3fdf2d5baf8e6.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-8a502e76df76726bc48fac00820706718b4ce852.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.aat/comboseekbar/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e66379e874505b851d14da004177e4f007eaf12">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-0f3e2f86d82b4fc0ef6ecf6594764f8956aef28a.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-35508c1de2d52b9dc8700684e05051037be4ac30.jar" />
+    </item>
+    <item
+        jar="/home/domingo/RetoChacao/retochacao/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/classes-d9524f0fa3e6002e171a791e908d5d99d9aceb29.jar" />
+    </item>
+    <item
+        jar="/home/domingo/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/home/domingo/RetoChacao/retochacao/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-e45dbce502b9291325de945d64de4085cae85853.jar" />
     </item>
 
 </items>

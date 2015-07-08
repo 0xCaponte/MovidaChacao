@@ -14,57 +14,65 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/post_title"
+            <LinearLayout
+                android:id="@+id/item_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:textIsSelectable="true"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/item_post_title_size"
-                android:textStyle="bold"/>
+                android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_post_image_height">
 
-                <ImageView
-                    android:id="@+id/post_main_image"
+                <TextView
+                    android:id="@+id/post_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_post_image_height"
-                    android:background="@color/btn_clamour_color"
-                    android:src="@drawable/item1"
-                    android:scaleType="centerCrop"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="vertical">
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textIsSelectable="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/item_post_title_size"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/post_condition"
-                        android:layout_width="@dimen/item_post_status_width"
-                        android:layout_height="@dimen/item_post_price_height"
-                        android:background="@drawable/price_overlay_drawable"
-                        android:gravity="center"
-                        android:paddingLeft="@dimen/item_post_condition_padding"
-                        android:paddingRight="@dimen/item_post_condition_padding"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/item_post_condition_text_size"
-                        android:textStyle="bold"
-                        android:text="En Breve!"/>
-                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_post_image_height">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/post_main_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_post_image_height"
+                        android:background="@color/btn_clamour_color"
+                        android:src="@drawable/item1"
+                        android:scaleType="centerCrop"/>
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/post_condition"
+                            android:layout_width="@dimen/item_post_status_width"
+                            android:layout_height="@dimen/item_post_price_height"
+                            android:background="@drawable/price_overlay_drawable"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/item_post_condition_padding"
+                            android:paddingRight="@dimen/item_post_condition_padding"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/item_post_condition_text_size"
+                            android:textStyle="bold"
+                            android:text="En Breve!"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <View
                 android:id="@+id/sold_view"
@@ -79,7 +87,7 @@
 
                 <TextView
                     android:id="@+id/post_description"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/user_image"
                     android:layout_marginRight="10dp"
@@ -87,7 +95,7 @@
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:minLines="1"
-                    android:textIsSelectable="true"
+                    android:singleLine="false"
                     android:textSize="@dimen/item_post_description_text_size"
                     />
 
