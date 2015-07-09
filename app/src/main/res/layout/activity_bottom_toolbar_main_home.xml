@@ -5,6 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -33,5 +34,6 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_map"/>
     </LinearLayout>
+
 
 </android.support.v7.widget.Toolbar>

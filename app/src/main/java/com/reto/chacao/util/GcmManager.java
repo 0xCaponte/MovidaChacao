@@ -21,7 +21,7 @@ import java.io.IOException;
 import com.reto.chacao.R;
 import com.reto.chacao.beans.Device;
 import com.reto.chacao.statics.ClamourApiValues;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 
 /**
  * Created by Eduardo Luttinger on 25/05/2015.
@@ -110,7 +110,7 @@ public class GcmManager {
      * registration ID.
      */
     private String getRegistrationId() {
-        String registrationId = SharedPreferenceUtil.getString(mContext, ClamourValues.PROPERTY_REG_ID);
+        String registrationId = SharedPreferenceUtil.getString(mContext, MovidaValues.PROPERTY_REG_ID);
         registrationId = registrationId == null ? "" : registrationId;
         if (registrationId.isEmpty()) {
             Log.i(TAG, "Registration not found.");
@@ -118,7 +118,7 @@ public class GcmManager {
             // Check if app was updated; if so, it must clear the registration ID
             // since the existing registration ID is not guaranteed to work with
             // the new app version.
-            int registeredVersion = SharedPreferenceUtil.getInt(mContext, ClamourValues.PROPERTY_APP_VERSION);
+            int registeredVersion = SharedPreferenceUtil.getInt(mContext, MovidaValues.PROPERTY_APP_VERSION);
 
             int currentVersion = getAppVersion();
             if (registeredVersion != currentVersion) {
@@ -162,7 +162,7 @@ public class GcmManager {
                         mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(mContext);
                     }
 
-                    registerID = mGoogleCloudMessaging.register(ClamourValues.CLAMOUR_GOOGLE_API_NUMBER);
+                    registerID = mGoogleCloudMessaging.register(MovidaValues.CLAMOUR_GOOGLE_API_NUMBER);
 
                     message = "device registered, registration id = " + registerID;
 
@@ -240,8 +240,8 @@ public class GcmManager {
     private void storeRegistrationId() {
         int appVersion = getAppVersion();
         Log.i(TAG, "Saving rewgisterId on app version " + appVersion);
-        SharedPreferenceUtil.saveString(mContext, ClamourValues.PROPERTY_REG_ID, registerID);
-        SharedPreferenceUtil.saveInt(mContext, ClamourValues.PROPERTY_APP_VERSION, appVersion);
+        SharedPreferenceUtil.saveString(mContext, MovidaValues.PROPERTY_REG_ID, registerID);
+        SharedPreferenceUtil.saveInt(mContext, MovidaValues.PROPERTY_APP_VERSION, appVersion);
     }
 
 }

@@ -53,7 +53,7 @@
         <!-- PANELS, ONLY VISIBLE ON DEMAND -->
         
         <!-- panel containing POI detail information -->
-        <div data-role="panel" id="panel-poidetail" data-position="right" data-display="overlay" style="background-color:#0027D6;" data-theme="c">
+        <div data-role="panel" id="panel-poidetail" data-position="right" data-display="overlay" style="background-color:#eee;padding-top:0;" data-theme="c">
             
             <!-- header with "close" button -->
             <div data-role="header" data-theme="c">
@@ -76,11 +76,11 @@
         
         
         <!-- range panel -->
-        <div data-role="panel" id="panel-distance" data-position="left" data-display="overlay" style="background-color:#2AFF09;" data-theme="c">
+        <div data-role="panel" id="panel-distance" data-position="left" data-display="overlay" style="background-color:#eee;padding-top:0;" data-theme="c">
             
             <!-- header with close button -->
             <div data-role="header" data-theme="c">
-                <h1>Rango SGB</h1>
+                <h1>Radar de actividades</h1>
                 <a href="#header" data-rel="close">Cerrar</a>
             </div>
             
@@ -91,7 +91,7 @@
                 <h4> Rango en m/km: <a id="panel-distance-value"></a></h4>
                 
                 <!-- Amount of visible places -->
-                <h4> Visible SGB: <a id="panel-distance-places"></a></h4>
+                <h4> Actividades visibles: <a id="panel-distance-places"></a></h4>
                 
                 <!-- default slider -->
                 <input id="panel-distance-range" type="range" data-highlight="true" name="rangeSlider" min="0" max="100" value="100" data-show-value="false" step="5" data-popup-enabled="false"/>

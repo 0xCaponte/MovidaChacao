@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 
 import com.reto.chacao.R;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.view.ZoomImageView;
 
 /**
@@ -37,7 +37,7 @@ public class ZoomableImageDialog extends DialogFragment implements View.OnClickL
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(Boolean.TRUE);
-        mImage = (Integer)getArguments().get(ClamourValues.IMAGE_TO_ZOOM_ID);
+        mImage = (Integer)getArguments().get(MovidaValues.IMAGE_TO_ZOOM_ID);
         setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Translucent_NoTitleBar);
     }
 

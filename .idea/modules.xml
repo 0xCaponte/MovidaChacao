@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/MovidaChacao.iml" filepath="$PROJECT_DIR$/MovidaChacao.iml" />
+=======
+>>>>>>> 2aca66ef1308fbf8d359672bc9a049796569ffa4
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/comboseekbar/comboseekbar.iml" filepath="$PROJECT_DIR$/comboseekbar/comboseekbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retochacao.iml" filepath="$PROJECT_DIR$/retochacao.iml" />
     </modules>
   </component>
 </project>

@@ -6,7 +6,8 @@ package com.reto.chacao.model;
 public class Comment {
     int id;
     int id_event;
-    String user;
+    String firstname;
+    String lastname;
     String text;
     String date;
     String photo;
@@ -30,12 +31,20 @@ public class Comment {
         this.id_event = id_event;
     }
 
-    public String getUser() {
-        return user;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getText() {

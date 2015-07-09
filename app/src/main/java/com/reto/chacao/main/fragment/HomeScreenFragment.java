@@ -4,8 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,9 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
@@ -43,13 +41,14 @@ import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
-import com.reto.chacao.settings.fragment.SettingsFragment;
-import com.reto.chacao.statics.ClamourValues;
+import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -62,8 +61,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private static final long TUTORIAL_SCREEN = 2000;
     ImageSpan imageSpan;
     SpannableString content;
-    private ToggleButton mOneColumnToggle;
-    private ToggleButton mTwoColumnsToggle;
     private RecyclerView mOneColumnRecyclerView;
     private RecyclerView mTwoColumnsRecyclerView;
     private OneColumnAdapter mOneColumnAdapter;
@@ -73,6 +70,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     private ArrayList<Post> mPosts;
     private RelativeLayout mNotificationButton;
     private Toolbar mToolbar;
+    private FloatingActionButton mFloatingToogle;
+    private Boolean mShowingTwoColumns;
 
     public HomeScreenFragment() {
         super();
@@ -111,8 +110,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         mPosts = setPostItems();
+
         setViews(root);
-        setToolBar(root);
 
         mToolbar = (Toolbar) root.findViewById(R.id.home_top_toolbar); // Attaching the layout to
 /*
@@ -124,38 +123,15 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         if (UserUtil.getFirstTimeHome(getActivity()))
             mTutorial.setVisibility(View.GONE);
 
-        if (mTwoColumnsToggle.isChecked())
-            onTwoColumnClick();
-        else if (mOneColumnToggle.isChecked())
-            onOneColumnClick();
-
 
         return root;
     }
 
-    private void setToolBar(View root) {
-        mOneColumnToggle = (ToggleButton) root.findViewById(R.id.home_one_column_toggle);
-        mOneColumnToggle.setTransformationMethod(null);
-        mOneColumnToggle.setOnClickListener(this);
-        imageSpan = new ImageSpan(getActivity(), R.drawable.btn_one_column);
-        content = new SpannableString("X");
-        content.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mOneColumnToggle.setText(content);
-        mOneColumnToggle.setTextOn(content);
-        mOneColumnToggle.setTextOff(content);
-
-        mTwoColumnsToggle = (ToggleButton) root.findViewById(R.id.home_two_columns_toggle);
-        mTwoColumnsToggle.setTransformationMethod(null);
-        mTwoColumnsToggle.setOnClickListener(this);
-        imageSpan = new ImageSpan(getActivity(), R.drawable.btn_two_columns);
-        content = new SpannableString("X");
-        content.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mTwoColumnsToggle.setText(content);
-        mTwoColumnsToggle.setTextOn(content);
-        mTwoColumnsToggle.setTextOff(content);
-    }
 
     private void setViews(View root) {
+        mFloatingToogle = (FloatingActionButton) root.findViewById(R.id.FABToogle);
+        mFloatingToogle.setOnClickListener(this);
+        mShowingTwoColumns = true;
         mOneColumnRecyclerView = (RecyclerView) root.findViewById(R.id.home_list_view);
         mOneColumnRecyclerView.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -192,25 +168,19 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     private void onTwoColumnClick() {
-        if (mOneColumnToggle.isChecked()) {
-            mOneColumnToggle.setChecked(false);
-        }
-        mTwoColumnsToggle.setChecked(true);
+        mFloatingToogle.setImageResource(R.drawable.btn_two_columns);
         mTwoColumnsRecyclerView.setVisibility(View.VISIBLE);
         mOneColumnRecyclerView.setVisibility(View.GONE);
     }
 
     private void onOneColumnClick() {
-        if (mTwoColumnsToggle.isChecked()) {
-            mTwoColumnsToggle.setChecked(false);
-        }
-        mOneColumnToggle.setChecked(true);
+        mFloatingToogle.setImageResource(R.drawable.btn_one_column);
         mOneColumnRecyclerView.setVisibility(View.VISIBLE);
         mTwoColumnsRecyclerView.setVisibility(View.GONE);
     }
 
     private void onFilterClick() {
-        AppUtil.runActivity(FilterScreenActivity.class, getActivity(), ClamourValues.GROUP_ID, 2);
+        AppUtil.runActivity(FilterScreenActivity.class, getActivity(), MovidaValues.GROUP_ID, 2);
     }
 
     @Override
@@ -223,11 +193,14 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.home_one_column_toggle:
-                onOneColumnClick();
-                break;
-            case R.id.home_two_columns_toggle:
-                onTwoColumnClick();
+            case R.id.FABToogle:
+                if ( mShowingTwoColumns ) {
+                    onTwoColumnClick();
+                    mShowingTwoColumns = false;
+                } else {
+                    onOneColumnClick();
+                    mShowingTwoColumns = true;
+                }
                 break;
             case R.id.home_tutorial:
                 mTutorial.setVisibility(View.GONE);
@@ -254,7 +227,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
     private void call_dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Title");
+        builder.setTitle("¿ Qué tipo de evento buscas ?");
 
         // Set up the input
         final EditText input = new EditText(getActivity());
@@ -263,7 +236,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         builder.setView(input);
 
         // Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -274,15 +248,27 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 } catch (Exception err) {
                     err.printStackTrace();
                 }
-                List<Event> events = dbHelper.getBySearch(input.getText().toString());
-                for (Event e : events) {
-                    Toast t = Toast.makeText(getActivity(), e.getName(), Toast.LENGTH_LONG);
-                    t.show();
-//                    response_dialog(e.getName());
+
+                List<String> claves = Arrays.asList(input.getText().toString().split(" "));
+                HashSet<Event> set = new HashSet<Event>();
+
+                // Busca Todas las palabras claves
+                for (String s : claves) {
+
+                    // Guarda todos los evento sque coindican con al menos una palabra clave
+                    List<Event> events = dbHelper.getBySearch(input.getText().toString());
+                    for (Event e : events) {
+                        set.add(e);
+                    }
                 }
+
+                // Cargar esos eventos a la vista.
+
+
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -313,7 +299,12 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void postMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
+        PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(Post.TAG, mPosts.get(position));
+        arguments.putBoolean("COMMENT",true);
+        postDetailScreenFragment.setArguments(arguments);
+        getFragmentListener().goToFragment(postDetailScreenFragment);
     }
 
     @Override
@@ -336,28 +327,27 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     @Override
     public void postTwoMoreCommentClick(View v, int position) {
         Post post = mPosts.get(position);
-        AppUtil.showAToast("Comments size: " + post.getComments().size());
+        PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(Post.TAG, mPosts.get(position));
+        arguments.putBoolean("COMMENT", true);
+        postDetailScreenFragment.setArguments(arguments);
+        getFragmentListener().goToFragment(postDetailScreenFragment);
     }
 
-
-    public ArrayList<Post> setPostItems() {
+    // Carga los eventos que retornaron de la vista
+    public ArrayList<Post> setSearchPostItems(ArrayList<Event> events){
 
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        List<Event> events = dbHelper.getAllEvents();
-
-
         ArrayList<Post> posts = new ArrayList<Post>();
 
-
         for(Event e : events){
+
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();
             UserProfile user = new UserProfile();
-
-
 
             post.setPost_id(e.getId());
             post.setTitle(e.getName());
@@ -367,14 +357,11 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             condition.setName("Ahora");
             post.setCondition(condition);
             post.setCreated(Calendar.getInstance().getTime());
-//            post.setLocation("100003");
-//            post.setPrice("50$");
 
             user.setUserId(e.getId());
             user.setFirstName("Alcadía de Chacao");
             user.setFamilyName("");
             post.setUser(user);
-
 
             List<com.reto.chacao.model.Comment> cm = dbHelper.getCommentByEvent(e.getId());
 
@@ -382,7 +369,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
                 for(com.reto.chacao.model.Comment c : cm){
                     Comment commentTmp = new Comment();
                     commentTmp.setComment_id(c.getId());
-                    commentTmp.setCommenterFirstName(c.getUser());
+                    commentTmp.setCommenterFirstName(c.getFirstname());
+                    commentTmp.setCommenterLastName(c.getLastname());
                     commentTmp.setBody(c.getText());
                     commentTmp.setCreated(Calendar.getInstance().getTime());
 
@@ -393,13 +381,61 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
             }
 
-//            comment.setComment_id(2);
-//            comment.setCommenterFirstName("George");
-//            comment.setCommenterLastName("Clooney");
-//            comment.setBody("Finalmente una carrera de botes en Caracas!");
+            posts.add(post);
+
+        }
+
+        return posts;
+    }
 
 
+    // Trae TODOS los eventos de la BD y los carga
+    public ArrayList<Post> setPostItems() {
 
+        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        List<Event> events = dbHelper.getAllEvents();
+
+        ArrayList<Post> posts = new ArrayList<Post>();
+
+        for(Event e : events){
+            ArrayList<Comment> comments = new ArrayList<Comment>();
+            Post post = new Post();
+            ItemCondition condition = new ItemCondition();
+            UserProfile user = new UserProfile();
+
+            post.setPost_id(e.getId());
+            post.setTitle(e.getName());
+            post.setDescription(e.getDescription());
+
+            condition.setId(e.getId());
+            condition.setName("Ahora");
+            post.setCondition(condition);
+            post.setCreated(Calendar.getInstance().getTime());
+
+            user.setUserId(e.getId());
+            user.setFirstName("Alcadía de Chacao");
+            user.setFamilyName("");
+            post.setUser(user);
+
+            List<com.reto.chacao.model.Comment> cm = dbHelper.getCommentByEvent(e.getId());
+
+            if(cm.size() >= 1){
+                for(com.reto.chacao.model.Comment c : cm){
+                    Comment commentTmp = new Comment();
+                    commentTmp.setComment_id(c.getId());
+                    commentTmp.setCommenterFirstName(c.getFirstname());
+                    commentTmp.setCommenterLastName(c.getLastname());
+                    commentTmp.setBody(c.getText());
+                    commentTmp.setCreated(Calendar.getInstance().getTime());
+
+                    comments.add(commentTmp);
+                }
+
+                post.setComments(comments);
+
+            }
 
             posts.add(post);
 

@@ -3,11 +3,12 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="ColorPrimary">#0056A4</color>
-    <color name="ColorPrimaryDark">#162B62</color>
+    <color name="ColorPrimaryDark">#ff004487</color>
     <color name="black">#000000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="black_overlay">#77000000</color>
     <color name="black_overlay_90">#AA000000</color>
+    <color name="accent_fab_color">#448AFF</color>
 
     <!-- Introduction -->
     <color name="app_title">#5D6870</color>

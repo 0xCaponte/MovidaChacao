@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,8 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        Bundle data = getArguments();
+
         View postDetailView = inflater.inflate(R.layout.fragment_post_detail_screen, container, false);
 
         setViews(postDetailView);
@@ -83,6 +86,11 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         mRecyclerView.setAdapter(mDetailPostAdapter);
 
         sContext = getActivity();
+
+        if ( data.getBoolean("COMMENT") ) {
+            Log.w(TAG,"COMMENT");
+            mRecyclerView.scrollToPosition(1);
+        }
 
         return postDetailView;
     }
