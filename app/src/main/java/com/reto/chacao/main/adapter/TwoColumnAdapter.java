@@ -67,6 +67,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
         holder.mPostTitle.setText(post.getTitle());
         holder.mPostDescription.setText(post.getDescription());
         holder.mPostConditionItem.setText(post.getCondition().getName());
+        holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
         if (position % 2 == 0) {
             holder.mPostSold.setBackgroundColor(mContext.getResources().getColor(R.color
                     .happening));

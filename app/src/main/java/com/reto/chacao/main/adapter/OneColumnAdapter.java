@@ -70,6 +70,8 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         holder.mPostDescription.setText(post.getDescription());
         holder.mPostDate.setText(DateUtil.getTimeText(post.getCreated()));
         holder.mPostConditionItem.setText(post.getCondition().getName());
+        holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
+
 
         if (comments != null) {
             comment = comments.get(0);

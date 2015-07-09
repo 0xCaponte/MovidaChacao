@@ -19,6 +19,7 @@ public class Event implements Parcelable {
     String type;
     String dateEnd;
     String dateStart;
+    String photo;
     float latitude;
     float longitude;
 
@@ -140,6 +141,14 @@ public class Event implements Parcelable {
 
     public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public void writeToParcel(Parcel dest, int flags) {

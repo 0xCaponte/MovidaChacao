@@ -353,6 +353,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             post.setTitle(e.getName());
             post.setDescription(e.getDescription());
 
+
             condition.setId(e.getId());
             condition.setName("Ahora");
             post.setCondition(condition);
@@ -413,6 +414,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             condition.setName("Ahora");
             post.setCondition(condition);
             post.setCreated(Calendar.getInstance().getTime());
+//            int id = getResources().getIdentifier("retochacao:drawable/" + e.getPhoto(), null, null);
+            int id = getResources().getIdentifier(e.getPhoto(),"drawable",getActivity().getPackageName());
+            post.setMainImageUrl(Integer.toString(id));
 
             user.setUserId(e.getId());
             user.setFirstName("Alcadía de Chacao");
