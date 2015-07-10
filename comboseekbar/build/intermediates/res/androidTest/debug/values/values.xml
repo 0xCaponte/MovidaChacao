@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/retochacao/comboseekbar/build/intermediates/bundles/debug/res/values/values.xml -->
+    <!-- From: file:/home/domingo/RetoChacao/retochacao/comboseekbar/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <color name="line_background">#414856</color>
     <color name="line_selected_background">#00DFCB</color>

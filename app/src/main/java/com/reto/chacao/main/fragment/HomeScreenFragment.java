@@ -163,13 +163,13 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
     }
 
     private void onTwoColumnClick() {
-        mFloatingToogle.setImageResource(R.drawable.btn_two_columns);
+        mFloatingToogle.setImageResource(R.drawable.btn_one_column);
         mTwoColumnsRecyclerView.setVisibility(View.VISIBLE);
         mOneColumnRecyclerView.setVisibility(View.GONE);
     }
 
     private void onOneColumnClick() {
-        mFloatingToogle.setImageResource(R.drawable.btn_one_column);
+        mFloatingToogle.setImageResource(R.drawable.btn_two_columns);
         mOneColumnRecyclerView.setVisibility(View.VISIBLE);
         mTwoColumnsRecyclerView.setVisibility(View.GONE);
     }
@@ -186,10 +186,10 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         switch (v.getId()) {
             case R.id.FABToogle:
                 if ( mShowingTwoColumns ) {
-                    onTwoColumnClick();
+                    onOneColumnClick();
                     mShowingTwoColumns = false;
                 } else {
-                    onOneColumnClick();
+                    onTwoColumnClick();
                     mShowingTwoColumns = true;
                 }
                 break;
@@ -391,7 +391,13 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         ArrayList<Post> posts = new ArrayList<Post>();
 
+        int i = 0;
+
         for(Event e : events){
+            if ( i == 4 ) {
+                break;
+            }
+            i++;
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();

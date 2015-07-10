@@ -25,6 +25,7 @@ import com.reto.chacao.beans.PostComment;
 import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.model.Comment;
+import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.adapter.DetailPostAdapter;
 import com.reto.chacao.postdetail.holder.DetailPostCommentsHolder;
 import com.reto.chacao.postdetail.holder.DetailPostMainHolder;
@@ -67,6 +68,10 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
 
     private static Context sContext;
 
+    private Post mPost;
+
+    private Event mPostEvent;
+
 
     @Nullable
     @Override
@@ -78,10 +83,9 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
 
         //Desde la otra vista pasan un objeto post serializable por eso se hace asi
 
-        Post seria = (Post) data.getSerializable(Post.TAG);
-
-        DetailPostMainHolder deta = new DetailPostMainHolder(inflater.inflate(R.layout.fragment_post_detail, container, false),seria);
-//        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        mPost = (Post) data.getSerializable(Post.TAG);
+        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        mPostEvent = dbHelper.getEvent(mPost.getPost_id());
 //        SQLiteDatabase db = dbHelper.getWritableDatabase();
 //        List<Comment> cm = dbHelper.getCommentByEvent(seria.getPost_id());
 //        DetailPostCommentsHolder delta = new DetailPostCommentsHolder(inflater.inflate(R.layout.fragment_post_detail_comment, container, false),cm);
@@ -133,6 +137,14 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         List<DetailPost> list = new ArrayList<>();
 
         DetailPost post = new DetailPost();
+        post.setPostOwnerComment(mPost.getDescription());
+        post.setPostOwnerName(mPost.getTitle());
+
+        int id = getActivity().getResources().getIdentifier(mPostEvent.getPhoto(), "drawable",
+                getActivity().getApplicationContext().getPackageName());
+
+        post.setPostImages(new int[]{id,R.drawable.css_forum2,R.drawable.css_forum3});
+
         list.add(post);
 
         return list;
