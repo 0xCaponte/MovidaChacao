@@ -17,15 +17,6 @@
         android:layout_alignParentEnd="true" />
 
 
-    <include
-        android:id="@+id/bottomToolbar"
-        style="@style/includeToolbarStyle"
-        layout="@layout/activity_bottom_toolbar_main_home"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

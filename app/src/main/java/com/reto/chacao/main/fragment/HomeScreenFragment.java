@@ -40,6 +40,8 @@ import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -384,7 +386,7 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
     // Trae TODOS los eventos de la BD y los carga
     public ArrayList<Post> setPostItems() {
-
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -392,13 +394,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         ArrayList<Post> posts = new ArrayList<Post>();
 
-        int i = 0;
 
         for(Event e : events){
-            if ( i == 4 ) {
-                break;
-            }
-            i++;
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();
@@ -414,7 +411,11 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             if ( e.getDateStart() == null ) {
                 post.setCreated(new Date("01/01/1999"));
             } else {
-                post.setCreated(new Date(e.getDateStart()));
+                try {
+                    post.setCreated(simpleDateFormat.parse(e.getDateStart()));
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
             }
 //            int id = getResources().getIdentifier("retochacao:drawable/" + e.getPhoto(), null, null);
             int id = getResources().getIdentifier(e.getPhoto(),"drawable",getActivity().getPackageName());

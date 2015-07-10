@@ -70,7 +70,7 @@
         -->
 
         <activity
-            android:name=".map.MovidaMapActivity"
+            android:name=".map.MovidaMapFragment"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".login.activity.SplashScreenActivity"
@@ -149,16 +149,6 @@
                 android:name="android:support.PARENT_ACTIVITY"
                 android:value=".main.activity.ClamourMainActivity" />
         </activity>
-
-        <receiver
-            android:name=".broadcastclients.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.reto.chacao" />
-            </intent-filter>
-        </receiver>
 
         <service android:name=".services.GcmIntentService" />
 

@@ -2,7 +2,6 @@ package com.reto.chacao.main.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -10,9 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.reto.chacao.map.MovidaMapActivity;
+import com.reto.chacao.map.MovidaMapFragment;
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
@@ -82,9 +80,7 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
                 runMyFragment(new HomeScreenFragment(), true);
                 break;
             case R.id.toolbar_go_to_map:
-                Intent myTriggerActivityIntent=new Intent(this, MovidaMapActivity.class);
-                startActivity(myTriggerActivityIntent);
-
+                runMyFragment(new MovidaMapFragment(),true);
                 break;
             case R.id.toolbar_go_to_AR:
                 showAddPostPopUp();
@@ -97,7 +93,7 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     protected AppFragment getAppFragment() {
         AppFragment fragment = (AppFragment) getIntent().getSerializableExtra(MovidaValues.SERIALIZABLE_FRAGMENT);
         if(fragment == null){
-            fragment = new HomeScreenFragment();
+            fragment = new MovidaMapFragment();
         }else{
             Bundle bundle = new Bundle();
             bundle.putString("POST_DETAIL",getIntent().getStringExtra(MovidaValues.FRAGMENT_BUNDLE));
@@ -115,7 +111,7 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     private final class OkOnClickListener implements
             DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
-            AppUtil.runActivity(AugmentedReality.class,MovidaMainActivity.this);
+            AppUtil.runActivity(AugmentedReality.class, MovidaMainActivity.this);
         }
     }
 

@@ -40,6 +40,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/phone_icon"
                 android:layout_toStartOf="@+id/phone_icon"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:src="@drawable/icon_email"/>
 
             <ImageView
@@ -49,7 +51,7 @@
                 android:layout_alignBottom="@+id/notification_title"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/icon_email"/>
+                android:src="@drawable/icon_cell"/>
 
 
         </RelativeLayout>
@@ -64,7 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
         </LinearLayout>
 

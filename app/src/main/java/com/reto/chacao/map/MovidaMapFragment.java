@@ -1,21 +1,21 @@
 package com.reto.chacao.map;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.InflateException;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +27,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.reto.chacao.R;
-import com.reto.chacao.augmented_reality.AugmentedReality;
+import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.filter.activity.FilterActivities;
 import com.reto.chacao.main.activity.MovidaMainActivity;
-import com.reto.chacao.main.fragment.HomeScreenFragment;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.util.MapUtil;
 
@@ -44,16 +43,32 @@ import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
 import static android.location.LocationManager.PASSIVE_PROVIDER;
 
-public class MovidaMapActivity extends Activity implements View.OnClickListener {
+public class MovidaMapFragment extends AppFragment {
 
     private static final String TAG = "Map-Fragment";
+    private static final int FILTER_REQUEST = 7;
+
+    @Override
+    public String getMyTag() {
+        return TAG;
+    }
+
+    @Override
+    protected AppFragmentListener getFragmentListener() {
+        return (MovidaMainActivity) getActivity();
+    }
+
+    @Override
+    protected boolean onBackPressed() {
+        return true;
+    }
 
     class MyInfoWindowAdapter implements InfoWindowAdapter{
 
         private final View myContentsView;
 
         MyInfoWindowAdapter(){
-            myContentsView = getLayoutInflater().inflate(R.layout.custom_info_contents, null);
+            myContentsView = getActivity().getLayoutInflater().inflate(R.layout.custom_info_contents, null);
         }
 
         @Override
@@ -80,9 +95,7 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
     /** Local variables **/
     protected GoogleMap googleMap;
     private Context main_context;
-    private ImageView mHomeButton;
-    private ImageView mProfileButton;
-    private ImageView mAddPostButton;
+    private static View view;
 
     //Filtro de busqueda
     private ImageButton busqueda;
@@ -155,8 +168,6 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
 
     // Lista de eventos de deporte
     private ArrayList<Marker> cultura_teatro = new ArrayList<Marker>();
-
-
 
     // Hace visibles los marcadores pertinentes
     private void loadMarkers(MapProfile mp){
@@ -316,25 +327,30 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
 
-        setBottomToolbar();
+        try {
+            view = inflater.inflate(R.layout.activity_map , container, false);
+        } catch (InflateException e) {
 
-        /*Set filtros cultura
-        cultura = (CheckBox) findViewById(R.id.filtro_cultura);
-        c_servicios = (CheckBox) findViewById(R.id.filtro_cultura_servicios);
-        c_eventos = (CheckBox) findViewById(R.id.filtro_cultura_eventos);
+            return view;
+        }
 
-        // Set filtros deportes
-        deporte = (CheckBox) findViewById(R.id.filtro_deporte);
-        d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);*/
-        busqueda =  (ImageButton) findViewById(R.id.busqueda);
-        posicion = (ImageButton) findViewById(R.id.posicion);
+        FragmentActivity faActivity  = (FragmentActivity)    super.getActivity();
 
-        main_context = getApplicationContext();
+        // Replace LinearLayout by the type of the root element of the layout you're trying to load
+        RelativeLayout llLayout    = (RelativeLayout) view;
+
+        busqueda =  (ImageButton) llLayout.findViewById(R.id.busqueda);
+        posicion = (ImageButton) llLayout.findViewById(R.id.posicion);
+
+        main_context = getActivity().getApplicationContext();
         MapProfile mp = MapUtil.getMapFilters(main_context);
 
         //Crea el mapa
@@ -352,31 +368,30 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
         // My location
 
         posicion.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-              LocationManager manager = (LocationManager) MovidaMapActivity.this
-                      .getSystemService(LOCATION_SERVICE);
-              Criteria criteria = new Criteria();
-              criteria.setAccuracy(ACCURACY_FINE);
-              String provider = manager.getBestProvider(criteria, true);
-              Location mejor;
+                LocationManager manager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+                Criteria criteria = new Criteria();
+                criteria.setAccuracy(ACCURACY_FINE);
+                String provider = manager.getBestProvider(criteria, true);
+                Location mejor;
 
-              if (provider != null)
-                  mejor = manager.getLastKnownLocation(provider);
-              else{
-                  mejor = null;
-                  return;
-              }
+                if (provider != null)
+                    mejor = manager.getLastKnownLocation(provider);
+                else{
+                    mejor = null;
+                    return;
+                }
 
-              Location latestLocation = masReciente(mejor, manager.getLastKnownLocation(GPS_PROVIDER));
-              latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(NETWORK_PROVIDER));
-              latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
+                Location latestLocation = masReciente(mejor, manager.getLastKnownLocation(GPS_PROVIDER));
+                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(NETWORK_PROVIDER));
+                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
 
-              LatLng l = new LatLng(latestLocation.getLatitude(), latestLocation.getLongitude());
-              googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 15.0f));
-          }
-      });
+                LatLng l = new LatLng(latestLocation.getLatitude(), latestLocation.getLongitude());
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 15.0f));
+            }
+        });
 
         //Click Listener
         busqueda.setOnClickListener(new View.OnClickListener() {
@@ -385,26 +400,13 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
             public void onClick(View v) {
 
                 Intent filtro = new Intent(main_context, FilterActivities.class);
-                startActivity(filtro);
+                startActivityForResult(filtro, FILTER_REQUEST);
 
             }
         });
+
+        return llLayout; // We must return the loaded Layout
     }
-
-
-    private void setBottomToolbar() {
-        mHomeButton = (ImageView) findViewById(R.id.toolbar_home_button);
-        mHomeButton.setOnClickListener(this);
-        mProfileButton = (ImageView) findViewById(R.id.toolbar_go_to_map);
-        mProfileButton.setOnClickListener(this);
-        mAddPostButton = (ImageView) findViewById(R.id.toolbar_go_to_AR);
-        mAddPostButton.setOnClickListener(this);
-
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.bottomToolbar);
-        mToolbar.setContentInsetsAbsolute(0,0);
-
-    }
-
 
     /**
      * Initialises the mapview
@@ -416,49 +418,26 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
          */
         try {
             if(null == googleMap){
-                googleMap = ((com.google.android.gms.maps.MapFragment) getFragmentManager().findFragmentById(
+                googleMap = ((com.google.android.gms.maps.MapFragment) getActivity().getFragmentManager().findFragmentById(
                         R.id.mapView)).getMap();
 
                 //Chacao as the center of the map and enough zoom to see it all.
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.495343, -66.848908), 15.0f));
                 googleMap.setInfoWindowAdapter(new MyInfoWindowAdapter());
 
+                googleMap.setMyLocationEnabled(true);
+                googleMap.getUiSettings().setMyLocationButtonEnabled(false);
                 /**
                  * If the map is still null after attempted initialisation,
                  * show an error to the user
                  */
                 if(null == googleMap) {
-                    Toast.makeText(getApplicationContext(),
+                    Toast.makeText(getActivity().getApplicationContext(),
                             "Error creating map", Toast.LENGTH_SHORT).show();
                 }
             }
         } catch (NullPointerException exception){
             Log.e("mapApp", exception.toString());
-        }
-    }
-
-    private void filter(){
-
-        // Read filter state
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.toolbar_home_button:
-                Intent intent = new Intent(this,MovidaMainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-                break;
-            case R.id.toolbar_go_to_map:
-                Intent myTriggerActivityIntent=new Intent(this, MovidaMapActivity.class);
-                startActivity(myTriggerActivityIntent);
-
-                break;
-            case R.id.toolbar_go_to_AR:
-                showAddPostPopUp();
-                break;
         }
     }
 
@@ -470,7 +449,7 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
 
             /** If it is a permanent thing. */
 
-            DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
+            DataBaseHelper dbHelper = new DataBaseHelper(getActivity().getApplicationContext());
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             List<Event> events = dbHelper.getAllEvents();
@@ -645,29 +624,9 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
         }
     }
 
-    private void showAddPostPopUp() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Modo de Realidad Aumentada");
-        builder.setMessage("Ud. está a punto de entrar en el modo de realidad aumentada. ¿Desea " +
-                "continuar?");
-        builder.setCancelable(true);
-        builder.setPositiveButton("Continuar", new OkOnClickListener());
-        builder.setNegativeButton("Ir atrás", new CancelOnClickListener());
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private final class CancelOnClickListener implements
-            DialogInterface.OnClickListener {
-        public void onClick(DialogInterface dialog, int which) {
-        }
-    }
-
-    private final class OkOnClickListener implements
-            DialogInterface.OnClickListener {
-        public void onClick(DialogInterface dialog, int which) {
-            Intent intent = new Intent(MovidaMapActivity.this, AugmentedReality.class);
-            startActivity(intent);
-        }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        loadMarkers(MapUtil.getMapFilters(main_context));
     }
 }
