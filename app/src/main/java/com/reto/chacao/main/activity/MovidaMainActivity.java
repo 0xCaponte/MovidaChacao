@@ -81,8 +81,7 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
                 runMyFragment(new HomeScreenFragment(), true);
                 break;
             case R.id.toolbar_go_to_map:
-                Intent myTriggerActivityIntent=new Intent(this, MovidaMapActivity.class);
-                startActivity(myTriggerActivityIntent);
+                runMyFragment(new MovidaMapActivity(),true);
 
                 break;
             case R.id.toolbar_go_to_AR:
