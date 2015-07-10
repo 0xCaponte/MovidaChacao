@@ -9,6 +9,8 @@ public class DetailPost extends AppBean {
     private String postProfileImageUrl;
     private String postOwnerName;
     private String postDate;
+    private String postOwnerComment;
+    private int[] postImages;
 
 
     public String getPostProfileImageUrl() {
@@ -38,5 +40,21 @@ public class DetailPost extends AppBean {
     @Override
     public String toString() {
         return TAG;
+    }
+
+    public String getPostOwnerComment() {
+        return postOwnerComment;
+    }
+
+    public void setPostOwnerComment(String postOwnerComment) {
+        this.postOwnerComment = postOwnerComment;
+    }
+
+    public int[] getPostImages() {
+        return postImages;
+    }
+
+    public void setPostImages(int[] postImages) {
+        this.postImages = postImages;
     }
 }

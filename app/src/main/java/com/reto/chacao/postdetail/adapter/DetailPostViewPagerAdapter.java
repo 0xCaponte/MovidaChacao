@@ -43,6 +43,18 @@ public class DetailPostViewPagerAdapter extends PagerAdapter implements View.OnC
 
     }
 
+    public DetailPostViewPagerAdapter(Context context, int[] mResources) {
+
+        mContext = context;
+
+        mActivity = (Activity) context;
+
+        mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        this.mResources = mResources;
+
+    }
+
 
     @Override
     public int getCount() {

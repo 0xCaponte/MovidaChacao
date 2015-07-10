@@ -79,7 +79,8 @@ public class DetailPostAdapter extends RecyclerView.Adapter<MainHolder> {
 
             case TYPE_DETAIL_POST:
                 view = mLayoutInflater.inflate(R.layout.fragment_post_detail, parent, false);
-                holder = (mDetailPostMainHolder = new DetailPostMainHolder(view));
+                holder = (mDetailPostMainHolder = new DetailPostMainHolder(view,
+                        mListOfDetailPost.get(0).getPostImages()));
                 break;
 
             case TYPE_DETAIL_POST_COMMENT:
@@ -95,7 +96,6 @@ public class DetailPostAdapter extends RecyclerView.Adapter<MainHolder> {
     public void onBindViewHolder(MainHolder holder, int position) {
 
         if (holder instanceof DetailPostCommentsHolder) {
-
             String comment = ((PostComment) mListOfObjects.get(position)).getComment();
             comment = comment == null ? "" : comment;
             if (!"".equals(comment)) {
@@ -104,7 +104,12 @@ public class DetailPostAdapter extends RecyclerView.Adapter<MainHolder> {
 
 
         } else if (holder instanceof DetailPostMainHolder) {
-            ((DetailPostMainHolder)holder).getCommentCountText().setText(mListOfComments.size()+" "+AppUtil.getString(R.string.commentCount));
+            DetailPostMainHolder mainHolder = (DetailPostMainHolder) holder;
+            DetailPost mDetailPost = mListOfDetailPost.get(position);
+            mainHolder.getCommentCountText().setText(mListOfComments.size()+" "+AppUtil.getString(R.string
+                    .commentCount));
+            mainHolder.getPostOwnerNameText().setText(mDetailPost.getPostOwnerName());
+            mainHolder.getPostOwnerCommentText().setText(mDetailPost.getPostOwnerComment());
         }
 
     }

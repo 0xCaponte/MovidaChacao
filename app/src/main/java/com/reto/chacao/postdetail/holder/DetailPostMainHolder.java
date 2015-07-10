@@ -55,6 +55,13 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
         setBehaviors(itemView);
     }
 
+    public DetailPostMainHolder(View itemView, int[] images) {
+        super(itemView);
+        mContext = itemView.getContext();
+        setViews(itemView);
+        setBehaviors(itemView, images);
+    }
+
     private void setViews(View itemView) {
         mImageViewPager = (ViewPager) itemView.findViewById(R.id.viewPager);
         mCirclePageIndicator = (CirclePageIndicator) itemView.findViewById(R.id.viewPagerIndicator);
@@ -79,6 +86,12 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
 
     private void setBehaviors(View itemView) {
         mPostDetailImageAdapter = new DetailPostViewPagerAdapter(itemView.getContext());
+        mImageViewPager.setAdapter(mPostDetailImageAdapter);
+        mCirclePageIndicator.setViewPager(mImageViewPager);
+    }
+
+    private void setBehaviors(View itemView, int[] images) {
+        mPostDetailImageAdapter = new DetailPostViewPagerAdapter(itemView.getContext(), images);
         mImageViewPager.setAdapter(mPostDetailImageAdapter);
         mCirclePageIndicator.setViewPager(mImageViewPager);
     }

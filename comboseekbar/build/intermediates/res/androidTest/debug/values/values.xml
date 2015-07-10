@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <!-- From: file:/C:/Users/Andrea%20Balbas/Documents/MovidaChacao/comboseekbar/build/intermediates/bundles/debug/res/values/values.xml -->
-=======
-    <!-- From: file:/D:/Reto_Chacao/retochacao/comboseekbar/build/intermediates/bundles/debug/res/values/values.xml -->
->>>>>>> 2aca66ef1308fbf8d359672bc9a049796569ffa4
+    <!-- From: file:/home/domingo/RetoChacao/retochacao/comboseekbar/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <color name="line_background">#414856</color>
     <color name="line_selected_background">#00DFCB</color>
