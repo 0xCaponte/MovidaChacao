@@ -4,15 +4,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.reto.chacao.R;
+import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.map.MovidaMapActivity;
 import com.reto.chacao.util.MapUtil;
 
@@ -32,6 +32,8 @@ public class FilterActivities extends ActionBarActivity implements View.OnClickL
     private Context main_context;
     private Button boton_busqueda;
 
+    CheckBox cul, c_servicios, c_eventos, dep, d_eventos, d_servicios;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +43,44 @@ public class FilterActivities extends ActionBarActivity implements View.OnClickL
         selectCategoriasCultura = (Button) findViewById(R.id.select_categorias_cultura);
         selectCategoriasCultura.setOnClickListener(this);
         main_context = getApplicationContext();
+
+        cul = (CheckBox) findViewById(R.id.filtro_cultura);
+        dep = (CheckBox) findViewById(R.id.filtro_deporte);
+        c_servicios = (CheckBox) findViewById(R.id.filtro_cultura_servicios);
+        c_eventos = (CheckBox) findViewById(R.id.filtro_cultura_eventos);
+
+        d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);
+        d_eventos = (CheckBox) findViewById(R.id.filtro_deporte_eventos);
+
+        MapProfile mp = MapUtil.getMapFilters(main_context);
+
+        cul.setChecked(mp.isFiltro_cultura());
+        dep.setChecked(mp.isFiltro_deporte());
+        c_eventos.setChecked(mp.isFiltro_cultura_eventos());
+        c_servicios.setChecked(mp.isFiltro_cultura_servicios());
+        d_eventos.setChecked(mp.isFiltro_deporte_eventos());
+        d_servicios.setChecked(mp.isFiltro_deporte_servicios());
+
         boton_busqueda = (Button)findViewById(R.id.buscar_categorias);
+
         boton_busqueda.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 //Guardo el cambio de filtro
+                MapUtil.setFiltroDeportes(FilterActivities.this, dep.isChecked());
+                MapUtil.setFiltroDeportesServicios(FilterActivities.this, d_servicios.isChecked());
+                MapUtil.setFiltroDeportesEventos(FilterActivities.this, d_eventos.isChecked());
+
+                MapUtil.setFiltroCultura(FilterActivities.this, cul.isChecked());
+                MapUtil.setFiltroCulturaServicios(FilterActivities.this, c_servicios.isChecked());
+                MapUtil.setFiltroCulturaEventos(FilterActivities.this, c_eventos.isChecked());
+
                 MapUtil.setFiltrosCategoriasDeporte(FilterActivities.this, deportesSeleccionados);
                 MapUtil.setFiltrosCategoriasCultura(FilterActivities.this, culturasSeleccionados);
+
+
                 Intent filtro = new Intent(main_context, MovidaMapActivity.class);
                 startActivity(filtro);
 
@@ -112,6 +143,7 @@ public class FilterActivities extends ActionBarActivity implements View.OnClickL
 
     protected void mostrarDropdownDeporte() {
 
+        MapProfile mp = MapUtil.getMapFilters(main_context);
         boolean[] deportesMarcados = new boolean[deportes.length];
 
         for(int i = 0; i < deportes.length; i++)

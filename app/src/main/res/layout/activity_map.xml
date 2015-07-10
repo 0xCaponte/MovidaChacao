@@ -32,8 +32,10 @@
         android:id="@+id/busqueda"
         android:src="@drawable/map_search"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/posicion"
-        android:layout_toStartOf="@+id/posicion" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="65dp"
+        android:layout_marginEnd="65dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
