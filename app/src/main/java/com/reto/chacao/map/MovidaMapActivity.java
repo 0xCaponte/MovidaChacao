@@ -2,6 +2,7 @@ package com.reto.chacao.map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
@@ -25,6 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.reto.chacao.R;
 import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.database.DataBaseHelper;
+import com.reto.chacao.filter.activity.FilterActivities;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.util.MapUtil;
 
@@ -96,45 +98,203 @@ public class MovidaMapActivity extends Activity {
     // Lista de eventos de deporte
     private ArrayList<Marker> deporte_eventos = new ArrayList<Marker>();
 
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deportes_basquet = new ArrayList<Marker>();
 
-    //Establece los filtros iniciales
-    private void setFilters(MapProfile m){
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_beisbol = new ArrayList<Marker>();
 
-        cultura.setChecked(m.isFiltro_cultura());
-        c_servicios.setChecked(m.isFiltro_cultura_servicios());
-        c_eventos.setChecked(m.isFiltro_cultura_eventos());
-        deporte.setChecked(m.isFiltro_deporte());
-        d_servicios.setChecked(m.isFiltro_deporte_servicios());
-        d_eventos.setChecked(m.isFiltro_deporte_eventos());
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_fitness = new ArrayList<Marker>();
 
-    }
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_futbol = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_natacion = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_skate = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_tenis = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_volleyball = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_yoga = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> deporte_zumba = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_arte = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_cine = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_danza = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_fotos = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_gastronomia = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_idiomas = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_musica = new ArrayList<Marker>();
+
+    // Lista de eventos de deporte
+    private ArrayList<Marker> cultura_teatro = new ArrayList<Marker>();
+
+
 
     // Hace visibles los marcadores pertinentes
-    private void loadMarkers(){
+    private void loadMarkers(MapProfile mp){
 
-        if (!cultura_eventos.isEmpty()) {
-                for (Marker m : cultura_eventos) {
-                    m.setVisible(cultura.isChecked() || c_eventos.isChecked());
-                }
+       if (!cultura_eventos.isEmpty()) {
+            for (Marker m : cultura_eventos) {
+                m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_eventos());
+            }
+       }
+
+       if (!cultura_servicios.isEmpty()) {
+           for (Marker m : cultura_servicios) {
+               m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_servicios());
+           }
+       }
+
+       if (!deporte_eventos.isEmpty()) {
+           for (Marker m : deporte_eventos) {
+               m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_eventos());
+           }
+       }
+
+       if (!deporte_servicios.isEmpty()) {
+           for (Marker m : deporte_servicios) {
+               m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_servicios());
+           }
+       }
+
+        if (!deportes_basquet.isEmpty()) {
+            for (Marker m : deportes_basquet) {
+                m.setVisible(mp.isFiltro_basquet());
+            }
         }
 
-        if (!cultura_servicios.isEmpty()) {
-                for (Marker m : cultura_servicios) {
-                    m.setVisible(cultura.isChecked() || c_servicios.isChecked());
-                }
+        if (!deporte_beisbol.isEmpty()) {
+            for (Marker m : deporte_beisbol) {
+                m.setVisible(mp.isFiltro_beisbol());
+            }
         }
 
-        if (!deporte_eventos.isEmpty()) {
-                for (Marker m : deporte_eventos) {
-                    m.setVisible((deporte.isChecked() || d_eventos.isChecked()));
-                }
+        if (!deporte_fitness.isEmpty()) {
+            for (Marker m : deporte_fitness) {
+                m.setVisible(mp.isFiltro_fitness());
+            }
         }
 
-        if (!deporte_servicios.isEmpty()) {
-                for (Marker m : deporte_servicios) {
-                    m.setVisible(deporte.isChecked() || d_servicios.isChecked());
-                }
+        if (!deporte_futbol.isEmpty()) {
+            for (Marker m : deporte_futbol) {
+                m.setVisible(mp.isFiltro_futbol());
+            }
         }
+
+
+        if (!deporte_natacion.isEmpty()) {
+            for (Marker m : deporte_natacion) {
+                m.setVisible(mp.isFiltro_natacion());
+            }
+        }
+
+
+        if (!deporte_skate.isEmpty()) {
+            for (Marker m : deporte_skate) {
+                m.setVisible(mp.isFiltro_skate());
+            }
+        }
+
+
+        if (!deporte_tenis.isEmpty()) {
+            for (Marker m : deporte_tenis) {
+                m.setVisible(mp.isFiltro_tenis());
+            }
+        }
+
+
+        if (!deporte_volleyball.isEmpty()) {
+            for (Marker m : deporte_volleyball) {
+                m.setVisible(mp.isFiltro_volleyball());
+            }
+        }
+
+
+        if (!deporte_yoga.isEmpty()) {
+            for (Marker m : deporte_yoga) {
+                m.setVisible(mp.isFiltro_yoga());
+            }
+        }
+
+        if (!deporte_zumba.isEmpty()) {
+            for (Marker m : deporte_zumba) {
+                m.setVisible(mp.isFiltro_zumba());
+            }
+        }
+
+        if (!cultura_arte.isEmpty()) {
+            for (Marker m : cultura_arte) {
+                m.setVisible(mp.isFiltro_arte());
+            }
+        }
+
+        if (!cultura_cine.isEmpty()) {
+            for (Marker m : cultura_cine) {
+                m.setVisible(mp.isFiltro_cine());
+            }
+        }
+
+        if (!cultura_danza.isEmpty()) {
+            for (Marker m : cultura_danza) {
+                m.setVisible(mp.isFiltro_danza());
+            }
+        }
+
+        if (!cultura_fotos.isEmpty()) {
+            for (Marker m : cultura_fotos) {
+                m.setVisible(mp.isFiltro_fotos());
+            }
+        }
+
+        if (!cultura_gastronomia.isEmpty()) {
+            for (Marker m : cultura_gastronomia) {
+                m.setVisible(mp.isFiltro_gastronomia());
+            }
+        }
+
+        if (!cultura_idiomas.isEmpty()) {
+            for (Marker m : cultura_idiomas) {
+                m.setVisible(mp.isFiltro_idiomas());
+            }
+        }
+
+        if (!cultura_musica.isEmpty()) {
+            for (Marker m : cultura_musica) {
+                m.setVisible(mp.isFiltro_musica());
+            }
+        }
+
+        if (!cultura_teatro.isEmpty()) {
+            for (Marker m : cultura_teatro) {
+                m.setVisible(mp.isFiltro_teatro());
+            }
+        }
+
+
     }
 
     private Location masReciente(Location location1, Location location2) {
@@ -156,21 +316,21 @@ public class MovidaMapActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        // Set filtros cultura
+        /*Set filtros cultura
         cultura = (CheckBox) findViewById(R.id.filtro_cultura);
         c_servicios = (CheckBox) findViewById(R.id.filtro_cultura_servicios);
         c_eventos = (CheckBox) findViewById(R.id.filtro_cultura_eventos);
 
         // Set filtros deportes
         deporte = (CheckBox) findViewById(R.id.filtro_deporte);
-        d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);
+        d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);*/
         d_eventos = (CheckBox) findViewById(R.id.filtro_deporte_eventos);
 
         main_context = getApplicationContext();
         MapProfile mp = MapUtil.getMapFilters(main_context);
 
         //Establece los filtros iniciales
-        setFilters(mp);
+        //setFilters(mp);
 
         //Crea el mapa
         createMapView();
@@ -182,7 +342,7 @@ public class MovidaMapActivity extends Activity {
         addMarkers();
 
         // Initial Markers
-        loadMarkers();
+        loadMarkers(mp);
 
         // My location
         googleMap.setMyLocationEnabled(true);
@@ -215,124 +375,23 @@ public class MovidaMapActivity extends Activity {
         });
 
         //Click Listener
-        cultura.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                //Guardo el cambio de filtro
-                MapUtil.setFiltroCultura(MovidaMapActivity.this, cultura.isChecked());
-                MapUtil.setFiltroCulturaEventos(MovidaMapActivity.this, cultura.isChecked());
-                MapUtil.setFiltroCulturaServicios(MovidaMapActivity.this, cultura.isChecked());
-
-                if (!cultura_eventos.isEmpty()) {
-                    for (Marker m : cultura_eventos) {
-                        m.setVisible(cultura.isChecked());
-                    }
-                }
-
-                if (!cultura_servicios.isEmpty()) {
-                    for (Marker m : cultura_servicios) {
-                        m.setVisible(cultura.isChecked());
-                    }
-                }
-            }
-        });
-
-
-        //Click Listener
-        c_servicios.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                //Guardo el cambio de filtro
-                MapUtil.setFiltroCulturaServicios(MovidaMapActivity.this, c_servicios.isChecked());
-
-                if (!cultura_servicios.isEmpty()) {
-                    for (Marker m : cultura_servicios) {
-                        m.setVisible(c_servicios.isChecked());
-                    }
-                }
-            }
-        });
-
-
-        //Click Listener
-        c_eventos.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                //Guardo el cambio de filtro
-                MapUtil.setFiltroCulturaEventos(MovidaMapActivity.this, c_eventos.isChecked());
-
-                if (!cultura_eventos.isEmpty()) {
-                    for (Marker m : cultura_eventos) {
-                        m.setVisible(c_eventos.isChecked());
-                    }
-                }
-            }
-        });
-
-
-        //Click Listener
-        deporte.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                //Guardo el cambio de filtro
-                MapUtil.setFiltroDeportes(MovidaMapActivity.this, deporte.isChecked());
-                MapUtil.setFiltroDeportesEventos(MovidaMapActivity.this, deporte.isChecked());
-                MapUtil.setFiltroDeportesServicios(MovidaMapActivity.this, deporte.isChecked());
-
-                if (!cultura_eventos.isEmpty()) {
-                    for (Marker m : cultura_eventos) {
-                        m.setVisible(cultura.isChecked());
-                    }
-                }
-
-                if (!cultura_servicios.isEmpty()) {
-                    for (Marker m : cultura_servicios) {
-                        m.setVisible(cultura.isChecked());
-                    }
-                }
-            }
-        });
-
-        //Click Listener
-        d_servicios.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                //Guardo el cambio de filtro
-                MapUtil.setFiltroDeportesServicios(MovidaMapActivity.this, d_servicios.isChecked());
-
-                if (!deporte_servicios.isEmpty()) {
-                    for (Marker m : deporte_servicios) {
-                        m.setVisible(d_servicios.isChecked());
-                    }
-                }
-            }
-        });
-
-
-        //Click Listener
         d_eventos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //Guardo el cambio de filtro
+                /*//Guardo el cambio de filtro
                 MapUtil.setFiltroDeportesEventos(MovidaMapActivity.this, d_eventos.isChecked());
 
                 if (!deporte_eventos.isEmpty()) {
                     for (Marker m : deporte_eventos) {
                         m.setVisible(d_eventos.isChecked());
                     }
-                }
+                }*/
+
+                Intent filtro = new Intent(main_context, FilterActivities.class);
+                startActivity(filtro);
+
             }
         });
     }
@@ -422,18 +481,25 @@ public class MovidaMapActivity extends Activity {
 
                         if (tag.equals("Teatro")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_teatro));
+                            cultura_teatro.add(m);
                         }else if(tag.equals("Cine")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_cine));
+                            cultura_cine.add(m);
                         }else if(tag.equals("Idioma")){
                            m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_idioma));
+                            cultura_idiomas.add(m);
                         }else if(tag.equals("Arte")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_arte));
+                            cultura_arte.add(m);
                         }else if(tag.equals("Musica")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_musica));
+                            cultura_musica.add(m);
                         }else if(tag.equals("Danza")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_danza));
+                            cultura_danza.add(m);
                         }else if(tag.equals("Gastronomia")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_gastronomia));
+                            cultura_danza.add(m);
                         }else{
                             //No hay icono de festival,  ponencia o turismo
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_musica));
@@ -445,26 +511,37 @@ public class MovidaMapActivity extends Activity {
 
                         if (tag.equals("Fultbol")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_futbol));
+                            deporte_futbol.add(m);
                         }else if(tag.equals("Basketball")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_basquet));
+                            deportes_basquet.add(m);
                         }else if(tag.equals("Voleyball")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_voleyball));
+                            deporte_volleyball.add(m);
                         }else if(tag.equals("Natacion")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_natacion));
+                            deporte_natacion.add(m);
                         }else if(tag.equals("Skate")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_skate));
+                            deporte_skate.add(m);
                         }else if(tag.equals("BMX")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_skate));
+                            deporte_skate.add(m);
                         }else if(tag.equals("Yoga")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_yoga));
+                            deporte_yoga.add(m);
                         }else if(tag.equals("Tennis")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_tenis));
+                            deporte_tenis.add(m);
                         }else if(tag.equals("Carrera")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_fitness));
+                            deporte_fitness.add(m);
                         }else if(tag.equals("Fitness")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_fitness));
+                            deporte_fitness.add(m);
                         }else{
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_futbol));
+                            deporte_futbol.add(m);
                         }
 
                         deporte_servicios.add(m);
@@ -477,21 +554,29 @@ public class MovidaMapActivity extends Activity {
 
                         if (tag.equals("Teatro")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_teatro));
+                            cultura_teatro.add(m);
                         }else if(tag.equals("Cine")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_cine));
+                            cultura_cine.add(m);
                         }else if(tag.equals("Idiomas")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_idioma));
+                            cultura_idiomas.add(m);
                         }else if(tag.equals("Arte")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_arte));
+                            cultura_arte.add(m);
                         }else if(tag.equals("Musica")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_musica));
+                            cultura_musica.add(m);
                         }else if(tag.equals("Danza")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_danza));
+                            cultura_danza.add(m);
                         }else if(tag.equals("Gastronomia")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_gastronomia));
+                            cultura_gastronomia.add(m);
                         }else{
                             //No hay icono de festival,  ponencia o turismo
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_musica));
+                            cultura_musica.add(m);
                         }
 
                         cultura_eventos.add(m);
@@ -500,26 +585,37 @@ public class MovidaMapActivity extends Activity {
 
                         if (tag.equals("Fultbol")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_futbol));
+                            deporte_futbol.add(m);
                         }else if(tag.equals("Basketball")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_basquet));
+                            deportes_basquet.add(m);
                         }else if(tag.equals("Voleyball")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_voleyball));
+                            deporte_volleyball.add(m);
                         }else if(tag.equals("Natacion")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_natacion));
+                            deporte_natacion.add(m);
                         }else if(tag.equals("Skate")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_skate));
+                            deporte_skate.add(m);
                         }else if(tag.equals("BMX")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_skate));
+                            deporte_skate.add(m);
                         }else if(tag.equals("Yoga")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_yoga));
+                            deporte_yoga.add(m);
                         }else if(tag.equals("Tennis")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_tenis));
+                            deporte_tenis.add(m);
                         }else if(tag.equals("Carrera")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_fitness));
+                            deporte_fitness.add(m);
                         }else if(tag.equals("Fitness")){
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_fitness));
+                            deporte_fitness.add(m);
                         }else{
                             m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_event_futbol));
+                            deporte_futbol.add(m);
                         }
 
                         deporte_eventos.add(m);

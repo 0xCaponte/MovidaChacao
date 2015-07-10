@@ -6,14 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
@@ -34,14 +31,12 @@ import com.reto.chacao.beans.ItemCondition;
 import com.reto.chacao.beans.Post;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.database.DataBaseHelper;
-import com.reto.chacao.filter.activity.FilterScreenActivity;
 import com.reto.chacao.listener.EndlessRecyclerOnScrollListener;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.main.adapter.OneColumnAdapter;
 import com.reto.chacao.main.adapter.TwoColumnAdapter;
 import com.reto.chacao.model.Event;
 import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
-import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
@@ -177,10 +172,6 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         mFloatingToogle.setImageResource(R.drawable.btn_two_columns);
         mOneColumnRecyclerView.setVisibility(View.VISIBLE);
         mTwoColumnsRecyclerView.setVisibility(View.GONE);
-    }
-
-    private void onFilterClick() {
-        AppUtil.runActivity(FilterScreenActivity.class, getActivity(), MovidaValues.GROUP_ID, 2);
     }
 
     @Override

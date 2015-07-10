@@ -90,6 +90,7 @@
     <string name="filter_toolbar_btn_text">Guardar</string>
     <string name="filter_item_condition_header">Condicion</string>
     <string name="filter_category_header">Categoria</string>
+    <string name="search_categories">Busqueda por categorias</string>
     <!--Array list of groups only for test proposals-->
     <string-array name="group_arrays">
         <item>Pinecrest Marketplace</item>
@@ -282,5 +283,6 @@
         <item>Gastronomia</item>
         <item>Turismo</item>
     </string-array>
+    <string name="title_activity_filter_activities">FilterActivities</string>
 </resources>
 
