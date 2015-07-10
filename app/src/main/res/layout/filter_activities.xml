@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_divider_payment"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_margin"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin_payments"
+                    android:text="@string/search_categories"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin_payments"
+                    android:baselineAligned="false"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/deporte">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deporte"
+                            android:id="@+id/filtro_deporte"
+                            android:checked="false"
+                            android:layout_alignTop="@+id/filtro_deporte_servicios"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/permanentes_deporte"
+                        android:layout_below="@+id/deporte">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dep Servicio"
+                            android:id="@+id/filtro_deporte_servicios"
+                            android:checked="false"
+                            android:layout_marginLeft="54dp"
+                            android:layout_marginStart="54dp"
+                            android:layout_above="@+id/filtro_deporte_eventos" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/eventos_deporte"
+                        android:layout_below="@+id/permanentes_deporte">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dep Evento"
+                            android:id="@+id/filtro_deporte_eventos"
+                            android:checked="false"
+                            android:layout_marginLeft="54dp"
+                            android:layout_marginStart="54dp" />
+                    </LinearLayout>
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/dropdownDeporte"
+                        android:layout_below="@+id/eventos_deporte">
+
+                        <Button
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:text="Categorias"
+                            android:id="@+id/select_categorias_deporte"
+                            android:padding="5dip" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/cultura"
+                        android:layout_below="@+id/dropdownDeporte">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cultura"
+                            android:id="@+id/filtro_cultura"
+                            android:checked="false"
+                            android:layout_alignTop="@+id/filtro_cultura_servicios"
+                            android:layout_toLeftOf="@+id/filtro_cultura_eventos"
+                            android:layout_toStartOf="@+id/filtro_cultura_eventos"
+                            android:layout_marginRight="22dp"
+                            android:layout_marginEnd="22dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/eventos_cultura"
+                        android:layout_below="@+id/cultura">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cul Evento"
+                            android:id="@+id/filtro_cultura_eventos"
+                            android:checked="false"
+                            android:layout_marginLeft="54dp"
+                            android:layout_marginStart="54dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/standard_margin"
+                        android:orientation="vertical"
+                        android:id="@+id/permanentes_cultura"
+                        android:layout_below="@+id/eventos_cultura">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cul Servicio"
+                            android:id="@+id/filtro_cultura_servicios"
+                            android:checked="false"
+                            android:layout_above="@+id/filtro_cultura_eventos"
+                            android:layout_marginLeft="54dp"
+                            android:layout_marginStart="54dp" />
+                    </LinearLayout>
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/dropdownCultura"
+                        android:layout_below="@+id/permanentes_cultura">
+
+                        <Button
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:text="Categorias"
+                            android:id="@+id/select_categorias_cultura"
+                            android:padding="5dip" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buscar"
+                android:id="@+id/buscar_categorias"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

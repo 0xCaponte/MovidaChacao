@@ -9,7 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/linearLayout2"></LinearLayout>
+        android:id="@+id/linearLayout2"
+        android:orientation="horizontal"></LinearLayout>
 
     <fragment
         android:id="@+id/mapView"
@@ -23,22 +24,7 @@
     <include
         android:id="@+id/bottomToolbar"
         style="@style/includeToolbarStyle"
-        layout="@layout/activity_bottom_toolbar_main_home"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dep Servicio"
-        android:id="@+id/filtro_deporte_servicios"
-        android:checked="false"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:layout_above="@+id/filtro_deporte_eventos"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        layout="@layout/activity_bottom_toolbar_main_home" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -46,50 +32,8 @@
         android:text="Dep Evento"
         android:id="@+id/filtro_deporte_eventos"
         android:checked="false"
-        android:layout_alignTop="@+id/filtro_cultura_eventos"
-        android:layout_alignLeft="@+id/filtro_deporte_servicios"
-        android:layout_alignStart="@+id/filtro_deporte_servicios" />
+        android:layout_marginLeft="54dp"
+        android:layout_marginStart="54dp" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cul Evento"
-        android:id="@+id/filtro_cultura_eventos"
-        android:checked="false"
-        android:layout_above="@+id/bottomToolbar"
-        android:layout_alignLeft="@+id/filtro_cultura_servicios"
-        android:layout_alignStart="@+id/filtro_cultura_servicios" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cul Servicio"
-        android:id="@+id/filtro_cultura_servicios"
-        android:checked="false"
-        android:layout_above="@+id/filtro_cultura_eventos"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="D"
-        android:id="@+id/filtro_deporte"
-        android:checked="false"
-        android:layout_alignTop="@+id/filtro_deporte_servicios"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C"
-        android:id="@+id/filtro_cultura"
-        android:checked="false"
-        android:layout_alignTop="@+id/filtro_cultura_servicios"
-        android:layout_toLeftOf="@+id/filtro_cultura_eventos"
-        android:layout_toStartOf="@+id/filtro_cultura_eventos"
-        android:layout_marginRight="22dp"
-        android:layout_marginEnd="22dp" />
 
 </RelativeLayout>
