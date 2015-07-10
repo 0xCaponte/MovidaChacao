@@ -43,9 +43,10 @@ import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
 import static android.location.LocationManager.PASSIVE_PROVIDER;
 
-public class MovidaMapActivity extends AppFragment {
+public class MovidaMapFragment extends AppFragment {
 
     private static final String TAG = "Map-Fragment";
+    private static final int FILTER_REQUEST = 7;
 
     @Override
     public String getMyTag() {
@@ -399,7 +400,7 @@ public class MovidaMapActivity extends AppFragment {
             public void onClick(View v) {
 
                 Intent filtro = new Intent(main_context, FilterActivities.class);
-                startActivity(filtro);
+                startActivityForResult(filtro, FILTER_REQUEST);
 
             }
         });
@@ -621,5 +622,11 @@ public class MovidaMapActivity extends AppFragment {
                 }
             }
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        loadMarkers(MapUtil.getMapFilters(main_context));
     }
 }

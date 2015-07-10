@@ -70,7 +70,7 @@
         -->
 
         <activity
-            android:name=".map.MovidaMapActivity"
+            android:name=".map.MovidaMapFragment"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".login.activity.SplashScreenActivity"

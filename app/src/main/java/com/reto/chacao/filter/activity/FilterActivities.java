@@ -13,7 +13,6 @@ import android.widget.CheckBox;
 
 import com.reto.chacao.R;
 import com.reto.chacao.beans.MapProfile;
-import com.reto.chacao.map.MovidaMapActivity;
 import com.reto.chacao.util.MapUtil;
 
 import java.util.ArrayList;
@@ -80,10 +79,9 @@ public class FilterActivities extends ActionBarActivity implements View.OnClickL
                 MapUtil.setFiltrosCategoriasDeporte(FilterActivities.this, deportesSeleccionados);
                 MapUtil.setFiltrosCategoriasCultura(FilterActivities.this, culturasSeleccionados);
 
-
-                Intent filtro = new Intent(main_context, MovidaMapActivity.class);
-                startActivity(filtro);
-
+                Intent intent = getIntent();
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
 
