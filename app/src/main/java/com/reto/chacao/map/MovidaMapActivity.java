@@ -206,7 +206,7 @@ public class MovidaMapActivity extends Activity {
                 latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
 
                 LatLng l = new LatLng(latestLocation.getLatitude(),latestLocation.getLongitude());
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 14.0f));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 15.0f));
 
                 return true;
             }
@@ -360,7 +360,7 @@ public class MovidaMapActivity extends Activity {
                         R.id.mapView)).getMap();
 
                 //Chacao as the center of the map and enough zoom to see it all.
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.499175, -66.854197), 14.0f));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.495343, -66.848908), 15.0f));
                 googleMap.setInfoWindowAdapter(new MyInfoWindowAdapter());
 
                 /**
