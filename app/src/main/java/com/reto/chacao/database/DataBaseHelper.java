@@ -105,7 +105,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_url,ev_type) VALUES ('Cursos de Portugues','Quinta 65, 6ta Transversal con Av San Juan Bosco, Caracas\n" +
                 "0212-2679107','Idioma','Cultura','www.icbv.org.ve','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (2,2,'Instituto Cultural Brasil-Venezuela', 10.504211, -66.851001)");
-        db.execSQL("INSERT INTO comment (cm_id_event, cm_firstname, cm_lastname, cm_text) VALUES (2,'Domingo', 'de Abreu', 'o melhor é aprender Português')");
+        db.execSQL("INSERT INTO comment (cm_id_event, cm_firstname, cm_lastname, cm_text) VALUES (2,'Andrea', 'Balbas', 'o melhor é aprender Português')");
         db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (2,'Curso de Portugues','png', 'portugues')");
 
 

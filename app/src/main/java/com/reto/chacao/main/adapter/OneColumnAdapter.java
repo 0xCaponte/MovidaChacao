@@ -73,6 +73,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
 
 
+
         if (comments != null) {
             comment = comments.get(0);
             String commentUserName = comment.getCommenterFirstName() + " " + comment.getCommenterLastName();
@@ -80,6 +81,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             holder.mPostCommentBody.setText(comment.getBody());
             holder.mPostCommentDate.setText(DateUtil.getTimeText(comment.getCreated()));
             Resources res = mContext.getResources();
+            holder.mPostCommentUserImage.setImageResource(Integer.parseInt(comment.getImage()));
             String numberComments;
             if ( comments.size() > 1 ) {
                 numberComments = String.format(res.getString(R.string.home_post_item_comments), comments.size());
@@ -139,6 +141,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mItemLayout.setOnClickListener(this);
             mPostComment.setOnClickListener(this);
             mPostFirstImage.setOnClickListener(this);
+            mPostCommentUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image_comment);
         }
 
         @Override
