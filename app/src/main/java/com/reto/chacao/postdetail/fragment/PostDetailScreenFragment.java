@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
@@ -22,6 +23,8 @@ import com.reto.chacao.beans.PostComment;
 import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.postdetail.adapter.DetailPostAdapter;
 import com.reto.chacao.util.AppUtil;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +72,13 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         setViews(postDetailView);
 
         //TODO: esto es data de prueba, quitar y hacer el llamado al API para recuperar el detalle y los comentarios
+//        TextView mPostUserName = (TextView) postDetailView.findViewById(R.id.commentOwnerText);
+//        mPostUserName.setText('h');
+
+//
+//        View postDetailView2 = inflater.inflate(R.layout.fragment_post_detail, container, false);
+//        TextView mPostUserName2 = (TextView) postDetailView2.findViewById(R.id.commentOwnerText);
+//        mPostUserName2.setText("dfg");
 
         mListDetailPostItems = new ArrayList<>(testGenerateDetailPost());
 

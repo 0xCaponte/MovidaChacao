@@ -135,8 +135,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="10dp"
-                    android:background="@color/btn_clamour_color"
-                    android:src="@drawable/user3"/>
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/divider_or"/>
 
                 <LinearLayout
                     android:id="@+id/comment_info"

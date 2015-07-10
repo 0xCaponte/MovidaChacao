@@ -427,7 +427,9 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
             if(cm.size() >= 1){
                 for(com.reto.chacao.model.Comment c : cm){
+                    id = getResources().getIdentifier(c.getFirstname().toLowerCase(),"drawable",getActivity().getPackageName());
                     Comment commentTmp = new Comment();
+                    commentTmp.setImage(Integer.toString(id));
                     commentTmp.setComment_id(c.getId());
                     commentTmp.setCommenterFirstName(c.getFirstname());
                     commentTmp.setCommenterLastName(c.getLastname());
