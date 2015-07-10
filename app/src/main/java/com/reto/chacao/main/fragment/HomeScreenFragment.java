@@ -391,13 +391,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         ArrayList<Post> posts = new ArrayList<Post>();
 
-        int i = 0;
 
         for(Event e : events){
-            if ( i == 4 ) {
-                break;
-            }
-            i++;
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();
