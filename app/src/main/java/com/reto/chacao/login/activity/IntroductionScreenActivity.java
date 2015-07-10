@@ -20,6 +20,7 @@ import com.reto.chacao.R;
 import com.reto.chacao.login.adapter.IntroductionAdapter;
 import com.reto.chacao.login.fragment.FacebookSingUpScreenFragment;
 import com.reto.chacao.main.activity.MovidaMainActivity;
+import com.reto.chacao.map.MovidaMapActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.UserUtil;
 
@@ -172,7 +173,7 @@ public class IntroductionScreenActivity extends FragmentActivity implements View
 
                 Log.e(TAG, UserUtil.getRegister(this) ? "true" : "false");
 
-                AppUtil.runActivity(MovidaMainActivity.class, this);
+                AppUtil.runActivity(MovidaMapActivity.class, this);
                 break;
         }
 

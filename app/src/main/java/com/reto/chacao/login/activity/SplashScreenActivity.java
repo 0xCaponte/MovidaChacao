@@ -12,6 +12,7 @@ import com.reto.chacao.beans.MapProfile;
 import com.reto.chacao.beans.UserProfile;
 import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.main.activity.MovidaMainActivity;
+import com.reto.chacao.map.MovidaMapActivity;
 import com.reto.chacao.util.AppUtil;
 import com.reto.chacao.util.GcmManager;
 import com.reto.chacao.util.MapUtil;
@@ -79,7 +80,7 @@ public class SplashScreenActivity extends Activity {
                 // Usuarios Viejos -> Home
                 } else  {
 
-                    AppUtil.runActivityClearTop(MovidaMainActivity.class, SplashScreenActivity.this);
+                    AppUtil.runActivityClearTop(MovidaMapActivity.class, SplashScreenActivity.this);
                 }
 
                 //Se finaliza la actividad para que el usuario no pueda volver con el back button

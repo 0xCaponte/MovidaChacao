@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.reto.chacao.R;
 import com.reto.chacao.beans.Comment;
@@ -28,11 +30,13 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
     private Context mContext;
     private static PostViewClickListener mListener;
     private ArrayList<Post> mPosts;
+    SimpleDateFormat mDateFormatter;
 
     public OneColumnAdapter(Context context, PostViewClickListener listener, ArrayList<Post> posts) {
         this.mContext = context;
         this.mListener = listener;
         this.mPosts = posts;
+        mDateFormatter = new SimpleDateFormat("dd MMM.");
     }
 
     public interface PostViewClickListener {
@@ -68,7 +72,11 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         holder.mPostTitle.setText(post.getTitle());
         holder.mPostDescription.setText(post.getDescription());
         holder.mPostDate.setText(DateUtil.getTimeText(post.getCreated()));
-        holder.mPostConditionItem.setText(post.getCondition().getName());
+        if ( post.getCreated().equals(new Date("01/01/1999")) ) {
+            holder.mPostConditionItem.setText("Fijo");
+        } else {
+            holder.mPostConditionItem.setText(mDateFormatter.format(post.getCreated()));
+        }
         holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
 
 
