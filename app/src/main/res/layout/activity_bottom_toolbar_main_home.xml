@@ -19,6 +19,14 @@
             android:src="@drawable/ic_home"/>
 
         <ImageView
+            android:id="@+id/toolbar_go_to_map"
+            style="@style/homeBottomToolbarButtons"
+            android:layout_height="35dp"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_map"/>
+
+        <ImageView
             android:id="@+id/toolbar_go_to_AR"
             style="@style/homeBottomToolbarButtons"
             android:layout_height="40dp"
@@ -26,13 +34,6 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_ra"/>
 
-        <ImageView
-            android:id="@+id/toolbar_go_to_map"
-            style="@style/homeBottomToolbarButtons"
-            android:layout_height="35dp"
-            android:clickable="true"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_map"/>
     </LinearLayout>
 
 
