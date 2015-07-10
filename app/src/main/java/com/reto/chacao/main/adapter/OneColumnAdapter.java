@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -73,6 +72,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
         holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
 
 
+
         if (comments != null) {
             comment = comments.get(0);
             String commentUserName = comment.getCommenterFirstName() + " " + comment.getCommenterLastName();
@@ -80,6 +80,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             holder.mPostCommentBody.setText(comment.getBody());
             holder.mPostCommentDate.setText(DateUtil.getTimeText(comment.getCreated()));
             Resources res = mContext.getResources();
+            holder.mPostCommentUserImage.setImageResource(Integer.parseInt(comment.getImage()));
             String numberComments;
             if ( comments.size() > 1 ) {
                 numberComments = String.format(res.getString(R.string.home_post_item_comments), comments.size());
@@ -128,7 +129,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
             mPostDate = (TextView) itemLayoutView.findViewById(R.id.post_time);
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
-            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
+            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view2);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentUserName = (TextView) itemLayoutView.findViewById(R.id.user_name_comment);
             mPostCommentBody = (TextView) itemLayoutView.findViewById(R.id.comment_text);
@@ -139,6 +140,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mItemLayout.setOnClickListener(this);
             mPostComment.setOnClickListener(this);
             mPostFirstImage.setOnClickListener(this);
+            mPostCommentUserImage = (ImageView) itemLayoutView.findViewById(R.id.user_image_comment);
         }
 
         @Override

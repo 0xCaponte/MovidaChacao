@@ -2,11 +2,9 @@ package com.reto.chacao.augmented_reality;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.webkit.WebView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -25,8 +23,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -171,45 +173,79 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
 
             List<Event> events = dbHelper.getAllEvents();
 
-            for(Event e:events){
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
+            String now = df.format(date);
+
+            try {
+                date = df.parse(now);
+            } catch (ParseException e) {
+                date = new Date();
+            }
+
+            for(Event e:events) {
+
+                Date event_date = date;
+
+                if (e.getType().equals("Movil")) {
+
+                    String[] d = e.getDateStart().split(" ");
+                    try {
+                        event_date = df.parse(d[0]);
+                    } catch (ParseException e1) {
+
+                    }
+
+                    // Diferencia de dias
+                    long days = event_date.getTime() - date.getTime();
+                    days /=  (1000 * 60 * 60 * 24);
+
+                    // Valor Absoluto
+                    long diff = (days < 0) ? -days : days;
+
+                    // Si no es en los proximos tres dias no sale en el radar
+                    if (diff > 3)
+                        continue;
+                }
+
+
                 JSONObject jsonObj = new JSONObject();
-                DistanceResult distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
-                        e.getLatitude(), e.getLongitude());
+
+
+                // Ubicación actual
+                Location current = new Location("");
+                current.setLatitude(mLastLocation.getLatitude());
+                current.setLongitude(mLastLocation.getLongitude());
+
+                // Ubicación del evento
+                Location event_location = new Location("");
+                event_location.setLatitude(e.getLatitude());
+                event_location.setLongitude(e.getLongitude());
+
+                // Calculo de distancia.
+                float distance = current.distanceTo(event_location);
+                distance = (float) (Math.floor(distance * 100) / 100);
+                String unit = "Km";
+
+                // Llevo a km o metros
+                if (distance >= 1000){
+                    distance /= 1000;
+                    distance = (float) (Math.floor(distance * 100) / 100);
+                }else{
+                    unit = "M";
+                }
 
                 jsonObj.put("latitude", e.getLatitude());
                 jsonObj.put("longitude", e.getLongitude());
                 jsonObj.put("altitude", 100); // TODO
                 // Si el nombre es muy largo lo acorta y pone "..."
                 jsonObj.put("title", e.getName());
-                jsonObj.put("description", distance.distance + " "
-                        + distance.unit);
+                jsonObj.put("description", distance + " "
+                        + unit);
                 jsonObj.put("category", e.getCategory());
                 jsonArr.put(jsonObj);
 
             }
-
-
-            // String strDistance = String.valueOf(distance);
-            // String[] parts = strDistance.split(".");
-
-
-//            JSONObject jsonObj2 = new JSONObject();
-
-
-            // String strDistance = String.valueOf(distance);
-            // String[] parts = strDistance.split(".");
-//            distance = distance(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
-//                    10.4594226, -66.8711889);
-//            jsonObj2.put("latitude", 10.4594226);
-//            jsonObj2.put("longitude", -66.8711889);
-//            jsonObj2.put("altitude", 100); // TODO
-//            // Si el nombre es muy largo lo acorta y pone "..."
-//            jsonObj2.put("title", "Emil Friedman");
-//            jsonObj2.put("description", distance.distance + " "
-//                    + distance.unit);
-//            jsonObj2.put("category", "Oficina");
-
-
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -239,47 +275,6 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
             architectView.setLocation(location.getLatitude(),
                     location.getLongitude(),
                     location.hasAccuracy() ? location.getAccuracy() : 1000);
-        }
-    }
-
-    private DistanceResult distance(double oLon, double oLat, double pLon,
-                                    double pLat) {
-
-        String unit = "mts.";
-
-        Location dest = new Location("Dest");
-        dest.setLatitude(pLat);
-        dest.setLongitude(pLon);
-
-        float distance = mLastLocation.distanceTo(dest);
-
-        if (distance > 1000) {
-            unit = "km.";
-            distance = distance / 1000;
-        }
-
-        DecimalFormat df = new DecimalFormat("#.#", new DecimalFormatSymbols(
-                Locale.ENGLISH));
-        String distanceStr = df.format(distance);
-        double finalDistance = Double.valueOf(distanceStr);
-
-        return new DistanceResult(finalDistance, unit);
-    }
-
-    /**
-     * Representa distancias basadas en metros.
-     *
-     * @author Domingo De Abreu
-     */
-    class DistanceResult {
-
-        double distance;
-        String unit;
-
-        public DistanceResult(double distance, String unit) {
-
-            this.distance = distance;
-            this.unit = unit;
         }
     }
 }

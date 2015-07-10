@@ -13,10 +13,16 @@
                     android:layout_height="match_parent"
                     android:background="@android:color/white">
 
-        <com.android.volley.toolbox.NetworkImageView
+        <!--<com.android.volley.toolbox.NetworkImageView-->
+            <!--android:id="@+id/commentBuyerImage"-->
+            <!--style="@style/postDetailCommentImage"-->
+            <!--android:src="@drawable/user5"/>-->
+        <ImageView
             android:id="@+id/commentBuyerImage"
             style="@style/postDetailCommentImage"
-            android:src="@drawable/user5"/>
+            android:scaleType="fitXY"
+            android:clickable="true"
+            android:src="@drawable/item1"/>
 
         <LinearLayout
             android:id="@+id/commentBuyerRecipient"

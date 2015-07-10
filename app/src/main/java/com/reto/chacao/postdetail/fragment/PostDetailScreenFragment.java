@@ -1,6 +1,7 @@
 package com.reto.chacao.postdetail.fragment;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,16 +14,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.beans.DetailPost;
+import com.reto.chacao.beans.Post;
 import com.reto.chacao.beans.PostComment;
+import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.main.activity.MovidaMainActivity;
+import com.reto.chacao.model.Comment;
 import com.reto.chacao.postdetail.adapter.DetailPostAdapter;
+import com.reto.chacao.postdetail.holder.DetailPostCommentsHolder;
+import com.reto.chacao.postdetail.holder.DetailPostMainHolder;
 import com.reto.chacao.util.AppUtil;
 
+import org.w3c.dom.Text;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,15 +72,37 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        Bundle data = getArguments();
+        Bundle data = this.getArguments();
+
+
+
+        //Desde la otra vista pasan un objeto post serializable por eso se hace asi
+
+        Post seria = (Post) data.getSerializable(Post.TAG);
+
+        DetailPostMainHolder deta = new DetailPostMainHolder(inflater.inflate(R.layout.fragment_post_detail, container, false),seria);
+//        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+//        SQLiteDatabase db = dbHelper.getWritableDatabase();
+//        List<Comment> cm = dbHelper.getCommentByEvent(seria.getPost_id());
+//        DetailPostCommentsHolder delta = new DetailPostCommentsHolder(inflater.inflate(R.layout.fragment_post_detail_comment, container, false),cm);
+
+        //TODO: esto es data de prueba, quitar y hacer el llamado al API para recuperar el detalle y los comentarios
+//        TextView mPostUserName = (TextView) postDetailView.findViewById(R.id.commentOwnerText);
+//        mPostUserName.setText('h');
+
+//
+//        View postDetailView2 = inflater.inflate(R.layout.fragment_post_detail, container, false);
+//        TextView mPostUserName2 = (TextView) postDetailView2.findViewById(R.id.commentOwnerText);
+//        mPostUserName2.setText("dfg");
 
         View postDetailView = inflater.inflate(R.layout.fragment_post_detail_screen, container, false);
 
         setViews(postDetailView);
 
-        //TODO: esto es data de prueba, quitar y hacer el llamado al API para recuperar el detalle y los comentarios
-
         mListDetailPostItems = new ArrayList<>(testGenerateDetailPost());
+
+
+
 
         mPostCommentList = new ArrayList<>(testGeneratePostComment());
 

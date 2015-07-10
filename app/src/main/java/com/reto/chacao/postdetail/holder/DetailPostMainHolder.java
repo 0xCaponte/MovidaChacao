@@ -1,12 +1,14 @@
 package com.reto.chacao.postdetail.holder;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.reto.chacao.beans.Post;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import com.reto.chacao.R;
@@ -46,11 +48,31 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
         setBehaviors(itemView);
     }
 
+    public DetailPostMainHolder(View itemView,Post data) {
+        super(itemView);
+        mContext = itemView.getContext();
+        setViews(itemView,data);
+        setBehaviors(itemView);
+    }
+
     private void setViews(View itemView) {
         mImageViewPager = (ViewPager) itemView.findViewById(R.id.viewPager);
         mCirclePageIndicator = (CirclePageIndicator) itemView.findViewById(R.id.viewPagerIndicator);
         mPostOwnerNameText = (TextView) itemView.findViewById(R.id.commentOwnerName);
         mPostOwnerCommentText = (TextView) itemView.findViewById(R.id.commentOwnerText);
+        mCommentCountText = (TextView) itemView.findViewById(R.id.detailPostCommentCountText);
+
+    }
+
+    private void setViews(View itemView,Post data) {
+        mImageViewPager = (ViewPager) itemView.findViewById(R.id.viewPager);
+        mCirclePageIndicator = (CirclePageIndicator) itemView.findViewById(R.id.viewPagerIndicator);
+        mPostOwnerNameText = (TextView) itemView.findViewById(R.id.commentOwnerName);
+//        mPostOwnerNameText.setText(data.getTitle().toString());
+        mPostOwnerNameText.setText("Hola");
+        mPostOwnerCommentText = (TextView) itemView.findViewById(R.id.commentOwnerText);
+        mPostOwnerCommentText.setText("chao");
+//        mPostOwnerCommentText.setText(data.getDescription());
         mCommentCountText = (TextView) itemView.findViewById(R.id.detailPostCommentCountText);
 
     }
