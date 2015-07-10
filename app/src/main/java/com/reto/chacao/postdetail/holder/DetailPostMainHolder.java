@@ -75,11 +75,7 @@ public class DetailPostMainHolder extends MainHolder implements View.OnClickList
         mImageViewPager = (ViewPager) itemView.findViewById(R.id.viewPager);
         mCirclePageIndicator = (CirclePageIndicator) itemView.findViewById(R.id.viewPagerIndicator);
         mPostOwnerNameText = (TextView) itemView.findViewById(R.id.commentOwnerName);
-//        mPostOwnerNameText.setText(data.getTitle().toString());
-        mPostOwnerNameText.setText("Hola");
         mPostOwnerCommentText = (TextView) itemView.findViewById(R.id.commentOwnerText);
-        mPostOwnerCommentText.setText("chao");
-//        mPostOwnerCommentText.setText(data.getDescription());
         mCommentCountText = (TextView) itemView.findViewById(R.id.detailPostCommentCountText);
 
     }
