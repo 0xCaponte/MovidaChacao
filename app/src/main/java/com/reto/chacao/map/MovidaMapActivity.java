@@ -14,7 +14,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,13 +84,11 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
     private ImageView mProfileButton;
     private ImageView mAddPostButton;
 
-    // Checkboxs
-    private CheckBox cultura;
-    private CheckBox c_servicios;
-    private CheckBox c_eventos;
-    private CheckBox deporte;
-    private CheckBox d_servicios;
-    private CheckBox d_eventos;
+    //Filtro de busqueda
+    private ImageButton busqueda;
+
+    // Location
+    private ImageButton posicion;
 
     // Lista de eventos Fijos de cultura
     private ArrayList<Marker> cultura_servicios = new ArrayList<Marker>();
@@ -163,29 +161,6 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
     // Hace visibles los marcadores pertinentes
     private void loadMarkers(MapProfile mp){
 
-       if (!cultura_eventos.isEmpty()) {
-            for (Marker m : cultura_eventos) {
-                m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_eventos());
-            }
-       }
-
-       if (!cultura_servicios.isEmpty()) {
-           for (Marker m : cultura_servicios) {
-               m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_servicios());
-           }
-       }
-
-       if (!deporte_eventos.isEmpty()) {
-           for (Marker m : deporte_eventos) {
-               m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_eventos());
-           }
-       }
-
-       if (!deporte_servicios.isEmpty()) {
-           for (Marker m : deporte_servicios) {
-               m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_servicios());
-           }
-       }
 
         if (!deportes_basquet.isEmpty()) {
             for (Marker m : deportes_basquet) {
@@ -300,6 +275,30 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
             }
         }
 
+        if (!cultura_eventos.isEmpty()) {
+            for (Marker m : cultura_eventos) {
+                m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_eventos());
+            }
+        }
+
+        if (!cultura_servicios.isEmpty()) {
+            for (Marker m : cultura_servicios) {
+                m.setVisible(mp.isFiltro_cultura() || mp.isFiltro_cultura_servicios());
+            }
+        }
+
+        if (!deporte_eventos.isEmpty()) {
+            for (Marker m : deporte_eventos) {
+                m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_eventos());
+            }
+        }
+
+        if (!deporte_servicios.isEmpty()) {
+            for (Marker m : deporte_servicios) {
+                m.setVisible(mp.isFiltro_deporte() || mp.isFiltro_deporte_servicios());
+            }
+        }
+
 
     }
 
@@ -332,13 +331,11 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
         // Set filtros deportes
         deporte = (CheckBox) findViewById(R.id.filtro_deporte);
         d_servicios = (CheckBox) findViewById(R.id.filtro_deporte_servicios);*/
-        d_eventos = (CheckBox) findViewById(R.id.filtro_deporte_eventos);
+        busqueda =  (ImageButton) findViewById(R.id.busqueda);
+        posicion = (ImageButton) findViewById(R.id.posicion);
 
         main_context = getApplicationContext();
         MapProfile mp = MapUtil.getMapFilters(main_context);
-
-        //Establece los filtros iniciales
-        //setFilters(mp);
 
         //Crea el mapa
         createMapView();
@@ -353,49 +350,39 @@ public class MovidaMapActivity extends Activity implements View.OnClickListener 
         loadMarkers(mp);
 
         // My location
-        googleMap.setMyLocationEnabled(true);
 
-        googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
-            @Override
-            public boolean onMyLocationButtonClick() {
+        posicion.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
 
-                LocationManager manager = (LocationManager) MovidaMapActivity.this
-                        .getSystemService(LOCATION_SERVICE);
-                Criteria criteria = new Criteria();
-                criteria.setAccuracy(ACCURACY_FINE);
-                String provider = manager.getBestProvider(criteria, true);
-                Location mejor;
+              LocationManager manager = (LocationManager) MovidaMapActivity.this
+                      .getSystemService(LOCATION_SERVICE);
+              Criteria criteria = new Criteria();
+              criteria.setAccuracy(ACCURACY_FINE);
+              String provider = manager.getBestProvider(criteria, true);
+              Location mejor;
 
-                if (provider != null)
-                    mejor = manager.getLastKnownLocation(provider);
-                else
-                    mejor = null;
+              if (provider != null)
+                  mejor = manager.getLastKnownLocation(provider);
+              else{
+                  mejor = null;
+                  return;
+              }
 
-                Location latestLocation = masReciente(mejor, manager.getLastKnownLocation(GPS_PROVIDER));
-                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(NETWORK_PROVIDER));
-                latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
+              Location latestLocation = masReciente(mejor, manager.getLastKnownLocation(GPS_PROVIDER));
+              latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(NETWORK_PROVIDER));
+              latestLocation = masReciente(latestLocation, manager.getLastKnownLocation(PASSIVE_PROVIDER));
 
-                LatLng l = new LatLng(latestLocation.getLatitude(),latestLocation.getLongitude());
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 15.0f));
-
-                return true;
-            }
-        });
+              LatLng l = new LatLng(latestLocation.getLatitude(), latestLocation.getLongitude());
+              googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(l, 15.0f));
+          }
+      });
 
         //Click Listener
-        d_eventos.setOnClickListener(new View.OnClickListener() {
+        busqueda.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
-                /*//Guardo el cambio de filtro
-                MapUtil.setFiltroDeportesEventos(MovidaMapActivity.this, d_eventos.isChecked());
-
-                if (!deporte_eventos.isEmpty()) {
-                    for (Marker m : deporte_eventos) {
-                        m.setVisible(d_eventos.isChecked());
-                    }
-                }*/
 
                 Intent filtro = new Intent(main_context, FilterActivities.class);
                 startActivity(filtro);
