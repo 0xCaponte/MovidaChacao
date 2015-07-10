@@ -143,7 +143,7 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
         int id = getActivity().getResources().getIdentifier(mPostEvent.getPhoto(), "drawable",
                 getActivity().getApplicationContext().getPackageName());
 
-        post.setPostImages(new int[]{id,R.drawable.item3});
+        post.setPostImages(new int[]{id,R.drawable.css_forum2,R.drawable.css_forum3});
 
         list.add(post);
 

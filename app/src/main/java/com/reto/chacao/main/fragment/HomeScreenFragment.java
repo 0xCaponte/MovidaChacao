@@ -186,10 +186,10 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
         switch (v.getId()) {
             case R.id.FABToogle:
                 if ( mShowingTwoColumns ) {
-                    onTwoColumnClick();
+                    onOneColumnClick();
                     mShowingTwoColumns = false;
                 } else {
-                    onOneColumnClick();
+                    onTwoColumnClick();
                     mShowingTwoColumns = true;
                 }
                 break;
