@@ -66,7 +66,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dep Servicio"
+                            android:text="Servicios Deportivos"
                             android:id="@+id/filtro_deporte_servicios"
                             android:checked="false"
                             android:layout_marginLeft="54dp"
@@ -84,7 +84,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dep Evento"
+                            android:text="Eventos Deportivos"
                             android:id="@+id/filtro_deporte_eventos"
                             android:checked="false"
                             android:layout_marginLeft="54dp"
@@ -133,12 +133,14 @@
                         android:orientation="vertical"
                         android:id="@+id/eventos_cultura"
                         android:layout_below="@+id/cultura">
+
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cul Evento"
-                            android:id="@+id/filtro_cultura_eventos"
+                            android:text="Servicios Culturales"
+                            android:id="@+id/filtro_cultura_servicios"
                             android:checked="false"
+                            android:layout_above="@+id/filtro_cultura_eventos"
                             android:layout_marginLeft="54dp"
                             android:layout_marginStart="54dp" />
                     </LinearLayout>
@@ -150,13 +152,13 @@
                         android:orientation="vertical"
                         android:id="@+id/permanentes_cultura"
                         android:layout_below="@+id/eventos_cultura">
+
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cul Servicio"
-                            android:id="@+id/filtro_cultura_servicios"
+                            android:text="Eventos Culturales"
+                            android:id="@+id/filtro_cultura_eventos"
                             android:checked="false"
-                            android:layout_above="@+id/filtro_cultura_eventos"
                             android:layout_marginLeft="54dp"
                             android:layout_marginStart="54dp" />
                     </LinearLayout>

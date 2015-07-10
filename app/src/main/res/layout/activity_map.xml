@@ -6,12 +6,6 @@
     android:layout_height="fill_parent"
     android:id="@+id/activity_map">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/linearLayout2"
-        android:orientation="horizontal"></LinearLayout>
 
     <fragment
         android:id="@+id/mapView"
@@ -26,16 +20,30 @@
     <include
         android:id="@+id/bottomToolbar"
         style="@style/includeToolbarStyle"
-        layout="@layout/activity_bottom_toolbar_main_home" />
+        layout="@layout/activity_bottom_toolbar_main_home"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <CheckBox
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dep Evento"
-        android:id="@+id/filtro_deporte_eventos"
-        android:checked="false"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp" />
+        android:id="@+id/busqueda"
+        android:src="@drawable/map_search"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/posicion"
+        android:layout_toStartOf="@+id/posicion" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/posicion"
+        android:contentDescription=""
+        android:src="@drawable/map_location"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
