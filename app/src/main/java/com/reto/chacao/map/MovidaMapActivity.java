@@ -53,8 +53,7 @@ public class MovidaMapActivity extends Activity {
 
             TextView title = ((TextView)myContentsView.findViewById(R.id.title));
             title.setText(marker.getTitle());
-            TextView snippet = ((TextView)myContentsView.findViewById(R.id.snippet));
-            snippet.setText(marker.getSnippet());
+            title.setTextSize(12);
 
             return myContentsView;
         }

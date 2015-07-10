@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -130,7 +129,7 @@ public class OneColumnAdapter extends RecyclerView.Adapter<OneColumnAdapter.View
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
             mPostDate = (TextView) itemLayoutView.findViewById(R.id.post_time);
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
-            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
+            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view2);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentUserName = (TextView) itemLayoutView.findViewById(R.id.user_name_comment);
             mPostCommentBody = (TextView) itemLayoutView.findViewById(R.id.comment_text);

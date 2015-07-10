@@ -6,17 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import com.reto.chacao.R;
 import com.reto.chacao.beans.Comment;
 import com.reto.chacao.beans.Post;
+
+import java.util.ArrayList;
 
 /**
  * Created by ULISES HARRIS on 27/05/2015.
@@ -119,7 +118,7 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
             mPostTitle = (TextView) itemLayoutView.findViewById(R.id.post_title);
             mPostDescription = (TextView) itemLayoutView.findViewById(R.id.post_description);
             mPostConditionItem = (TextView) itemLayoutView.findViewById(R.id.post_condition);
-            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view);
+            mPostSold = (View) itemLayoutView.findViewById(R.id.sold_view2);
             mPostFirstImage = (ImageView) itemLayoutView.findViewById(R.id.post_main_image);
             mPostCommentNumber = (TextView) itemLayoutView.findViewById(R.id.text_more_comments);
             mPostComment = (RelativeLayout) itemLayoutView.findViewById(R.id.btn_post_more_comments);
