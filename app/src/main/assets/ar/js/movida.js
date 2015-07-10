@@ -18,6 +18,7 @@ var Movida = {
 
 			var poi = poiArray[i];
 			var poiData = {
+				"id" : poi["id"],
 				"latitude" : poi["latitude"],
 				"longitude" : poi["longitude"],
 				"altitude" : poi["altitude"],

@@ -2,6 +2,7 @@ package com.reto.chacao.main.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -10,15 +11,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.reto.chacao.beans.Post;
+import com.reto.chacao.database.DataBaseHelper;
 import com.reto.chacao.map.MovidaMapFragment;
 import com.reto.chacao.R;
 import com.reto.chacao.abstractcomponents.AppFragment;
 import com.reto.chacao.abstractcomponents.MainToolbarActivity;
 import com.reto.chacao.augmented_reality.AugmentedReality;
 import com.reto.chacao.main.fragment.HomeScreenFragment;
+import com.reto.chacao.model.Comment;
+import com.reto.chacao.model.Event;
+import com.reto.chacao.postdetail.fragment.PostDetailScreenFragment;
 import com.reto.chacao.settings.fragment.SettingsFragment;
 import com.reto.chacao.statics.MovidaValues;
 import com.reto.chacao.util.AppUtil;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Eduardo Luttinger on 05/06/2015.
@@ -40,6 +52,49 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
         super.onCreate(savedInstanceState);
         MovidaValues.setAppFragmentListener(this);
         setBottomToolbar();
+
+        Intent mainIntent = getIntent();
+        String postId = mainIntent.getStringExtra(getString(R.string.EXTRAS_KEY_POI_ID));
+        if (  postId != null ) {
+            PostDetailScreenFragment postDetailScreenFragment = new PostDetailScreenFragment();
+            Bundle arguments = new Bundle();
+            arguments.putSerializable(Post.TAG, loadPostById(postId));
+            postDetailScreenFragment.setArguments(arguments);
+            runMyFragment(postDetailScreenFragment, Boolean.TRUE);
+        }
+    }
+
+    private Post loadPostById(String postId) {
+        Post mPosts = new Post();
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        Event event = dbHelper.getEvent(Integer.valueOf(postId));
+        mPosts.setPost_id(event.getId());
+        mPosts.setTitle(event.getName());
+        mPosts.setDescription(event.getDescription());
+
+        ArrayList<com.reto.chacao.beans.Comment> comments = new ArrayList<com.reto.chacao.beans.Comment>();
+        List<Comment> cm = dbHelper.getCommentByEvent(event.getId());
+
+        if(cm.size() >= 1){
+            for(com.reto.chacao.model.Comment c : cm){
+                int id = getResources().getIdentifier(c.getFirstname().toLowerCase(),"drawable",
+                        getPackageName());
+                com.reto.chacao.beans.Comment commentTmp = new com.reto.chacao.beans.Comment();
+                commentTmp.setImage(Integer.toString(id));
+                commentTmp.setComment_id(c.getId());
+                commentTmp.setCommenterFirstName(c.getFirstname());
+                commentTmp.setCommenterLastName(c.getLastname());
+                commentTmp.setBody(c.getText());
+                commentTmp.setCreated(Calendar.getInstance().getTime());
+
+                comments.add(commentTmp);
+            }
+
+            mPosts.setComments(comments);
+
+        }
+
+        return mPosts;
     }
 
     @Override
@@ -77,10 +132,16 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.toolbar_home_button:
+                mHomeButton.setImageResource(R.drawable.ic_home_active);
+                mProfileButton.setImageResource(R.drawable.ic_map);
+                mAddPostButton.setImageResource(R.drawable.ic_ra);
                 runMyFragment(new HomeScreenFragment(), true);
                 break;
             case R.id.toolbar_go_to_map:
-                runMyFragment(new MovidaMapFragment(),true);
+                mHomeButton.setImageResource(R.drawable.ic_home);
+                mProfileButton.setImageResource(R.drawable.ic_map_active);
+                mAddPostButton.setImageResource(R.drawable.ic_ra);
+                runMyFragment(new MovidaMapFragment(), true);
                 break;
             case R.id.toolbar_go_to_AR:
                 showAddPostPopUp();
@@ -111,6 +172,9 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     private final class OkOnClickListener implements
             DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
+            mHomeButton.setImageResource(R.drawable.ic_home);
+            mProfileButton.setImageResource(R.drawable.ic_map);
+            mAddPostButton.setImageResource(R.drawable.ic_ra_active);
             AppUtil.runActivity(AugmentedReality.class, MovidaMainActivity.this);
         }
     }
