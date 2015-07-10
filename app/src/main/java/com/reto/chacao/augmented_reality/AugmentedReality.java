@@ -277,45 +277,4 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
                     location.hasAccuracy() ? location.getAccuracy() : 1000);
         }
     }
-
-    private DistanceResult distance(double oLon, double oLat, double pLon,
-                                    double pLat) {
-
-        String unit = "mts.";
-
-        Location dest = new Location("Dest");
-        dest.setLatitude(pLat);
-        dest.setLongitude(pLon);
-
-        float distance = mLastLocation.distanceTo(dest);
-
-        if (distance > 1000) {
-            unit = "km.";
-            distance = distance / 1000;
-        }
-
-        DecimalFormat df = new DecimalFormat("#.#", new DecimalFormatSymbols(
-                Locale.ENGLISH));
-        String distanceStr = df.format(distance);
-        double finalDistance = Double.valueOf(distanceStr);
-
-        return new DistanceResult(finalDistance, unit);
-    }
-
-    /**
-     * Representa distancias basadas en metros.
-     *
-     * @author Domingo De Abreu
-     */
-    class DistanceResult {
-
-        double distance;
-        String unit;
-
-        public DistanceResult(double distance, String unit) {
-
-            this.distance = distance;
-            this.unit = unit;
-        }
-    }
 }
