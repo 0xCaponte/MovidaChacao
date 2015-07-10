@@ -15,7 +15,10 @@ import com.reto.chacao.R;
 import com.reto.chacao.beans.Comment;
 import com.reto.chacao.beans.Post;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by ULISES HARRIS on 27/05/2015.
@@ -27,11 +30,13 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
     private Context mContext;
     private static PostTwoColumnViewClickListener mListener;
     private ArrayList<Post> mPosts;
+    SimpleDateFormat mDateFormatter;
 
     public TwoColumnAdapter(Context context, PostTwoColumnViewClickListener listener, ArrayList<Post> posts) {
         this.mContext = context;
         this.mListener = listener;
         this.mPosts = posts;
+        mDateFormatter = new SimpleDateFormat("dd MMM.");
     }
 
     public interface PostTwoColumnViewClickListener {
@@ -63,9 +68,14 @@ public class TwoColumnAdapter extends RecyclerView.Adapter<TwoColumnAdapter.View
         Comment comment;
 
 
+
         holder.mPostTitle.setText(post.getTitle());
         holder.mPostDescription.setText(post.getDescription());
-        holder.mPostConditionItem.setText(post.getCondition().getName());
+        if ( post.getCreated().equals(new Date("01/01/1999")) ) {
+            holder.mPostConditionItem.setText("Fijo");
+        } else {
+            holder.mPostConditionItem.setText(mDateFormatter.format(post.getCreated()));
+        }
         holder.mPostFirstImage.setImageResource(Integer.parseInt(post.getMainImageUrl()));
         if (position % 2 == 0) {
             holder.mPostSold.setBackgroundColor(mContext.getResources().getColor(R.color

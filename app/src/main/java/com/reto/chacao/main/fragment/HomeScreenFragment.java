@@ -43,6 +43,7 @@ import com.reto.chacao.util.UserUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
@@ -391,13 +392,8 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
 
         ArrayList<Post> posts = new ArrayList<Post>();
 
-        int i = 0;
 
         for(Event e : events){
-            if ( i == 4 ) {
-                break;
-            }
-            i++;
             ArrayList<Comment> comments = new ArrayList<Comment>();
             Post post = new Post();
             ItemCondition condition = new ItemCondition();
@@ -410,7 +406,11 @@ public class HomeScreenFragment extends AppFragment implements CompoundButton.On
             condition.setId(e.getId());
             condition.setName("Ahora");
             post.setCondition(condition);
-            post.setCreated(Calendar.getInstance().getTime());
+            if ( e.getDateStart() == null ) {
+                post.setCreated(new Date("01/01/1999"));
+            } else {
+                post.setCreated(new Date(e.getDateStart()));
+            }
 //            int id = getResources().getIdentifier("retochacao:drawable/" + e.getPhoto(), null, null);
             int id = getResources().getIdentifier(e.getPhoto(),"drawable",getActivity().getPackageName());
             post.setMainImageUrl(Integer.toString(id));

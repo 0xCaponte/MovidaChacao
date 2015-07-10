@@ -123,11 +123,16 @@ public class SettingsFragment extends AppFragment implements AdapterView.OnItemS
         LinearLayout mainLayout = (LinearLayout) mRootView.findViewById(R.id.notification_preferences_layout);
         LayoutInflater mLayoutInflater = getActivity().getLayoutInflater();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             View mView = mLayoutInflater.inflate(R.layout.notification_settings_row_layout, mainLayout, false);
             if ( i % 2 == 0 ) {
                 mView.findViewById(R.id.main_row_layout).setBackgroundColor(getResources().getColor(R.color.GrisLigero));
             }
+            if (i==0)
+                ((TextView) mView.findViewById(R.id.notification_row_title)).setText("Nuevos eventos");
+            else if (i==1)
+                ((TextView) mView.findViewById(R.id.notification_row_title)).setText("Nuevas actividades permanentes");
+
             mainLayout.addView(mView);
         }
     }

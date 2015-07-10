@@ -20,6 +20,7 @@ import com.reto.chacao.augmented_reality.AugmentedReality;
 import com.reto.chacao.main.fragment.HomeScreenFragment;
 import com.reto.chacao.settings.fragment.SettingsFragment;
 import com.reto.chacao.statics.MovidaValues;
+import com.reto.chacao.util.AppUtil;
 
 /**
  * Created by Eduardo Luttinger on 05/06/2015.
@@ -107,16 +108,13 @@ public class MovidaMainActivity extends MainToolbarActivity implements AppFragme
     private final class CancelOnClickListener implements
             DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
-            Toast.makeText(getApplicationContext(), "Cancle selected, activity continues",
-                    Toast.LENGTH_LONG).show();
         }
     }
 
     private final class OkOnClickListener implements
             DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
-            Intent intent = new Intent(MovidaMainActivity.this, AugmentedReality.class);
-            startActivity(intent);
+            AppUtil.runActivity(AugmentedReality.class,MovidaMainActivity.this);
         }
     }
 
