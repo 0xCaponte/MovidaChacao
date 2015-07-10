@@ -101,14 +101,7 @@ public class PostDetailScreenFragment extends AppFragment implements View.OnClic
 
         mListDetailPostItems = new ArrayList<>(testGenerateDetailPost());
 
-//        System.out.println(savedInstanceState.getString("title"));
-//        System.out.println(data.getString("TITLE"));
-//
-//        DetailPostMainHolder deta = new DetailPostMainHolder(inflater.inflate(R.layout.fragment_post_detail, container, false),data);
-//        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
-//        List<Comment> cm = dbHelper.getCommentByEvent(data.getInt("post_id"));
-//        DetailPostCommentsHolder delta = new DetailPostCommentsHolder(inflater.inflate(R.layout.fragment_post_detail_comment, container, false),cm);
+
 
 
         mPostCommentList = new ArrayList<>(testGeneratePostComment());
