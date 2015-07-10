@@ -87,8 +87,8 @@ updateRangeValues: function updateRangeValuesFn() {
     var slider_value_pois = $("#panel-pois-range").val();
     
     // max range relative to the maximum distance of all visible places
-    var maxRangeMeters = Math.round(2000 * (slider_value / 100));
-    //var maxRangeMeters = 5000 * (slider_value / 100);
+    var maxRangeMeters = Math.round(slider_value * 1000);
+
     // range in meters including metric m/km
     var maxRangeValue = (maxRangeMeters > 999) ? ((maxRangeMeters / 1000).toFixed(2) + " km") : (Math.round(maxRangeMeters) + " m");
     

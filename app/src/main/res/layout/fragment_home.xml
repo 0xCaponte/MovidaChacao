@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:src="@drawable/btn_two_columns"
+                android:src="@drawable/btn_one_column"
                 app:fabSize="normal"
                 app:elevation="4dp"
                 app:rippleColor="@color/ColorPrimary"
