@@ -141,6 +141,7 @@ onMarkerSelected: function onMarkerSelectedFn(marker) {
 	*/
 	// user clicked "More" button in POI-detail panel -> fire event to open native screen
 	onPoiDetailMoreButtonClicked: function onPoiDetailMoreButtonClickedFn() {
+	  console.log("WORKS!");
 		var currentMarker = World.currentMarker;
 		var architectSdkUrl = "architectsdk://markerselected?id=" + encodeURIComponent(currentMarker.poiData.id);
 		/*

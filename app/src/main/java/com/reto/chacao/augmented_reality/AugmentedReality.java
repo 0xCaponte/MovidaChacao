@@ -1,7 +1,9 @@
 package com.reto.chacao.augmented_reality;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -14,6 +16,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.reto.chacao.R;
 import com.reto.chacao.database.DataBaseHelper;
+import com.reto.chacao.main.activity.MovidaMainActivity;
 import com.reto.chacao.model.Event;
 import com.wikitude.architect.ArchitectView;
 import com.wikitude.architect.StartupConfiguration;
@@ -52,6 +55,7 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
         this.architectView = (ArchitectView)this.findViewById(R.id.architectView);
         final StartupConfiguration config = new StartupConfiguration(getString(R.string.license_key));
         this.architectView.onCreate(config);
+        this.architectView.registerUrlListener(getUrlListener());
     }
 
     @Override
@@ -235,6 +239,7 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
                     unit = "M";
                 }
 
+                jsonObj.put("id",e.getId());
                 jsonObj.put("latitude", e.getLatitude());
                 jsonObj.put("longitude", e.getLongitude());
                 jsonObj.put("altitude", 100); // TODO
@@ -276,5 +281,27 @@ public class AugmentedReality extends ActionBarActivity implements GoogleApiClie
                     location.getLongitude(),
                     location.hasAccuracy() ? location.getAccuracy() : 1000);
         }
+    }
+
+    public ArchitectView.ArchitectUrlListener getUrlListener() {
+        return new ArchitectView.ArchitectUrlListener() {
+
+            @Override
+            public boolean urlWasInvoked(String uriString) {
+                Uri invokedUri = Uri.parse(uriString);
+
+                // pressed "More" button on POI-detail panel
+                if ("markerselected".equalsIgnoreCase(invokedUri.getHost())) {
+                    final Intent poiDetailIntent = new Intent(AugmentedReality.this, MovidaMainActivity
+                            .class);
+                    poiDetailIntent.putExtra(getString(R.string.EXTRAS_KEY_POI_ID), String.valueOf(invokedUri
+                            .getQueryParameter
+                            ("id")) );
+                    AugmentedReality.this.startActivity(poiDetailIntent);
+                }
+
+                return true;
+            }
+        };
     }
 }

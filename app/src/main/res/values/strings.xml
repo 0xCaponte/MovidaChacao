@@ -2,6 +2,7 @@
 
     <string name="SHARED_PREFS_FILE">RetoChacaoPreferences</string>
     <string name="KEY_INTRODUCTION">com.reto.chacao.IntroductionKey</string>
+    <string name="EXTRAS_KEY_POI_ID">POI_ID</string>
 
 
     <string name="app_name">Movida Chacao</string>

@@ -24,7 +24,7 @@
             android:layout_height="35dp"
             android:clickable="true"
             android:layout_gravity="center"
-            android:src="@drawable/ic_map"/>
+            android:src="@drawable/ic_map_active"/>
 
         <ImageView
             android:id="@+id/toolbar_go_to_AR"
