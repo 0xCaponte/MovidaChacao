@@ -133,14 +133,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (5,5,'PDVSA La Estancia', 10.495116, -66.847530)");
         db.execSQL("INSERT INTO comment (cm_id_event, cm_firstname, cm_lastname, cm_text) VALUES (5,'Karen','Troiano', 'La mejor forma de estirar los musculos y relajar el cuerpoi')");
         db.execSQL("INSERT INTO comment (cm_id_event, cm_firstname, cm_lastname, cm_text) VALUES (5,'Domingo','de Abreu', 'Vine gracias a una amiga, ahora no me quiero ir')");
-        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (5,'YOGA','png', 'yoga')");
+        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (5,'YOGA','png', 'yogaestancia')");
 
         //ev6 Centro Cultura Cacao
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type,'ev_dateStart','ev_dateEnd') VALUES ('CCS FORUM 2015','Larry Black\n" +
                 "cssforum2015@gmail.com\n" +
                 "Centro Cultural Chacao Av.Tamanaco. El Rosal','Ponencia;','Cultura','Movil','2015-07-07 11:00','2015-07-07')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (6,6,'Centro Cultural Chacao', 10.490290, -66.863381)");
-        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (6,'CCS FORUM','png', 'ccsforum')");
+        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (6,'CCS FORUM','jpg', 'cssforum')");
 
         //ev7 Sala Cabrujas
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_dateEnd,ev_dateStart,ev_type) VALUES ('Charla sobre Festival Nuevas Bandas','Sala Cabrujas 7pm','Musica;Concierto','Cultura','2015-07-07','2015-07-07','Movil')");
@@ -161,7 +161,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //ev9
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type) VALUES ('Yoga Parque Miranda','Parque Miranda','Fitness','Deporte','Fijo')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (10,9,'Parque Miranda', 10.4953988, -66.83787)");
-        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (9,'YOGA','png', 'yoga')");
+        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (9,'YOGA','jpg', 'yogamiranda')");
 
         //ev10
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type,ev_url,ev_dateStart,ev_dateEnd) VALUES ('Festival nuevas Bandas','Homenajeando a los 25 años del Festival Nuevas Bandas, el Festival Nuevas Bandas llega cargado de actividades a desarrollarse en los espacios del Centro Cultural Chacao del 14 al 19 de julio','Festival;Musica','Cultura','Movil','http://www.centroculturalchacao.com/','2015-07-14','2015-07-14')");
@@ -171,7 +171,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //ev11
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type,ev_url,ev_dateStart,ev_dateEnd) VALUES ('Caracas Inmortal','Caracas inmortal es la continuidad de la investigación sobre la ciudad que ha venido desarrollando Javier León. En esta ocasión parte de una aproximación a la evolución desde sus orígenes, y desarrolla un cuerpo de obras amplio y puntual, constituido por pinturas, gráficas, fotografías y bocetos digitales, que el artista acompaña de una conferencia que complementa la proposición.','Arte;Pintura;Fotografia','Cultura','Movil','http://www.centroculturalchacao.com/','2015-06-28 11:00','2015-08-23 17:00')");
         db.execSQL("INSERT INTO place (pl_id,pl_id_event, pl_name, pl_latitude, pl_longitude) VALUES (11,11,'Centro Cultural de Chacao', 10.4902528, -66.8631565)");
-        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (11,'Caracas Inmortal','png', 'caracasinomrtal')");
+        db.execSQL("INSERT INTO photo (pho_id_event, pho_name, pho_type, pho_url) VALUES (11,'Caracas Inmortal','png', 'caracasinmortal')");
 
         //ev12
         db.execSQL("INSERT INTO event (ev_name,ev_description,ev_tags,ev_category,ev_type,ev_url,ev_dateStart,ev_dateEnd) VALUES ('De Tango y Filosofía','El profesor Alfredo Vallota expondrá la relación \"De tango y filosofía\" el 9 de julio\n" +
